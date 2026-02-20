@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 5001;
 import authRoutes from './routes/auth.routes';
 import imageRoutes from './routes/image.routes';
 import aiRoutes from './routes/ai.routes';
+import contactRoutes from './routes/contact.routes'; // Added contact routes import
 
 app.use(cors());
 app.use(express.json());
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/images', imageRoutes);
 app.use('/api/ai', aiRoutes);
+app.use('/api/contact', contactRoutes); // Added contact routes
 
 app.get('/health', (req: Request, res: Response) => {
     res.json({ status: 'DevDesigns API is running' });

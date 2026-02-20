@@ -21,17 +21,27 @@ export default function Contact() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/contact`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
 
-        setIsSubmitting(false);
-        setIsSuccess(true);
+            if (!response.ok) throw new Error('Failed to send message');
 
-        // Trigger AI personalized response
-        openModal(`Contact request from ${formData.name} regarding "${formData.subject}". Message: ${formData.message}. Provide a professional inquiry receipt and initial consultancy thoughts.`);
+            setIsSuccess(true);
+            // Trigger AI personalized response
+            openModal(`Contact request from ${formData.name} regarding "${formData.subject}". Message: ${formData.message}. Provide a professional inquiry receipt and initial consultancy thoughts.`);
 
-        setTimeout(() => setIsSuccess(false), 5000);
-        setFormData({ name: '', email: '', subject: '', message: '' });
+            setTimeout(() => setIsSuccess(false), 5000);
+            setFormData({ name: '', email: '', subject: '', message: '' });
+        } catch (error) {
+            console.error('Submission Error:', error);
+            // Optionally add error toast here
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -54,8 +64,8 @@ export default function Contact() {
                         <div className="space-y-6">
                             {[
                                 { icon: Mail, label: 'Email', value: 'hello@devdesigns.net', action: () => openModal('DevDesigns email support and communication protocols') },
-                                { icon: Phone, label: 'Phone', value: '+1 (555) 000-0000', action: () => openModal('Request a callback or schedule a phone consultation') },
-                                { icon: MapPin, label: 'Office', value: '123 Innovation Way, Tech Valley, CA', action: () => openModal('Office visit information and headquarters details') },
+                                { icon: Phone, label: 'Phone', value: '+91 9354741675', action: () => openModal('Request a callback or schedule a phone consultation') },
+                                { icon: MapPin, label: 'Office', value: 'Faridabad, Haryana, India.', action: () => openModal('Office visit information and headquarters details') },
                                 { icon: MessageSquare, label: 'Live Chat', value: 'Available 24/7', action: () => openModal('DevDesigns 24/7 AI-powered support and human escalation features') },
                             ].map((item, idx) => (
                                 <motion.div

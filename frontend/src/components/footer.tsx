@@ -32,6 +32,14 @@ const footerLinks = [
             { name: 'Security', href: '/security' },
         ],
     },
+    {
+        title: 'Contact',
+        links: [
+            { name: '+91 9354741675', href: 'tel:+919354741675' },
+            { name: 'hello@devdesigns.net', href: 'mailto:hello@devdesigns.net' },
+            { name: 'Faridabad, Haryana, India.', href: '/contact' },
+        ],
+    },
 ];
 
 export default function Footer() {

@@ -53,6 +53,7 @@ function StatusPulse() {
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                     </span>
                     <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">Node Active</span>
+                    <span className="text-xs font-black uppercase tracking-widest text-blue-400">DD AI Assistant Guidance</span>
                 </div>
             </div>
 

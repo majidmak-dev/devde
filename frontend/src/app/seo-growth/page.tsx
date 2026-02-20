@@ -97,7 +97,7 @@ export default function SEOGrowthPage() {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -z-10 group-hover:bg-blue-500/20 transition-colors" />
                     <div className="space-y-6 max-w-2xl">
                         <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter">Outrank the <span className="text-blue-500">Competition</span></h2>
-                        <p className="text-xl text-muted-foreground italic leading-relaxed">Let our DD Assistant analyze your current market position and develop a bespoke strategy to capture your target audience.</p>
+                        <p className="text-xl text-muted-foreground italic leading-relaxed">Let our DD AI Assistant analyze your current market position and develop a bespoke strategy to capture your target audience.</p>
                     </div>
                     <Button
                         onClick={() => openModal("I need to outrank my competitors. Please run an initial AI analysis on current SEO growth trends for enterprise platforms.")}

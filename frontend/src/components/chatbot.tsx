@@ -12,7 +12,7 @@ export default function Chatbot() {
     const [isOpen, setIsOpen] = useState(false);
     const [isMinimized, setIsMinimized] = useState(false);
     const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([
-        { role: 'assistant', content: "Welcome to DevDesigns. I am your DD Assistant. How can I assist you in engineering your digital sovereignty today?" }
+        { role: 'assistant', content: "Welcome to DevDesigns. I am your DD AI Assistant. How can I assist you in engineering your digital sovereignty today?" }
     ]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -61,7 +61,7 @@ export default function Chatbot() {
                                     <Bot className="w-5 h-5 text-white" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-sm">DD Assistant</h3>
+                                    <h3 className="font-bold text-sm">DD AI Assistant</h3>
                                     <div className="flex items-center space-x-1.5">
                                         <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
                                         <span className="text-[10px] opacity-80">AI Online</span>
@@ -143,8 +143,12 @@ export default function Chatbot() {
             >
                 <Button
                     onClick={() => {
-                        setIsOpen(true);
-                        setIsMinimized(false);
+                        if (isOpen && !isMinimized) {
+                            setIsOpen(false);
+                        } else {
+                            setIsOpen(true);
+                            setIsMinimized(false);
+                        }
                     }}
                     className={cn(
                         "h-14 w-14 rounded-full shadow-2xl transition-all duration-300",
@@ -173,7 +177,7 @@ export default function Chatbot() {
                         className="absolute bottom-16 right-0 bg-primary/20 backdrop-blur-xl border border-primary/30 text-white px-5 py-3 rounded-full shadow-2xl cursor-pointer flex items-center space-x-3 whitespace-nowrap group hover:bg-primary/30 transition-all"
                     >
                         <Bot className="w-5 h-5 text-primary" />
-                        <span className="text-xs font-black uppercase tracking-widest">DD Assistant</span>
+                        <span className="text-xs font-black uppercase tracking-widest">DD AI Assistant</span>
                         <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.5)]" />
                     </motion.div>
                 )}

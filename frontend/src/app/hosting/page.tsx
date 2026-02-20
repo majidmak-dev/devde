@@ -223,7 +223,7 @@ export default function HostingPage() {
                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/[0.03] rounded-full blur-[120px] -z-10 group-hover:bg-emerald-500/[0.05] transition-all duration-700" />
                     <div className="space-y-6 text-center md:text-left relative z-10">
                         <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter">Custom <span className="text-emerald-500 italic underline decoration-wavy decoration-emerald-500/20 underline-offset-8">Infrastructure?</span></h2>
-                        <p className="text-xl text-muted-foreground italic font-medium max-w-lg leading-relaxed">Connect with our Lead AI Architect to engineer a bespoke high-availability cloud cluster.</p>
+                        <p className="text-xl text-muted-foreground italic font-medium max-w-lg leading-relaxed">Connect with our DD Assistant to engineer a bespoke high-availability cloud cluster.</p>
                     </div>
                     <Button
                         onClick={() => openModal("I need a custom high-availability hosting infrastructure setup for an enterprise application.")}

@@ -122,7 +122,7 @@ export default function SEOGrowthPage() {
                     <div className="flex flex-col md:flex-row items-center justify-center gap-6">
                         <Button
                             size="lg"
-                            onClick={() => addToCart({ id: 'seo-pro', name: 'SEO Pro Strategy', price: 999 })}
+                            onClick={() => addToCart({ id: 'seo-pro', name: 'SEO Pro Strategy', price: '$999' })}
                             className="rounded-full bg-white text-black h-20 px-12 text-xl font-black hover:bg-primary hover:text-white transition-all w-full md:w-auto"
                         >
                             BUY SEO PACK <ShoppingCart className="w-6 h-6 ml-3" />

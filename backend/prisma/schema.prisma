@@ -1,0 +1,202 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  CLIENT
+  STAFF
+}
+
+enum ProjectStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  CANCELLED
+  FAILED
+}
+
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  name          String?
+  role          Role      @default(CLIENT)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  projects      Project[]
+  orders        Order[]
+  tickets       SupportTicket[]
+  reviews       Review[]
+  blogPosts     BlogPost[]
+  subscriptions Subscription[]
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String
+  price       Float?
+  projects    Project[]
+}
+
+model Project {
+  id          String        @id @default(cuid())
+  title       String
+  description String?
+  status      ProjectStatus @default(PENDING)
+  progress    Int           @default(0)
+  userId      String
+  user        User          @relation(fields: [userId], references: [id])
+  serviceId   String
+  service     Service       @relation(fields: [serviceId], references: [id])
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model HostingPlan {
+  id          String   @id @default(cuid())
+  name        String
+  type        String   // Shared, VPS, Cloud, Dedicated
+  price       Float
+  billingCycle String  // monthly, yearly
+  features    String[]
+  orders      Order[]
+  activeSub   Subscription[]
+}
+
+model Domain {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  tld         String
+  price       Float
+  expiryDate  DateTime?
+  userId      String?
+  orderId     String?
+  createdAt   DateTime @default(now())
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id])
+  status        OrderStatus @default(PENDING)
+  totalAmount   Float
+  paymentMethod String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  
+  payments      Payment[]
+  invoices      Invoice[]
+  hostingPlanId String?
+  hostingPlan   HostingPlan? @relation(fields: [hostingPlanId], references: [id])
+}
+
+model Payment {
+  id            String   @id @default(cuid())
+  orderId       String
+  order         Order    @relation(fields: [orderId], references: [id])
+  amount        Float
+  status        String   // succeeded, pending, failed
+  provider      String   // Stripe, Razorpay
+  transactionId String   @unique
+  createdAt     DateTime @default(now())
+}
+
+model Invoice {
+  id          String   @id @default(cuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id])
+  invoiceUrl  String?
+  createdAt   DateTime @default(now())
+}
+
+model Subscription {
+  id            String      @id @default(cuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id])
+  hostingPlanId String
+  hostingPlan   HostingPlan @relation(fields: [hostingPlanId], references: [id])
+  startDate     DateTime    @default(now())
+  endDate       DateTime
+  isActive      Boolean     @default(true)
+}
+
+model BlogPost {
+  id          String     @id @default(cuid())
+  title       String
+  slug        String     @unique
+  content     String
+  authorId    String
+  author      User       @relation(fields: [authorId], references: [id])
+  categoryId  String
+  category    Category   @relation(fields: [categoryId], references: [id])
+  tags        Tag[]
+  published   Boolean    @default(false)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Category {
+  id    String     @id @default(cuid())
+  name  String     @unique
+  posts BlogPost[]
+}
+
+model Tag {
+  id    String     @id @default(cuid())
+  name  String     @unique
+  posts BlogPost[]
+}
+
+model SupportTicket {
+  id          String       @id @default(cuid())
+  subject     String
+  description String
+  status      TicketStatus @default(OPEN)
+  userId      String
+  user        User         @relation(fields: [userId], references: [id])
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model MarketplaceProduct {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  price       Float
+  imageUrl    String?
+  fileUrl     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  reviews     Review[]
+}
+
+model Review {
+  id        String             @id @default(cuid())
+  rating    Int
+  comment   String?
+  userId    String
+  user      User               @relation(fields: [userId], references: [id])
+  productId String
+  product   MarketplaceProduct @relation(fields: [productId], references: [id])
+  createdAt DateTime           @default(now())
+}

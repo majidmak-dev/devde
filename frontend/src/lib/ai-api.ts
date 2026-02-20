@@ -1,4 +1,5 @@
-const API_BASE = 'http://localhost:5001/api';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.devdesigns.net';
+const API_BASE = `${API_URL}/api`;
 
 export async function fetchDomainSuggestions(query: string): Promise<string[]> {
     try {

@@ -74,7 +74,7 @@ export const caseStudies: CaseStudy[] = [
             { label: "Processing", value: "Real-time" },
             { label: "Accuracy", value: "99.2%" }
         ],
-        image: "https://images.unsplash.com/photo-1504868584819-f8e905263543?auto=format&fit=crop&q=80&w=1200"
+        image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200"
     },
     {
         id: "premium-streaming-ux",

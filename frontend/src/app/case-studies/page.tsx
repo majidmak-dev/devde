@@ -6,7 +6,7 @@ import { caseStudies } from "@/lib/case-studies-data";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BarChart3, TrendingUp, Cpu } from "lucide-react";
 
-export default function CaseStudiesPage() {
+export default function CaseStudies() {
     return (
         <main className="min-h-screen bg-[#020617] text-white pt-20">
             {/* Background Orbs */}

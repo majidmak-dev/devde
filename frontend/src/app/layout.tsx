@@ -20,9 +20,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'DevDesigns | Enterprise Digital Infrastructure & Design',
+  title: {
+    default: 'DevDesigns | Enterprise Digital Infrastructure & Design',
+    template: '%s | DevDesigns'
+  },
   description: 'DevDesigns provides world-class UI/UX, Web & App Development, High-Performance Hosting, and Domain Management solutions for scaling businesses.',
-  keywords: 'UI/UX Design, Web Development, Hosting Solutions, Domain Booking, Digital Marketplace, SEO Tools',
+  keywords: 'Enterprise Digital Infrastructure, UI/UX Design Modern, High-Performance Web Development, Scalable Mobile Apps, Managed Cloud Hosting, SEO Growth Strategy',
   openGraph: {
     title: 'DevDesigns | Premium Digital Infrastructure',
     description: 'Transform your vision into world-class digital reality.',
@@ -33,6 +36,11 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "nBZWi-6Z1b9kVVcHpW_UUd8a1qCQijOIChD_VSnqVYo",
+  },
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
   },
 };
 

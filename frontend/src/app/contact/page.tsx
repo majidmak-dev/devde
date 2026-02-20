@@ -23,7 +23,7 @@ export default function Contact() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/contact`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://api.devdesigns.net'}/api/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),

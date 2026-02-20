@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5001;
 import authRoutes from './routes/auth.routes';
 import imageRoutes from './routes/image.routes';
 import aiRoutes from './routes/ai.routes';
-import contactRoutes from './routes/contact.routes'; // Added contact routes import
+import contactRoutes from './routes/contact.routes';
 
 app.use(cors());
 app.use(express.json());

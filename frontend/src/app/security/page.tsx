@@ -231,6 +231,25 @@ export default function SecurityPage() {
                     </div>
                 </section>
 
+                {/* Transparency Notice */}
+                <section className="py-12">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="p-8 rounded-3xl glass border border-primary/20 bg-primary/5 flex flex-col md:flex-row items-center gap-8 text-left"
+                    >
+                        <div className="w-16 h-16 rounded-3xl bg-primary/10 flex items-center justify-center shrink-0">
+                            <Eye className="w-8 h-8 text-primary" />
+                        </div>
+                        <div className="space-y-2">
+                            <h3 className="text-xl font-black italic uppercase tracking-widest">Local Service Transparency</h3>
+                            <p className="text-sm text-muted-foreground italic font-medium leading-relaxed">
+                                Our platform utilizes secure local network handshakes to facilitate high-speed communication between your browser and our OpenAI-certified diagnostic nodes. If you see a prompt for "Accessing other apps and services," it is solely to verify secure authentication tokens across our microservice ecosystem. **DevDesigns does not monitor or record local device activity.**
+                            </p>
+                        </div>
+                    </motion.div>
+                </section>
+
                 {/* Infrastructure Guardians feature grid */}
                 <section className="py-24 border-y border-white/5">
                     <div className="text-center mb-20 space-y-4">

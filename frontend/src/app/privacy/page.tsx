@@ -31,6 +31,13 @@ const privacySections = [
         icon: UserCheck,
         summary: "Zero-selling policy. Third parties only for essential infra.",
         content: `DevDesigns follows a strict zero-selling policy. We never sell your data to advertisers or brokers. We only share information with essential infrastructure partners (e.g., global cloud providers, payment processors) under strict confidentiality agreements and for the sole purpose of delivering our services.`
+    },
+    {
+        id: "device-interconnectivity",
+        title: "App & Service Interconnectivity",
+        icon: Bell,
+        summary: "Local network permissions used only for secure API handshakes.",
+        content: `To provide a seamless enterprise experience, our platform may request access to other apps and services on your device. This is strictly for secure local network handshakes, OpenAI service connectivity, and real-time infrastructure pulse monitoring. We do not access your personal files, other applications' data, or any non-essential device services.`
     }
 ];
 

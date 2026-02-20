@@ -9,6 +9,7 @@ import { useInteraction } from '@/components/interaction-provider';
 export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const { openModal } = useInteraction();
     const [formData, setFormData] = useState({
         name: '',
@@ -31,14 +32,16 @@ export default function Contact() {
             if (!response.ok) throw new Error('Failed to send message');
 
             setIsSuccess(true);
+            setErrorMessage(null);
             // Trigger AI personalized response
             openModal(`Contact request from ${formData.name} regarding "${formData.subject}". Message: ${formData.message}. Provide a professional inquiry receipt and initial consultancy thoughts.`);
 
             setTimeout(() => setIsSuccess(false), 5000);
             setFormData({ name: '', email: '', subject: '', message: '' });
-        } catch (error) {
+        } catch (error: any) {
             console.error('Submission Error:', error);
-            // Optionally add error toast here
+            setErrorMessage(error.message || 'Failed to send message. Please try again.');
+            setIsSuccess(false);
         } finally {
             setIsSubmitting(false);
         }
@@ -165,6 +168,28 @@ export default function Contact() {
                                 )}
                             </span>
                         </Button>
+
+                        {/* Status Messages */}
+                        <div className="mt-4 text-center">
+                            {isSuccess && (
+                                <motion.p
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="text-emerald-400 font-bold italic"
+                                >
+                                    Message sent successfully! We'll get back to you soon.
+                                </motion.p>
+                            )}
+                            {errorMessage && (
+                                <motion.p
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="text-red-400 font-bold italic"
+                                >
+                                    {errorMessage}
+                                </motion.p>
+                            )}
+                        </div>
                     </form>
                 </div>
             </section>

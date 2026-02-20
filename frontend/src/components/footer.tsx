@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Rocket, Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Logo } from './ui/logo';
+import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
 
 const footerLinks = [
     {
@@ -32,14 +33,6 @@ const footerLinks = [
             { name: 'Security', href: '/security' },
         ],
     },
-    {
-        title: 'Contact',
-        links: [
-            { name: '+91 9354741675', href: 'tel:+919354741675' },
-            { name: 'hello@devdesigns.net', href: 'mailto:hello@devdesigns.net' },
-            { name: 'Faridabad, Haryana, India.', href: '/contact' },
-        ],
-    },
 ];
 
 export default function Footer() {
@@ -55,9 +48,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     <div className="space-y-4">
                         <Link href="/" className="flex items-center space-x-2">
-                            <div className="bg-primary p-1.5 rounded-lg">
-                                <Rocket className="w-5 h-5 text-white" />
-                            </div>
+                            <Logo className="w-10 h-10 group-hover:scale-110 transition-transform duration-300" />
                             <span className="text-xl font-bold">DevDesigns</span>
                         </Link>
                         <p className="text-muted-foreground text-sm">

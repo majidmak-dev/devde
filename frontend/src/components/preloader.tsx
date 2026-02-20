@@ -59,11 +59,15 @@ export default function Preloader() {
 
                     <div className="max-w-md w-full relative z-10 glass p-10 rounded-[2.5rem] border border-white/5 space-y-8 flex flex-col items-center">
                         {/* Logo Reveal Area */}
-                        <div className="w-24 h-24 rounded-3xl bg-white/5 flex items-center justify-center border border-white/10 shadow-[0_0_50px_rgba(16,185,129,0.1)] mb-4 overflow-hidden relative group">
+                        <div className="w-24 h-24 rounded-3xl bg-white/5 flex items-center justify-center border border-white/10 shadow-[0_0_50px_rgba(16,185,129,0.1)] mb-4 overflow-hidden relative group p-4">
                             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent opacity-0 transition-opacity" />
-                            <span className="text-4xl font-black italic tracking-tighter text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-                                Dx
-                            </span>
+                            <img
+                                src="/logo.svg"
+                                alt="DevDesigns Logo"
+                                className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]"
+                                width={80}
+                                height={80}
+                            />
                         </div>
 
                         {/* Progress Number */}

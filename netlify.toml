@@ -1,0 +1,9 @@
+[build]
+  # Tell Netlify that the Next.js app lives in the frontend directory
+  base = "frontend"
+  publish = ".next"
+  command = "npm run build"
+
+[[plugins]]
+  # Use the official Next.js plugin for optimal serverless deployment
+  package = "@netlify/plugin-nextjs"

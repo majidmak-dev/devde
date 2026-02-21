@@ -1,4 +1,4 @@
-const API_BASE = '/api';
+const API_BASE = 'https://devdesigns.net/api';
 
 export async function fetchDomainSuggestions(query: string): Promise<string[]> {
     try {

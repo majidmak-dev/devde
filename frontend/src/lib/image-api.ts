@@ -7,7 +7,7 @@ export interface ImageResult {
     source: 'pexels' | 'unsplash';
 }
 
-const API_BASE = '/api/images';
+const API_BASE = 'https://devdesigns.net/api/images';
 
 export async function fetchImages(query: string, limit: number = 10): Promise<ImageResult[]> {
     try {

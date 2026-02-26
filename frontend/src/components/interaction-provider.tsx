@@ -10,10 +10,6 @@ import { FormattedContent } from './ai-formatting';
 
 interface InteractionContextType {
     openModal: (context: string) => void;
-    addToCart: (item: { id: string | number; name: string; price: string }) => void;
-    removeFromCart: (itemId: string | number) => void;
-    clearCart: () => void;
-    cart: any[];
 }
 
 const InteractionContext = createContext<InteractionContextType | undefined>(undefined);
@@ -29,9 +25,6 @@ export function InteractionProvider({ children }: { children: ReactNode }) {
     const [isOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const [detail, setDetail] = useState<AiDetailResult | null>(null);
-    const [cart, setCart] = useState<any[]>([]);
-    const [showCartFeedback, setShowCartFeedback] = useState(false);
-    const [lastAdded, setLastAdded] = useState('');
 
     const openModal = async (contextText: string) => {
         setIsOpen(true);
@@ -47,23 +40,8 @@ export function InteractionProvider({ children }: { children: ReactNode }) {
         }
     };
 
-    const addToCart = (item: { id: string | number; name: string; price: string }) => {
-        setCart(prev => [...prev, { ...item, cartId: Math.random().toString(36).substr(2, 9) }]);
-        setLastAdded(item.name);
-        setShowCartFeedback(true);
-        setTimeout(() => setShowCartFeedback(false), 3000);
-    };
-
-    const removeFromCart = (cartId: string | number) => {
-        setCart(prev => prev.filter(item => item.cartId !== cartId));
-    };
-
-    const clearCart = () => {
-        setCart([]);
-    };
-
     return (
-        <InteractionContext.Provider value={{ openModal, addToCart, removeFromCart, clearCart, cart }}>
+        <InteractionContext.Provider value={{ openModal }}>
             {children}
 
             {/* AI Interaction Modal */}
@@ -142,26 +120,6 @@ export function InteractionProvider({ children }: { children: ReactNode }) {
                             </div>
                         </motion.div>
                     </div>
-                )}
-            </AnimatePresence>
-
-            {/* Global Cart Feedback */}
-            <AnimatePresence>
-                {showCartFeedback && (
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: 50 }}
-                        className="fixed bottom-24 right-6 z-[100] px-6 py-4 rounded-2xl glass border border-primary/50 bg-slate-900/90 shadow-2xl flex items-center space-x-4"
-                    >
-                        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                            <CheckCircle2 className="w-6 h-6 text-primary" />
-                        </div>
-                        <div>
-                            <p className="text-xs font-bold uppercase tracking-widest text-primary">Added to Cart</p>
-                            <p className="text-sm font-bold truncate max-w-[150px]">{lastAdded}</p>
-                        </div>
-                    </motion.div>
                 )}
             </AnimatePresence>
         </InteractionContext.Provider>

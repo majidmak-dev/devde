@@ -15,6 +15,7 @@ export default function Contact() {
         name: '',
         email: '',
         subject: '',
+        service: '',
         message: ''
     });
 
@@ -34,10 +35,10 @@ export default function Contact() {
             setIsSuccess(true);
             setErrorMessage(null);
             // Trigger AI personalized response
-            openModal(`Contact request from ${formData.name} regarding "${formData.subject}". Message: ${formData.message}. Provide a professional inquiry receipt and initial consultancy thoughts.`);
+            openModal(`Contact request from ${formData.name} regarding "${formData.service}: ${formData.subject}". Message: ${formData.message}. Provide a professional inquiry receipt and initial consultancy thoughts.`);
 
             setTimeout(() => setIsSuccess(false), 5000);
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            setFormData({ name: '', email: '', subject: '', service: '', message: '' });
         } catch (error: any) {
             console.error('Submission Error:', error);
             setErrorMessage(error.message || 'Failed to send message. Please try again.');
@@ -130,16 +131,37 @@ export default function Contact() {
                                 />
                             </div>
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase tracking-widest ml-4">Subject</label>
-                            <input
-                                type="text"
-                                required
-                                value={formData.subject}
-                                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                                className="w-full px-6 py-4 rounded-2xl bg-slate-900 border border-white/5 focus:border-primary outline-none transition-all font-medium"
-                                placeholder="Project Consultation"
-                            />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                                <label className="text-xs font-bold uppercase tracking-widest ml-4">Subject</label>
+                                <input
+                                    type="text"
+                                    required
+                                    value={formData.subject}
+                                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                                    className="w-full px-6 py-4 rounded-2xl bg-slate-900 border border-white/5 focus:border-primary outline-none transition-all font-medium"
+                                    placeholder="Project Consultation"
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-xs font-bold uppercase tracking-widest ml-4">Select Service</label>
+                                <select
+                                    required
+                                    value={formData.service}
+                                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                                    className="w-full px-6 py-4 rounded-2xl bg-slate-900 border border-white/5 focus:border-primary outline-none transition-all font-medium appearance-none"
+                                >
+                                    <option value="" disabled>Choose a service</option>
+                                    <option value="UI/UX Design">UI/UX Design</option>
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="App Development">App Development</option>
+                                    <option value="SaaS Development">SaaS Development</option>
+                                    <option value="Hosting Solutions">Hosting Solutions</option>
+                                    <option value="Domain Booking">Domain Booking</option>
+                                    <option value="Maintenance">Maintenance</option>
+                                    <option value="Security">Security</option>
+                                </select>
+                            </div>
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-bold uppercase tracking-widest ml-4">Message</label>

@@ -39,7 +39,7 @@ const services = [
         icon: Server,
         color: 'from-orange-500 to-rose-600',
         query: 'datacenter server technology',
-        href: '/hosting'
+        href: '/contact'
     },
     {
         title: 'Domain Booking',
@@ -47,7 +47,7 @@ const services = [
         icon: Globe,
         color: 'from-purple-500 to-pink-600',
         query: 'global network internet',
-        href: '/domain-booking'
+        href: '/contact'
     },
     {
         title: 'Digital Shop',

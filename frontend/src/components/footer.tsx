@@ -27,8 +27,8 @@ const footerLinks = [
     {
         title: 'Infrastructure',
         links: [
-            { name: 'Hosting Solutions', href: '/hosting' },
-            { name: 'Domain Booking', href: '/domain-booking' },
+            { name: 'Hosting Solutions', href: '/contact' },
+            { name: 'Domain Booking', href: '/contact' },
             { name: 'Maintenance', href: '/maintenance' },
             { name: 'Security', href: '/security' },
         ],

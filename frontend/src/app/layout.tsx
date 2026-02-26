@@ -53,7 +53,7 @@ export default function RootLayout({
     <html lang="en" className={outfit.variable} suppressHydrationWarning={true}>
       <head>
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=524682603`}
+          src={`https://www.googletagmanager.com/gtag/js?id=G-6PXL01XDVC`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -62,7 +62,7 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', '524682603');
+            gtag('config', 'G-6PXL01XDVC');
           `}
         </Script>
       </head>

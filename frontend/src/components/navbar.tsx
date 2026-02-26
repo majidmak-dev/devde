@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Menu, X, Monitor, Cpu, Globe, Rocket, ShoppingCart, User } from 'lucide-react';
+import { Menu, X, Monitor, Cpu, Globe, Rocket, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
@@ -15,8 +15,8 @@ const navLinks = [
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'About', href: '/about' },
     { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Hosting', href: '/hosting' },
-    { name: 'Domains', href: '/domain-booking' },
+    { name: 'Hosting', href: '/contact' },
+    { name: 'Domains', href: '/contact' },
     { name: 'Security', href: '/security' },
     { name: 'Marketplace', href: '/marketplace' },
     { name: 'Pricing', href: '/pricing' },
@@ -25,7 +25,7 @@ const navLinks = [
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const { cart } = useInteraction();
+    const { openModal } = useInteraction();
     const pathname = usePathname();
 
     useEffect(() => {
@@ -84,16 +84,6 @@ export default function Navbar() {
                 </div>
 
                 <div className="hidden md:flex items-center space-x-4">
-                    <Link href="/cart">
-                        <Button variant="ghost" size="icon" className="group relative">
-                            <ShoppingCart className="w-5 h-5 group-hover:text-primary transition-colors" />
-                            {cart.length > 0 && (
-                                <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 bg-primary text-white text-[10px] font-black rounded-full flex items-center justify-center border-2 border-background animate-in zoom-in duration-300">
-                                    {cart.length}
-                                </span>
-                            )}
-                        </Button>
-                    </Link>
                     <Link href="/client-login">
                         <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary/10 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
                             <User className="w-4 h-4 mr-2" />

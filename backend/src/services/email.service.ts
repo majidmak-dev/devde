@@ -19,6 +19,7 @@ interface ContactMailData {
     name: string;
     email: string;
     subject: string;
+    service: string;
     message: string;
 }
 
@@ -27,11 +28,12 @@ export const sendContactEmail = async (data: ContactMailData) => {
         from: `"${data.name}" <${data.email}>`,
         to: 'hello@devdesigns.net',
         subject: `[Contact Form] ${data.subject}`,
-        text: `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`,
+        text: `Name: ${data.name}\nEmail: ${data.email}\nService: ${data.service}\n\nMessage:\n${data.message}`,
         html: `
             <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
                 <h2 style="color: #10b981;">New Contact Inquiry</h2>
                 <p><strong>From:</strong> ${data.name} (${data.email})</p>
+                <p><strong>Service:</strong> ${data.service}</p>
                 <p><strong>Subject:</strong> ${data.subject}</p>
                 <hr style="border: 0; border-top: 1px solid #eee;" />
                 <p style="white-space: pre-wrap;">${data.message}</p>

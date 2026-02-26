@@ -3,13 +3,13 @@ import { sendContactEmail } from '../services/email.service';
 
 export const handleContactForm = async (req: Request, res: Response) => {
     try {
-        const { name, email, subject, message } = req.body;
+        const { name, email, subject, service, message } = req.body;
 
-        if (!name || !email || !subject || !message) {
+        if (!name || !email || !subject || !service || !message) {
             return res.status(400).json({ error: 'Missing required fields' });
         }
 
-        await sendContactEmail({ name, email, subject, message });
+        await sendContactEmail({ name, email, subject, service, message });
 
         res.status(200).json({ success: true, message: 'Message sent successfully' });
     } catch (error) {

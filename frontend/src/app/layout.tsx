@@ -3,6 +3,7 @@ import { Outfit, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/navbar";
 import FooterComponent from "@/components/footer";
 import Chatbot from "@/components/chatbot";
@@ -83,6 +84,19 @@ export default function RootLayout({
               <main className="flex-1">{children}</main>
               <FooterComponent />
               <Chatbot />
+              <Toaster position="bottom-right" toastOptions={{
+                duration: 4000,
+                style: {
+                  background: '#0f172a',
+                  color: '#fff',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  borderRadius: '1.5rem',
+                  fontSize: '0.875rem',
+                  fontWeight: '700',
+                  letterSpacing: '0.025em',
+                  textTransform: 'uppercase'
+                },
+              }} />
             </div>
           </InteractionProvider>
         </ThemeProvider>

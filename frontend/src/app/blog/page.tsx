@@ -8,79 +8,14 @@ import { useState, useEffect } from 'react';
 import { fetchImages } from '@/lib/image-api';
 import { fetchBlogAssist } from '@/lib/ai-api';
 
-const initialPosts = [
-    {
-        slug: 'nextjs-digital-infrastructure',
-        title: 'How Next.js 14 is Revolutionizing Digital Infrastructure',
-        excerpt: 'Explore the new features of Next.js 14 and how they empower developers to build faster, more secure web applications.',
-        author: 'Majid Desk',
-        date: 'Feb 15, 2026',
-        readTime: '8 min read',
-        category: 'Development',
-        query: 'web developer coding nextjs',
-        image: ''
-    },
-    {
-        slug: 'high-performance-hosting-seo',
-        title: 'The Importance of High-Performance Hosting for SEO',
-        excerpt: 'Why server response times matter more than ever for your search engine rankings and user conversion rates.',
-        author: 'Sarah Chen',
-        date: 'Feb 12, 2026',
-        readTime: '5 min read',
-        category: 'Infrastructure',
-        query: 'server farm infrastructure technology',
-        image: ''
-    },
-    {
-        slug: 'ui-ux-trends-2026',
-        title: 'UI/UX Trends That Will Dominate 2026',
-        excerpt: 'From glassmorphism to bento grids—stay ahead of the curve with our comprehensive guide to modern design.',
-        author: 'Alex Rivera',
-        date: 'Feb 10, 2026',
-        readTime: '12 min read',
-        category: 'Design',
-        query: 'modern ui ux design interface',
-        image: ''
-    },
-    {
-        slug: 'enterprise-saas-architecture',
-        title: 'Enterprise SaaS Architecture: Building for Scale',
-        excerpt: 'How we architected a multi-tenant SaaS platform to handle 10M+ requests per day with zero downtime.',
-        author: 'Majid Desk',
-        date: 'Feb 5, 2026',
-        readTime: '10 min read',
-        category: 'Development',
-        query: 'saas cloud architecture software',
-        image: ''
-    },
-    {
-        slug: 'zero-trust-security-2026',
-        title: 'Zero Trust Security: The New Standard for Enterprise',
-        excerpt: 'Why traditional perimeter security is dead and how zero trust architecture protects modern distributed systems.',
-        author: 'Priya Mehta',
-        date: 'Jan 28, 2026',
-        readTime: '7 min read',
-        category: 'Security',
-        query: 'cyber security network protection',
-        image: ''
-    },
-    {
-        slug: 'ai-driven-seo-growth',
-        title: 'AI-Driven SEO: Beyond Keywords in 2026',
-        excerpt: 'How machine learning and semantic search are rewriting the rules of digital visibility and content strategy.',
-        author: 'Alex Rivera',
-        date: 'Jan 22, 2026',
-        readTime: '6 min read',
-        category: 'SEO Growth',
-        query: 'data analytics marketing growth chart',
-        image: ''
-    },
-];
+import { blogPosts, getPostBySlug } from '@/lib/blog-data';
 
 const filterCategories = ['All', 'Development', 'Infrastructure', 'Design', 'Security', 'SEO Growth'];
 
+type BlogPostWithImage = typeof blogPosts[0] & { image?: string };
+
 export default function BlogListing() {
-    const [posts, setPosts] = useState(initialPosts);
+    const [posts, setPosts] = useState<BlogPostWithImage[]>(blogPosts);
     const [activeFilter, setActiveFilter] = useState('All');
     const [blogIdea, setBlogIdea] = useState('');
     const [aiResult, setAiResult] = useState<{ title: string, outline: string[] } | null>(null);
@@ -88,7 +23,7 @@ export default function BlogListing() {
 
     useEffect(() => {
         const loadImages = async () => {
-            const updatedPosts = await Promise.all(initialPosts.map(async (post) => {
+            const updatedPosts = await Promise.all(blogPosts.map(async (post) => {
                 const images = await fetchImages(post.query, 1);
                 return {
                     ...post,

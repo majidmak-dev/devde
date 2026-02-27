@@ -37,7 +37,7 @@ export default function Chatbot() {
             const history = messages.map(m => ({ role: m.role, content: m.content }));
             const response = await sendChatMessage(userMessage, history);
             setMessages(prev => [...prev, { role: 'assistant', content: response }]);
-        } catch (_error) {
+        } catch {
             setMessages(prev => [...prev, { role: 'assistant', content: "I'm sorry, I encountered an error. Please try again." }]);
         } finally {
             setIsLoading(false);

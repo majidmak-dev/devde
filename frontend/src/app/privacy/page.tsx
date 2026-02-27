@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Lock, Globe, Bell, Scale, UserCheck } from "lucide-react";
+import { Shield, Lock, Globe, Bell, UserCheck } from "lucide-react";
 
 const privacySections = [
     {

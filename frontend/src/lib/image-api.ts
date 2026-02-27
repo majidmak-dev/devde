@@ -7,11 +7,11 @@ export interface ImageResult {
     source: 'pexels' | 'unsplash';
 }
 
-const API_BASE = '/api/images';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
 
 export async function fetchImages(query: string, limit: number = 10): Promise<ImageResult[]> {
     try {
-        const response = await fetch(`${API_BASE}?query=${encodeURIComponent(query)}&limit=${limit}`);
+        const response = await fetch(`${API_BASE}/images/search?query=${encodeURIComponent(query)}&limit=${limit}`);
         if (!response.ok) throw new Error('Failed to fetch images');
         return await response.json();
     } catch (error) {
@@ -30,7 +30,7 @@ export interface VideoResult {
 
 export async function fetchVideos(query: string, limit: number = 5): Promise<VideoResult[]> {
     try {
-        const response = await fetch(`${API_BASE}/videos?query=${encodeURIComponent(query)}&limit=${limit}`);
+        const response = await fetch(`${API_BASE}/images/videos/search?query=${encodeURIComponent(query)}&limit=${limit}`);
         if (!response.ok) throw new Error('Failed to fetch videos');
         return await response.json();
     } catch (error) {

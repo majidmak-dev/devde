@@ -24,7 +24,8 @@ export default function Contact() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch(`/api/contact`, {
+            const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
+            const response = await fetch(`${API_BASE}/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
@@ -34,8 +35,6 @@ export default function Contact() {
 
             setIsSuccess(true);
             setErrorMessage(null);
-            // Trigger AI personalized response
-            openModal(`Contact request from ${formData.name} regarding "${formData.service}: ${formData.subject}". Message: ${formData.message}. Provide a professional inquiry receipt and initial consultancy thoughts.`);
 
             setTimeout(() => setIsSuccess(false), 5000);
             setFormData({ name: '', email: '', subject: '', service: '', message: '' });

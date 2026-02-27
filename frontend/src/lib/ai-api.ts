@@ -1,4 +1,4 @@
-const API_BASE = '/api';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
 
 export async function fetchDomainSuggestions(query: string): Promise<string[]> {
     try {
@@ -29,7 +29,7 @@ export async function sendChatMessage(message: string, history: { role: string, 
 
 export async function fetchBlogAssist(prompt: string): Promise<{ title: string, outline: string[] }> {
     try {
-        const response = await fetch(`${API_BASE}/ai/blog`, {
+        const response = await fetch(`${API_BASE}/ai/blog-assist`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ prompt }),

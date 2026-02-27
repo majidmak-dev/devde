@@ -67,7 +67,7 @@ export async function POST(request: Request) {
         });
         return NextResponse.json({
             error: 'Failed to send message',
-            details: error.message || 'Internal Server Error'
+            details: (error as Error).message || 'Internal Server Error'
         }, { status: 500 });
     }
 }

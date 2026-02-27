@@ -17,12 +17,20 @@ export async function GET(request: Request) {
             UNSPLASH_ACCESS_KEY ? fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=${Math.ceil(limit / 2)}`, { headers: { Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}` } }).then(res => res.json()).catch(() => ({ results: [] })) : Promise.resolve({ results: [] })
         ]);
 
-        const pImages = (pexelsResults.photos || []).map((p: any) => ({
+        const pImages = (pexelsResults.photos || []).map((p: { id: string | number, src: { large: string, medium: string }, alt?: string, photographer: string }) => ({
             id: `pexels-${p.id}`, url: p.src.large, thumbnail: p.src.medium, alt: p.alt || query, photographer: p.photographer, source: 'pexels'
         }));
 
-        const uImages = (unsplashResults.results || []).map((p: any) => ({
+        const uImages = (unsplashResults.results || []).map((p: { id: string, urls: { regular: string, small: string }, alt_description?: string, user: { name: string } }) => ({
             id: `unsplash-${p.id}`, url: p.urls.regular, thumbnail: p.urls.small, alt: p.alt_description || query, photographer: p.user.name, source: 'unsplash'
+        }));
+
+        const videos = (data.videos || []).map((v: { id: string | number, video_files: { quality: string, link: string }[], image: string, user: { name: string } }) => ({
+            id: `pexels-vid-${v.id}`,
+            url: v.video_files.find(f => f.quality === 'hd')?.link || v.video_files[0].link,
+            image: v.image,
+            user: v.user.name,
+            source: 'pexels'
         }));
 
         const images = [...pImages, ...uImages].slice(0, limit);

@@ -77,7 +77,7 @@ export default function LoginPage() {
                 </form>
 
                 <p className="text-center text-muted-foreground">
-                    Don't have an account? <Link href="/signup" className="text-primary font-bold hover:underline">Start a Project</Link>
+                    Don&apos;t have an account? <Link href="/signup" className="text-primary font-bold hover:underline">Start a Project</Link>
                 </p>
             </motion.div>
         </div>

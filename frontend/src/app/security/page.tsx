@@ -300,7 +300,9 @@ export default function SecurityPage() {
                         <h2 className="text-4xl md:text-7xl font-black tracking-tighter italic mb-8 relative z-10 leading-none">
                             Impenetrable <br /><span className="text-primary italic">Sovereignty</span>
                         </h2>
-                        Don&apos;t just survive. Dominate the digital landscape with security and maintenance protocols designed for the future, powered by **OpenAI**.
+                        <p className="text-xl text-muted-foreground italic mb-12 max-w-2xl relative z-10 leading-relaxed font-medium">
+                            Don&apos;t just survive. Dominate the digital landscape with security and maintenance protocols designed for the future, powered by **OpenAI**.
+                        </p>
                         <Button
                             onClick={() => openModal("I want to discuss an elite security and maintenance strategy for my enterprise assets. Connect me with an OpenAI-certified specialist.")}
                             className="bg-primary hover:bg-primary/90 text-white font-black rounded-3xl h-20 px-16 text-2xl btn-glow shadow-primary/20 w-fit relative z-10"

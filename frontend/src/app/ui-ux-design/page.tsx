@@ -61,7 +61,7 @@ export default function UIUXDesignPage() {
                         className="space-y-6 max-w-4xl mx-auto"
                     >
                         <h1 className="text-5xl md:text-8xl font-black tracking-tighter italic">
-                            Elevate your <br />&lt;span className="text-primary italic"&gt;Digital Soul&lt;/span&gt;
+                            Elevate your <br /><span className="text-primary italic">Digital Soul</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-muted-foreground italic max-w-2xl mx-auto opacity-80 leading-relaxed font-medium">
                             We design world-class interfaces that don&apos;t just look stunning—they drive conversion, loyalty, and enterprise-grade growth.

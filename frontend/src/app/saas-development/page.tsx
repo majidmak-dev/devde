@@ -28,7 +28,7 @@ export default function SaaSDevelopmentPage() {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-4xl md:text-6xl font-bold"
                 >
-                    Elite &lt;span className="text-primary italic"&gt;SaaS Development&lt;/span&gt;
+                    Elite <span className="text-primary italic">SaaS Development</span>
                 </motion.h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto italic opacity-80 mb-10">
                     We architect and build multi-tenant SaaS platforms designed for global reach, high availability, and recurring revenue optimization.
@@ -106,7 +106,7 @@ export default function SaaSDevelopmentPage() {
                     </ul>
                 </div>
                 <div className="glass aspect-video rounded-3xl bg-slate-800 border-white/5 flex items-center justify-center p-8">
-                    &lt;span className="text-primary/20 text-4xl font-mono"&gt;{'<'} SaaS Momentum {'/>'}&lt;/span&gt;
+                    <span className="text-primary/20 text-4xl font-mono">{'<'} SaaS Momentum {'/>'}</span>
                 </div>
             </section>
 

@@ -25,17 +25,9 @@ export async function GET(request: Request) {
             id: `unsplash-${p.id}`, url: p.urls.regular, thumbnail: p.urls.small, alt: p.alt_description || query, photographer: p.user.name, source: 'unsplash'
         }));
 
-        const videos = (data.videos || []).map((v: { id: string | number, video_files: { quality: string, link: string }[], image: string, user: { name: string } }) => ({
-            id: `pexels-vid-${v.id}`,
-            url: v.video_files.find(f => f.quality === 'hd')?.link || v.video_files[0].link,
-            image: v.image,
-            user: v.user.name,
-            source: 'pexels'
-        }));
-
         const images = [...pImages, ...uImages].slice(0, limit);
         return NextResponse.json(images);
-    } catch (error) {
+    } catch (error: unknown) {
         console.error('Image search error:', error);
         return NextResponse.json({ error: 'Failed to search images' }, { status: 500 });
     }

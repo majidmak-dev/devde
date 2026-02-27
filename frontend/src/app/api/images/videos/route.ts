@@ -17,9 +17,9 @@ export async function GET(request: Request) {
             headers: { Authorization: PEXELS_API_KEY }
         });
         const data = await response.json();
-        const videos = (data.videos || []).map((v: any) => ({
+        const videos = (data.videos || []).map((v: { id: string | number, video_files: { quality: string, link: string }[], image: string, user: { name: string } }) => ({
             id: `pexels-vid-${v.id}`,
-            url: v.video_files.find((f: any) => f.quality === 'hd')?.link || v.video_files[0].link,
+            url: v.video_files.find(f => f.quality === 'hd')?.link || v.video_files[0]?.link || '',
             image: v.image,
             user: v.user.name,
             source: 'pexels'

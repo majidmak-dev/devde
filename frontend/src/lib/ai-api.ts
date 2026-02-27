@@ -1,4 +1,4 @@
-const API_BASE = 'https://devdesigns.net/api';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://devdesigns.net/api';
 
 export async function fetchDomainSuggestions(query: string): Promise<string[]> {
     try {

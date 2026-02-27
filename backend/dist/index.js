@@ -5,12 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.prisma = void 0;
 const client_1 = require("@prisma/client");
+const adapter_pg_1 = require("@prisma/adapter-pg");
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const pg_1 = require("pg");
 dotenv_1.default.config();
+const pool = new pg_1.Pool({ connectionString: process.env.DATABASE_URL });
+const adapter = new adapter_pg_1.PrismaPg(pool);
 const app = (0, express_1.default)();
-const prisma = new client_1.PrismaClient();
+const prisma = new client_1.PrismaClient({ adapter });
 exports.prisma = prisma;
 const PORT = process.env.PORT || 5001;
 const auth_routes_1 = __importDefault(require("./routes/auth.routes"));

@@ -28,8 +28,12 @@ app.get('/health', (req: Request, res: Response) => {
     res.json({ status: 'DevDesigns API is running' });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+// Only listen locally — Vercel handles the HTTP server in production
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+    });
+}
 
-export { app, prisma };
+export { prisma };
+export default app;

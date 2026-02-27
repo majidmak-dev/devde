@@ -6,9 +6,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const prisma = new PrismaClient({
-    accelerateUrl: process.env.DATABASE_URL,
-});
+const prisma = new PrismaClient();
 const PORT = process.env.PORT || 5001;
 
 import authRoutes from './routes/auth.routes';

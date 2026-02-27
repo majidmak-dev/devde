@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+import { useState, createContext, useContext, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, Loader2, ArrowRight, CheckCircle2, ChevronRight, ShoppingCart } from 'lucide-react';
+import { X, Sparkles, Loader2, ArrowRight, CheckCircle2, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'react-hot-toast';
 import { fetchAiDetail, AiDetailResult } from '@/lib/ai-api';

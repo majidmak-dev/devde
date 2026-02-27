@@ -8,7 +8,6 @@ import { Menu, X, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
-import { useInteraction } from './interaction-provider';
 
 const navLinks = [
     { name: 'Services', href: '/services' },

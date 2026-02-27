@@ -1,12 +1,19 @@
 import OpenAI from 'openai';
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
+let _openai: OpenAI | null = null;
+function getOpenAI() {
+    if (!_openai) {
+        if (!process.env.OPENAI_API_KEY) {
+            console.error('OPENAI_API_KEY is missing');
+        }
+        _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY || 'missing-key' });
+    }
+    return _openai;
+}
 
 export class AIService {
     static async suggestDomains(query: string) {
-        const response = await openai.chat.completions.create({
+        const response = await getOpenAI().chat.completions.create({
             model: "gpt-4o-mini",
             messages: [
                 {
@@ -33,7 +40,7 @@ export class AIService {
     }
 
     static async chatSupport(message: string, history: any[]) {
-        const response = await openai.chat.completions.create({
+        const response = await getOpenAI().chat.completions.create({
             model: "gpt-4o",
             messages: [
                 {
@@ -61,7 +68,7 @@ export class AIService {
     }
 
     static async blogAssist(prompt: string) {
-        const response = await openai.chat.completions.create({
+        const response = await getOpenAI().chat.completions.create({
             model: "gpt-4o-mini",
             messages: [
                 {
@@ -80,7 +87,7 @@ export class AIService {
     }
 
     static async generateDetail(context: string) {
-        const response = await openai.chat.completions.create({
+        const response = await getOpenAI().chat.completions.create({
             model: "gpt-4o",
             messages: [
                 {

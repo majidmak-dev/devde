@@ -5,12 +5,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AIService = void 0;
 const openai_1 = __importDefault(require("openai"));
-const openai = new openai_1.default({
-    apiKey: process.env.OPENAI_API_KEY,
-});
+let _openai = null;
+function getOpenAI() {
+    if (!_openai) {
+        if (!process.env.OPENAI_API_KEY) {
+            console.error('OPENAI_API_KEY is missing');
+        }
+        _openai = new openai_1.default({ apiKey: process.env.OPENAI_API_KEY || 'missing-key' });
+    }
+    return _openai;
+}
 class AIService {
     static async suggestDomains(query) {
-        const response = await openai.chat.completions.create({
+        const response = await getOpenAI().chat.completions.create({
             model: "gpt-4o-mini",
             messages: [
                 {
@@ -37,7 +44,7 @@ class AIService {
         }
     }
     static async chatSupport(message, history) {
-        const response = await openai.chat.completions.create({
+        const response = await getOpenAI().chat.completions.create({
             model: "gpt-4o",
             messages: [
                 {
@@ -63,7 +70,7 @@ class AIService {
         return response.choices[0].message.content;
     }
     static async blogAssist(prompt) {
-        const response = await openai.chat.completions.create({
+        const response = await getOpenAI().chat.completions.create({
             model: "gpt-4o-mini",
             messages: [
                 {
@@ -80,7 +87,7 @@ class AIService {
         return JSON.parse(response.choices[0].message.content || '{}');
     }
     static async generateDetail(context) {
-        const response = await openai.chat.completions.create({
+        const response = await getOpenAI().chat.completions.create({
             model: "gpt-4o",
             messages: [
                 {

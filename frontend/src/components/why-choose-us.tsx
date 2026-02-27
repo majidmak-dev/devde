@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Shield, Zap, TrendingUp, Users } from 'lucide-react';
 
 const stats = [
@@ -21,7 +20,7 @@ export default function WhyChooseUs() {
                             <span className="text-primary">Businesses Choose Us</span>
                         </h2>
                         <p className="text-xl text-muted-foreground">
-                            We don't just build websites; we build the digital backbone of your company. Our infrastructure-first approach ensures your business is always online, secure, and ready to scale.
+                            We don&apos;t just build websites; we build the digital backbone of your company. Our infrastructure-first approach ensures your business is always online, secure, and ready to scale.
                         </p>
                         <div className="grid grid-cols-2 gap-8 pt-8">
                             {stats.map((stat) => (
@@ -41,8 +40,8 @@ export default function WhyChooseUs() {
                             <div className="relative h-full flex items-center justify-center">
                                 <div className="p-8 text-center space-y-4">
                                     <Rocket className="w-20 h-20 text-primary mx-auto mb-4 animate-bounce" />
-                                    <h3 className="text-3xl font-bold italic">"DevDesigns changed our <br /> digital trajectory."</h3>
-                                    <p className="text-muted-foreground">— Tech Corp CEO</p>
+                                    <h3 className="text-3xl font-bold italic">&quot;DevDesigns changed our <br /> digital trajectory.&quot;</h3>
+                                    <p className="text-muted-foreground">&mdash; Tech Corp CEO</p>
                                 </div>
                             </div>
                         </div>

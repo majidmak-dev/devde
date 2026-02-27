@@ -11,7 +11,6 @@ import {
     ArrowRight,
     Sparkles
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
 import { fetchImages } from '@/lib/image-api';
 import Link from 'next/link';

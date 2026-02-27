@@ -25,9 +25,10 @@ interface ContactMailData {
 
 export const sendContactEmail = async (data: ContactMailData) => {
     const mailOptions = {
-        from: `"${data.name}" <${data.email}>`,
+        from: `"DevDesigns Contact Form" <${process.env.SMTP_USER || 'hello@devdesigns.net'}>`,
+        replyTo: data.email,
         to: 'hello@devdesigns.net',
-        subject: `[Contact Form] ${data.subject}`,
+        subject: `[Contact Form] ${data.service}: ${data.subject}`,
         text: `Name: ${data.name}\nEmail: ${data.email}\nService: ${data.service}\n\nMessage:\n${data.message}`,
         html: `
             <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">

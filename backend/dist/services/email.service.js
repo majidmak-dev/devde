@@ -5,30 +5,37 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendContactEmail = void 0;
 const nodemailer_1 = __importDefault(require("nodemailer"));
+// Normalize environment variables (strip literal quotes if present)
+const smtpHost = (process.env.SMTP_HOST || 'smtp.ethereal.email').replace(/^"(.*)"$/, '$1');
+const smtpPort = Number((process.env.SMTP_PORT || '587').replace(/^"(.*)"$/, '$1'));
+const smtpUser = (process.env.SMTP_USER || '').replace(/^"(.*)"$/, '$1');
+const smtpPass = (process.env.SMTP_PASS || '').replace(/^"(.*)"$/, '$1');
+const smtpSecure = (process.env.SMTP_SECURE || 'false').replace(/^"(.*)"$/, '$1') === 'true';
 const transporter = nodemailer_1.default.createTransport({
-    // Using a placeholder configuration. In a real environment, 
-    // these would be populated via environment variables.
-    host: process.env.SMTP_HOST || 'smtp.ethereal.email',
-    port: Number(process.env.SMTP_PORT) || 587,
-    secure: process.env.SMTP_SECURE === 'true',
+    host: smtpHost,
+    port: smtpPort,
+    secure: smtpSecure,
     auth: {
-        user: process.env.SMTP_USER || 'placeholder@example.com',
-        pass: process.env.SMTP_PASS || 'placeholder_pass'
+        user: smtpUser,
+        pass: smtpPass
     },
     tls: {
-        rejectUnauthorized: false
+        rejectUnauthorized: false,
+        minVersion: 'TLSv1.2'
     }
 });
 const sendContactEmail = async (data) => {
     const mailOptions = {
-        from: `"${data.name}" <${data.email}>`,
+        from: `"DevDesigns Contact Form" <${process.env.SMTP_USER || 'hello@devdesigns.net'}>`,
+        replyTo: data.email,
         to: 'hello@devdesigns.net',
-        subject: `[Contact Form] ${data.subject}`,
-        text: `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`,
+        subject: `[Contact Form] ${data.service}: ${data.subject}`,
+        text: `Name: ${data.name}\nEmail: ${data.email}\nService: ${data.service}\n\nMessage:\n${data.message}`,
         html: `
             <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
                 <h2 style="color: #10b981;">New Contact Inquiry</h2>
                 <p><strong>From:</strong> ${data.name} (${data.email})</p>
+                <p><strong>Service:</strong> ${data.service}</p>
                 <p><strong>Subject:</strong> ${data.subject}</p>
                 <hr style="border: 0; border-top: 1px solid #eee;" />
                 <p style="white-space: pre-wrap;">${data.message}</p>

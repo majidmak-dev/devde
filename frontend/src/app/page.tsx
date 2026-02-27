@@ -4,6 +4,7 @@ import Hero from "@/components/hero";
 import ServicesGrid from "@/components/services-grid";
 import WhyChooseUs from "@/components/why-choose-us";
 import PricingPreview from "@/components/pricing-preview";
+import StatsBar from "@/components/stats-bar";
 import { useState } from 'react';
 import { useInteraction } from '@/components/interaction-provider';
 import { Button } from '@/components/ui/button';
@@ -45,6 +46,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <StatsBar />
       <ServicesGrid />
       <WhyChooseUs />
       <PricingPreview />

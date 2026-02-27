@@ -10,19 +10,36 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
+        // Normalize environment variables (strip literal quotes if present)
+        const smtpHost = (process.env.SMTP_HOST || 'smtp.ethereal.email').replace(/^"(.*)"$/, '$1');
+        const smtpPort = Number((process.env.SMTP_PORT || '587').replace(/^"(.*)"$/, '$1'));
+        const smtpUser = (process.env.SMTP_USER || '').replace(/^"(.*)"$/, '$1');
+        const smtpPass = (process.env.SMTP_PASS || '').replace(/^"(.*)"$/, '$1');
+        const smtpSecure = (process.env.SMTP_SECURE || 'false').replace(/^"(.*)"$/, '$1') === 'true';
+
+        console.log('Attempting to send email via:', {
+            host: smtpHost,
+            port: smtpPort,
+            secure: smtpSecure,
+            user: smtpUser
+        });
+
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST || 'smtp.ethereal.email',
-            port: Number(process.env.SMTP_PORT) || 587,
-            secure: process.env.SMTP_SECURE === 'true',
+            host: smtpHost,
+            port: smtpPort,
+            secure: smtpSecure,
             auth: {
-                user: process.env.SMTP_USER || 'placeholder@example.com',
-                pass: process.env.SMTP_PASS || 'placeholder_pass'
+                user: smtpUser,
+                pass: smtpPass
             },
-            tls: { rejectUnauthorized: false }
+            tls: {
+                rejectUnauthorized: false,
+                minVersion: 'TLSv1.2'
+            }
         });
 
         const mailOptions = {
-            from: `"DevDesigns Contact Form" <${process.env.SMTP_USER}>`,
+            from: `"DevDesigns Contact Form" <${smtpUser}>`,
             replyTo: email,
             to: 'hello@devdesigns.net',
             subject: `[Contact Form] ${service}: ${subject}`,
@@ -40,9 +57,18 @@ export async function POST(request: Request) {
         };
 
         await transporter.sendMail(mailOptions);
+        console.log('Contact form email sent successfully');
         return NextResponse.json({ success: true, message: 'Message sent successfully' });
     } catch (error: any) {
-        console.error('Contact Form Route Error:', error);
-        return NextResponse.json({ error: error.message || 'Failed to send message' }, { status: 500 });
+        console.error('Contact Form Route Error:', {
+            message: error.message,
+            stack: error.stack,
+            code: error.code,
+            command: error.command
+        });
+        return NextResponse.json({
+            error: 'Failed to send message',
+            details: error.message || 'Internal Server Error'
+        }, { status: 500 });
     }
 }

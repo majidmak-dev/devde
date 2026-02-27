@@ -1,17 +1,23 @@
 import nodemailer from 'nodemailer';
 
+// Normalize environment variables (strip literal quotes if present)
+const smtpHost = (process.env.SMTP_HOST || 'smtp.ethereal.email').replace(/^"(.*)"$/, '$1');
+const smtpPort = Number((process.env.SMTP_PORT || '587').replace(/^"(.*)"$/, '$1'));
+const smtpUser = (process.env.SMTP_USER || '').replace(/^"(.*)"$/, '$1');
+const smtpPass = (process.env.SMTP_PASS || '').replace(/^"(.*)"$/, '$1');
+const smtpSecure = (process.env.SMTP_SECURE || 'false').replace(/^"(.*)"$/, '$1') === 'true';
+
 const transporter = nodemailer.createTransport({
-    // Using a placeholder configuration. In a real environment, 
-    // these would be populated via environment variables.
-    host: process.env.SMTP_HOST || 'smtp.ethereal.email',
-    port: Number(process.env.SMTP_PORT) || 587,
-    secure: process.env.SMTP_SECURE === 'true',
+    host: smtpHost,
+    port: smtpPort,
+    secure: smtpSecure,
     auth: {
-        user: process.env.SMTP_USER || 'placeholder@example.com',
-        pass: process.env.SMTP_PASS || 'placeholder_pass'
+        user: smtpUser,
+        pass: smtpPass
     },
     tls: {
-        rejectUnauthorized: false
+        rejectUnauthorized: false,
+        minVersion: 'TLSv1.2'
     }
 });
 

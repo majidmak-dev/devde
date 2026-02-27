@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion';
 import PricingPreview from '@/components/pricing-preview';
-import WhyChooseUs from '@/components/why-choose-us';
-import { Sparkles, ArrowRight, ShieldCheck, Zap, Globe } from 'lucide-react';
+import { Sparkles, ShieldCheck, Zap, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useInteraction } from '@/components/interaction-provider';
 
@@ -27,7 +26,7 @@ export default function PricingPage() {
                         Scaling Made <span className="text-primary italic">Affordable</span>
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto italic">
-                        Elite digital infrastructure shouldn't break the bank. Choose a plan that matches your ambition.
+                        Elite digital infrastructure shouldn&apos;t break the bank. Choose a plan that matches your ambition.
                     </p>
                 </motion.div>
             </section>

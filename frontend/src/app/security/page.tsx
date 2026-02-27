@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Shield, Lock, Activity, RefreshCw, Eye, Zap, ShieldAlert, Target, ShieldCheck, Database, HardDrive, Cpu, ArrowRight, Sparkles, Terminal, AlertTriangle, Search } from "lucide-react";
+import { Lock, Activity, RefreshCw, Eye, Zap, ShieldAlert, ShieldCheck, Database, ArrowRight, Sparkles, Terminal, AlertTriangle, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useInteraction } from "@/components/interaction-provider";
 
@@ -201,7 +201,7 @@ export default function SecurityPage() {
                             <div className="space-y-4">
                                 <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter">Autonomous <span className="text-blue-500 italic">Maintenance</span></h2>
                                 <p className="text-xl text-muted-foreground italic leading-relaxed">
-                                    We don't wait for things to break. Our OpenAI-powered maintenance layer identifies patterns in traffic, error logs, and performance metrics to proactively optimize your environment.
+                                    We don&apos;t wait for things to break. Our OpenAI-powered maintenance layer identifies patterns in traffic, error logs, and performance metrics to proactively optimize your environment.
                                 </p>
                             </div>
 
@@ -244,7 +244,7 @@ export default function SecurityPage() {
                         <div className="space-y-2">
                             <h3 className="text-xl font-black italic uppercase tracking-widest">Local Service Transparency</h3>
                             <p className="text-sm text-muted-foreground italic font-medium leading-relaxed">
-                                Our platform utilizes secure local network handshakes to facilitate high-speed communication between your browser and our OpenAI-certified diagnostic nodes. If you see a prompt for "Accessing other apps and services," it is solely to verify secure authentication tokens across our microservice ecosystem. **DevDesigns does not monitor or record local device activity.**
+                                Our platform utilizes secure local network handshakes to facilitate high-speed communication between your browser and our OpenAI-certified diagnostic nodes. If you see a prompt for &quot;Accessing other apps and services,&quot; it is solely to verify secure authentication tokens across our microservice ecosystem. **DevDesigns does not monitor or record local device activity.**
                             </p>
                         </div>
                     </motion.div>
@@ -300,9 +300,7 @@ export default function SecurityPage() {
                         <h2 className="text-4xl md:text-7xl font-black tracking-tighter italic mb-8 relative z-10 leading-none">
                             Impenetrable <br /><span className="text-primary italic">Sovereignty</span>
                         </h2>
-                        <p className="text-xl text-muted-foreground italic mb-12 max-w-2xl relative z-10 leading-relaxed font-medium">
-                            Don't just survive. Dominate the digital landscape with security and maintenance protocols designed for the future, powered by **OpenAI**.
-                        </p>
+                        Don&apos;t just survive. Dominate the digital landscape with security and maintenance protocols designed for the future, powered by **OpenAI**.
                         <Button
                             onClick={() => openModal("I want to discuss an elite security and maintenance strategy for my enterprise assets. Connect me with an OpenAI-certified specialist.")}
                             className="bg-primary hover:bg-primary/90 text-white font-black rounded-3xl h-20 px-16 text-2xl btn-glow shadow-primary/20 w-fit relative z-10"

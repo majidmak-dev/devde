@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Eye, Lock, FileText, Globe, Bell, Scale, UserCheck } from "lucide-react";
+import { Shield, Lock, Globe, Bell, Scale, UserCheck } from "lucide-react";
 
 const privacySections = [
     {
@@ -16,8 +16,7 @@ const privacySections = [
         title: "Fortress Security Standards",
         icon: Shield,
         summary: "Military-grade encryption for all assets at rest and in transit.",
-        content: `Our "Fortress" security architecture ensures that your data is protected by AES-256 encryption. We implement Zero Trust protocols, meaning every access request is verified. Our OpenAI-driven monitoring systems proactively identify and neutralize threats, ensuring your private information never falls into the wrong hands.`
-    },
+        content: `Our &quot;Fortress&quot; security architecture ensures that your data is protected by AES-256 encryption. We implement Zero Trust protocols, meaning every access request is verified. Our OpenAI-driven monitoring systems proactively identify and neutralize threats, ensuring your private information never falls into the wrong hands.`
     {
         id: "ai-processing",
         title: "AI & Machine Learning Usage",
@@ -75,7 +74,7 @@ export default function PrivacyPage() {
                         transition={{ delay: 0.2 }}
                         className="text-xl text-muted-foreground italic font-medium max-w-2xl"
                     >
-                        Your privacy is the cornerstone of your digital legacy. At DevDesigns, we don't just protect data; we defend your sovereignty.
+                        Your privacy is the cornerstone of your digital legacy. At DevDesigns, we don&apos;t just protect data; we defend your sovereignty.
                     </motion.p>
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -135,9 +134,7 @@ export default function PrivacyPage() {
                         <Mail className="w-8 h-8 text-blue-400" />
                     </div>
                     <h2 className="text-4xl font-black italic tracking-tighter">Questions?</h2>
-                    <p className="text-xl text-muted-foreground italic font-medium max-w-xl mx-auto leading-relaxed">
-                        If you have any questions regarding our Privacy Policy or your data sovereignty, our specialized legal team is ready to assist.
-                    </p>
+                    If you have any questions regarding our Privacy Policy or your data sovereignty, our specialized legal team is ready to assist.
                     <div className="text-primary font-black text-2xl italic tracking-tighter">
                         privacy@devdesigns.net
                     </div>
@@ -147,7 +144,7 @@ export default function PrivacyPage() {
     );
 }
 
-function Mail(props: any) {
+function Mail(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
             {...props}

@@ -39,9 +39,10 @@ export default function Contact() {
 
             setTimeout(() => setIsSuccess(false), 5000);
             setFormData({ name: '', email: '', subject: '', service: '', message: '' });
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error('Submission Error:', error);
-            setErrorMessage(error.message || 'Failed to send message. Please try again.');
+            const message = error instanceof Error ? error.message : 'Failed to send message. Please try again.';
+            setErrorMessage(message);
             setIsSuccess(false);
         } finally {
             setIsSubmitting(false);

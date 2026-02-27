@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useInteraction } from "@/components/interaction-provider";
 import { caseStudies } from "@/lib/case-studies-data";
-import { Palette, PenTool, Layout, Layers, ArrowRight, Star, Sparkles, MousePointer2, Smartphone, ShoppingCart } from "lucide-react";
+import { Palette, PenTool, Layout, Layers, Sparkles, MousePointer2, Smartphone, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
 const uiuxFeatures = [
@@ -61,10 +61,10 @@ export default function UIUXDesignPage() {
                         className="space-y-6 max-w-4xl mx-auto"
                     >
                         <h1 className="text-5xl md:text-8xl font-black tracking-tighter italic">
-                            Elevate your <br /><span className="text-primary italic">Digital Soul</span>
+                            Elevate your <br />&lt;span className="text-primary italic"&gt;Digital Soul&lt;/span&gt;
                         </h1>
                         <p className="text-xl md:text-2xl text-muted-foreground italic max-w-2xl mx-auto opacity-80 leading-relaxed font-medium">
-                            We design world-class interfaces that don't just look stunning—they drive conversion, loyalty, and enterprise-grade growth.
+                            We design world-class interfaces that don&apos;t just look stunning—they drive conversion, loyalty, and enterprise-grade growth.
                         </p>
                         <div className="flex flex-wrap justify-center gap-6 pt-8">
                             <Button
@@ -200,7 +200,7 @@ export default function UIUXDesignPage() {
                             Ready for a <span className="text-primary italic">Paradigm Shift?</span>
                         </h2>
                         <p className="text-xl text-muted-foreground italic mb-12 max-w-2xl mx-auto opacity-80 relative z-10 leading-relaxed font-medium">
-                            Don't settle for "good" design. Launch an experience that defines your category and crushes your competition.
+                            Don&apos;t settle for &quot;good&quot; design. Launch an experience that defines your category and crushes your competition.
                         </p>
                         <Button
                             className="bg-primary hover:bg-primary/90 text-white font-black rounded-3xl h-20 px-16 text-2xl btn-glow shadow-primary/20 relative z-10 group-hover:scale-105 transition-transform flex items-center mx-auto"

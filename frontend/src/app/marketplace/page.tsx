@@ -5,7 +5,7 @@ import { ShoppingCart, Star, Download, Filter, Search, Tag, ShieldCheck, ArrowRi
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { fetchImages, ImageResult } from '@/lib/image-api';
+import { fetchImages } from '@/lib/image-api';
 import { useInteraction } from '@/components/interaction-provider';
 
 const initialProducts = [

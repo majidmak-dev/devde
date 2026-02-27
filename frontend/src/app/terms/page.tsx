@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Scale, FileCheck, AlertCircle, Zap, ShieldCheck, Globe, Cpu, ArrowRight } from "lucide-react";
+import { Scale, Zap, ShieldCheck, Globe, Cpu } from "lucide-react";
 
 const termsSections = [
     {

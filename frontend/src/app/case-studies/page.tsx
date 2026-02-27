@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { caseStudies } from "@/lib/case-studies-data";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BarChart3, TrendingUp, Cpu } from "lucide-react";
+import { ArrowRight, Cpu } from "lucide-react";
 
 export default function CaseStudies() {
     return (

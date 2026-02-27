@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, Bot, User, Loader2, Minus } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, Loader2, Minus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { sendChatMessage } from '@/lib/ai-api';
 import { cn } from '@/lib/utils';

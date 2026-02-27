@@ -33,7 +33,7 @@ export default function LoginPage() {
                         <Rocket className="w-8 h-8" />
                         <span className="text-2xl font-bold">DevDesigns</span>
                     </Link>
-                    <h1 className="text-3xl font-bold mt-4">Welcome Back</h1>
+                    <h1 className="text-3xl font-black italic mt-4">Welcome Back, <span className="text-primary italic">Ambition.</span></h1>
                     <p className="text-muted-foreground">Access your digital infrastructure dashboard.</p>
                 </div>
 

@@ -2,10 +2,10 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Calendar, User, Clock, ArrowRight, ChevronRight, Sparkles, Loader2, Wand2 } from 'lucide-react';
+import { User, Clock, ChevronRight, Sparkles, Loader2, Wand2 } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { fetchImages, ImageResult } from '@/lib/image-api';
+import { fetchImages } from '@/lib/image-api';
 import { fetchBlogAssist } from '@/lib/ai-api';
 
 const initialPosts = [

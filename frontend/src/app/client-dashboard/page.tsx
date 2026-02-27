@@ -15,28 +15,18 @@ const stats = [
 ];
 
 function LivePulse() {
-    const [status, setStatus] = useState('OPTIMAL');
-    const [efficiency, setEfficiency] = useState(99.98);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setEfficiency(99.95 + Math.random() * 0.04);
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
-
     return (
         <div className="flex items-center space-x-6">
             <div className="hidden sm:flex flex-col items-end">
                 <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Ecosystem Health</span>
-                <span className="text-sm font-black italic text-emerald-500">{efficiency.toFixed(3)}% Efficiency</span>
+                <span className="text-sm font-black italic text-emerald-500">99.98% Efficiency</span>
             </div>
             <div className="glass px-6 py-3 rounded-2xl flex items-center space-x-3 border border-emerald-500/20 bg-emerald-500/5 group hover:border-emerald-500/40 transition-all duration-500">
                 <div className="relative flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></span>
                 </div>
-                <span className="text-xs font-black uppercase tracking-widest text-emerald-400">{status}</span>
+                <span className="text-xs font-black uppercase tracking-widest text-emerald-400">OPTIMAL</span>
             </div>
         </div>
     );
@@ -44,12 +34,6 @@ function LivePulse() {
 
 export default function ClientDashboard() {
     const { openModal } = useInteraction();
-    const [currentTime, setCurrentTime] = useState(new Date());
-
-    useEffect(() => {
-        const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-        return () => clearInterval(timer);
-    }, []);
 
     const projects = [
         { id: 1, name: 'DevDesigns Platform', progress: 78, status: 'Design Alpha', priority: 'High', tech: 'Next.js' },

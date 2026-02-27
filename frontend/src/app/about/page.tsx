@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useInteraction } from "@/components/interaction-provider";
-import { Users, Target, Rocket, Zap, Shield, Globe, Cpu, Sparkles } from "lucide-react";
+import { Target, Rocket, Zap, Shield, Globe, Cpu, Sparkles } from "lucide-react";
 
 export default function AboutPage() {
     const { openModal } = useInteraction();
@@ -148,7 +148,7 @@ export default function AboutPage() {
                             Ready to build your <br /><span className="text-primary italic">Legacy?</span>
                         </h2>
                         <p className="text-xl text-muted-foreground italic mb-12 max-w-2xl mx-auto opacity-80 relative z-10">
-                            Don't just launch a website. Build a digital empire that scales with your ambition.
+                            Don&apos;t just launch a website. Build a digital empire that scales with your ambition.
                         </p>
                         <Button
                             className="bg-primary hover:bg-primary/90 text-white font-black rounded-2xl h-16 px-12 text-xl btn-glow shadow-primary/20 relative z-10"

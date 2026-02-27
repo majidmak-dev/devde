@@ -6,8 +6,7 @@ import {
     Search, Bell, Settings, PieChart, BarChart as BarChartIcon
 } from 'lucide-react';
 import {
-    BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-    LineChart, Line
+    BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';

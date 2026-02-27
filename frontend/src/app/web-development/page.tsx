@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Code, Globe, Zap, Database, Globe2, ShieldCheck, ArrowRight, ShoppingCart, Sparkles, Layers } from 'lucide-react';
+import { Code, Globe, Zap, Database, ShieldCheck, ArrowRight, ShoppingCart, Sparkles, Layers } from 'lucide-react';
 import { useInteraction } from '@/components/interaction-provider';
 
 const stack = [
@@ -115,11 +115,11 @@ export default function WebDevelopmentPage() {
                 <div className="glass p-12 rounded-3xl bg-secondary/5 border-secondary/10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
                     <div className="space-y-4">
                         <h2 className="text-3xl font-bold">Ready to Build Your Platform?</h2>
-                        <p className="text-muted-foreground">Let's discuss your requirements and build something extraordinary.</p>
+                        <p className="text-muted-foreground">Let&apos;s discuss your requirements and build something extraordinary.</p>
                     </div>
                     <Button
                         size="lg"
-                        onClick={() => openModal("I have specific requirements for my web platform. I'd like to get an expert technical quote.")}
+                        onClick={() => openModal("I have specific requirements for my web platform. I&apos;d like to get an expert technical quote.")}
                         className="bg-secondary hover:bg-secondary/90 text-white rounded-full h-14 px-10 font-bold italic tracking-widest shrink-0 shadow-xl shadow-secondary/20"
                     >
                         GET EXPERT QUOTE <ArrowRight className="w-5 h-5 ml-2" />

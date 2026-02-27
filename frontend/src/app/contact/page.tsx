@@ -56,7 +56,7 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                 >
                     <h1 className="text-4xl md:text-7xl font-black tracking-tighter">Get in <span className="text-primary italic">Touch</span></h1>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto italic">Let's discuss how we can build your next-generation digital infrastructure.</p>
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto italic">Let&apos;s discuss how we can build your next-generation digital infrastructure.</p>
                 </motion.div>
             </section>
 
@@ -199,7 +199,7 @@ export default function Contact() {
                                     animate={{ opacity: 1, y: 0 }}
                                     className="text-emerald-400 font-bold italic"
                                 >
-                                    Message sent successfully! We'll get back to you soon.
+                                    Message sent successfully! We&apos;ll get back to you soon.
                                 </motion.p>
                             )}
                             {errorMessage && (

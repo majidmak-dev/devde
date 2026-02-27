@@ -1,6 +1,7 @@
 'use client';
 
-import { LayoutDashboard, Server, Globe, CreditCard, MessageSquare, Clock, Activity, Zap, ShieldCheck, ChevronRight, TrendingUp } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { LayoutDashboard, Server, Globe, Package, CreditCard, MessageSquare, Clock, Activity, Zap, ShieldCheck, ChevronRight, TrendingUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { useInteraction } from '@/components/interaction-provider';

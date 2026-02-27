@@ -5,8 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { caseStudies } from "@/lib/case-studies-data";
 import { Button } from "@/components/ui/button";
 import { useInteraction } from "@/components/interaction-provider";
-import { ArrowLeft, CheckCircle2, TrendingUp, ShieldCheck, Zap, BarChart, Server, Layout } from "lucide-react";
-import Image from "next/image";
+import { ArrowLeft, CheckCircle2, TrendingUp, ShieldCheck, Zap } from "lucide-react";
 
 export default function CaseStudyDetail() {
     const { id } = useParams();

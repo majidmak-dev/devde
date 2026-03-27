@@ -3,7 +3,7 @@
 import { useState, createContext, useContext, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, Loader2, ArrowRight, CheckCircle2, ShoppingCart } from 'lucide-react';
+import { X, Sparkles, Loader2, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'react-hot-toast';
 import { fetchAiDetail, AiDetailResult } from '@/lib/ai-api';
@@ -11,7 +11,6 @@ import { FormattedContent } from './ai-formatting';
 
 interface InteractionContextType {
     openModal: (context: string) => void;
-    addToCart: (item: { id: string; name: string; price: string }) => void;
 }
 
 const InteractionContext = createContext<InteractionContextType | undefined>(undefined);
@@ -42,18 +41,10 @@ export function InteractionProvider({ children }: { children: ReactNode }) {
         }
     };
 
-    const addToCart = (item: { id: string; name: string; price: string }) => {
-        toast.success(`${item.name} added to strategic roadmap!`, {
-            icon: <ShoppingCart className="w-5 h-5 text-primary" />,
-            style: {
-                border: '1px solid rgba(var(--primary), 0.5)',
-            }
-        });
-        console.log('Added to cart:', item);
-    };
+
 
     return (
-        <InteractionContext.Provider value={{ openModal, addToCart }}>
+        <InteractionContext.Provider value={{ openModal }}>
             {children}
 
             {/* AI Interaction Modal */}

@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Digital Shop | Premium Assets & Plugins',
-    description: 'A curated marketplace of elite digital assets, from UI kits to infrastructure plugins.'
+    title: 'Digital Marketplace | Premium Templates, UI Kits & Scripts',
+    description: 'Accelerate your development with premium Next.js templates, Figma UI kits, and production-ready scripts. Curated high-performance digital assets for modern creators.',
+    keywords: 'Digital Marketplace, Next.js Templates, UI Kits, Figma Assets, Development Scripts, SaaS Templates, Web Design Assets, Code Marketplace'
 };
 
 export default function MarketplaceLayout({

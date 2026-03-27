@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useInteraction } from '@/components/interaction-provider';
-import { Search, TrendingUp, BarChart3, Target, ArrowRight, ShoppingCart, Sparkles, Activity } from 'lucide-react';
+import { Search, TrendingUp, BarChart3, Target, ArrowRight, MessageSquare, Sparkles, Activity } from 'lucide-react';
 
 const features = [
     { name: 'Technical SEO Audit', description: 'Deep-dive analysis of your digital infrastructure for optimal crawler indexing.', icon: Search, color: 'text-blue-500' },
@@ -12,7 +12,7 @@ const features = [
 ];
 
 export default function SEOGrowthPage() {
-    const { openModal, addToCart } = useInteraction();
+    const { openModal } = useInteraction();
 
     return (
         <div className="pt-32 pb-20">
@@ -122,10 +122,10 @@ export default function SEOGrowthPage() {
                     <div className="flex flex-col md:flex-row items-center justify-center gap-6">
                         <Button
                             size="lg"
-                            onClick={() => addToCart({ id: 'seo-pro', name: 'SEO Pro Strategy', price: '$999' })}
+                            onClick={() => openModal(`I'm interested in the SEO Pro Strategy for my business. Let's discuss a growth roadmap.`)}
                             className="rounded-full bg-white text-black h-20 px-12 text-xl font-black hover:bg-primary hover:text-white transition-all w-full md:w-auto"
                         >
-                            BUY SEO PACK <ShoppingCart className="w-6 h-6 ml-3" />
+                            GET SEO QUOTE <MessageSquare className="w-6 h-6 ml-3" />
                         </Button>
                         <Button
                             size="lg"

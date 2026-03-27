@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Wrench, ShieldCheck, Activity, Clock, Heart, ArrowRight, ShoppingCart, Sparkles, LifeBuoy } from 'lucide-react';
+import { Wrench, ShieldCheck, Activity, Clock, Heart, ArrowRight, MessageSquare, Sparkles, LifeBuoy } from 'lucide-react';
 import { useInteraction } from '@/components/interaction-provider';
 
 const services = [
@@ -13,7 +13,7 @@ const services = [
 ];
 
 export default function MaintenancePage() {
-    const { openModal, addToCart } = useInteraction();
+    const { openModal } = useInteraction();
 
     const packages = [
         { id: 'maint-standard', name: 'Standard Infrastructure Support', price: '$499/mo', icon: Wrench, color: 'text-cyan-500' },
@@ -51,10 +51,10 @@ export default function MaintenancePage() {
                                 <p className="text-3xl font-black italic text-accent">{pkg.price}</p>
                             </div>
                             <Button
-                                onClick={() => addToCart(pkg)}
+                                onClick={() => openModal(`I'm interested in the ${pkg.name} maintenance plan. Let's discuss a service agreement.`)}
                                 className="w-full bg-accent hover:bg-accent/90 text-white font-black rounded-2xl h-14 italic tracking-widest shadow-xl shadow-accent/20 flex items-center justify-center"
                             >
-                                <ShoppingCart className="w-5 h-5 mr-2" /> ADD TO CART
+                                <MessageSquare className="w-5 h-5 mr-2" /> CONTACT US
                             </Button>
                         </motion.div>
                     ))}

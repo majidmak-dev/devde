@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'About Us | Digital Architects & Innovators',
-    description: 'Learn about the visionaries behind DevDesigns and our mission to build elite digital infrastructure.'
+    title: 'About DevDesigns | Engineering the Future of Digital Infrastructure',
+    description: 'Learn about DevDesigns, a premier digital engineering firm specializing in enterprise-grade web, app, and SaaS solutions. Discover our mission to empower scaling businesses.',
+    keywords: 'About DevDesigns, Digital Engineering Firm, Enterprise Solutions, Scaling Businesses, Software Development Experts'
 };
 
 export default function AboutLayout({

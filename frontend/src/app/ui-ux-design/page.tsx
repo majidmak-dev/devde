@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useInteraction } from "@/components/interaction-provider";
 import { caseStudies } from "@/lib/case-studies-data";
-import { Palette, PenTool, Layout, Layers, Sparkles, MousePointer2, Smartphone, ShoppingCart } from "lucide-react";
+import { Palette, PenTool, Layout, Layers, Sparkles, MousePointer2, Smartphone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 
 const uiuxFeatures = [
@@ -35,16 +35,10 @@ const uiuxFeatures = [
 ];
 
 export default function UIUXDesignPage() {
-    const { openModal, addToCart } = useInteraction();
+    const { openModal } = useInteraction();
     const uxCaseStudies = caseStudies.filter(s => s.category === "UI/UX Design");
 
-    const handleAddAuditToCart = () => {
-        addToCart({
-            id: 'ui-ux-audit-premium',
-            name: 'Premium UI/UX Audit & Strategy',
-            price: '$2,500'
-        });
-    };
+
 
     return (
         <main className="min-h-screen bg-[#020617] text-white pt-20">
@@ -68,10 +62,10 @@ export default function UIUXDesignPage() {
                         </p>
                         <div className="flex flex-wrap justify-center gap-6 pt-8">
                             <Button
-                                onClick={handleAddAuditToCart}
+                                onClick={() => openModal("I'm interested in a Premium UI/UX Audit & Strategy for my platform. Let's discuss the details.")}
                                 className="bg-primary hover:bg-primary/90 text-white font-black rounded-2xl h-16 px-12 text-xl btn-glow shadow-primary/20 flex items-center group"
                             >
-                                <ShoppingCart className="mr-3 w-6 h-6 group-hover:scale-110 transition-transform" /> Add Audit to Cart
+                                <MessageSquare className="mr-3 w-6 h-6 group-hover:scale-110 transition-transform" /> REQUEST AUDIT
                             </Button>
                             <Button
                                 variant="outline"

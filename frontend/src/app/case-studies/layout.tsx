@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Success Stories | Enterprise Digital Transformation',
-    description: 'Deep dives into how we solve complex infrastructure challenges for global scaling businesses.'
+    title: 'Strategic Digital Case Studies | Proven Results & Impact',
+    description: 'Deep dives into our most ambitious projects. See how DevDesigns transforms business visions into world-class digital realities through strategic engineering and design.',
+    keywords: 'Digital Case Studies, Business Impact, Strategic Engineering, Design Transformation, Software Case Studies, Project Success Stories'
 };
 
 export default function CaseStudiesLayout({

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ShoppingCart, Star, Download, Filter, Search, Tag, ShieldCheck, ArrowRight } from 'lucide-react';
+import { MessageSquare, Star, Download, Filter, Search, Tag, ShieldCheck, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -58,7 +58,7 @@ const initialProducts = [
 export default function Marketplace() {
     const [activeCategory, setActiveCategory] = useState('All');
     const [products, setProducts] = useState(initialProducts);
-    const { openModal, addToCart } = useInteraction();
+    const { openModal } = useInteraction();
 
     useEffect(() => {
         const loadImages = async () => {
@@ -190,21 +190,14 @@ export default function Marketplace() {
                                 </div>
 
                                 <div className="pt-8 border-t border-white/5 mt-auto flex items-center justify-between gap-4">
-                                    <Button
-                                        variant="ghost"
-                                        size="icon"
-                                        onClick={() => addToCart({ id: `mp-${product.id}`, name: product.name, price: product.price })}
-                                        className="h-14 w-14 rounded-2xl border border-white/5 hover:bg-primary/10 hover:border-primary/50 text-muted-foreground hover:text-primary transition-all duration-300"
-                                    >
-                                        <ShoppingCart className="w-6 h-6" />
-                                    </Button>
+
                                     <Button
                                         size="lg"
-                                        onClick={() => openModal(`Checkout options and licensing for ${product.name}`)}
+                                        onClick={() => openModal(`I'm interested in purchasing and licensing ${product.name}. Let's discuss the next steps.`)}
                                         className="flex-1 h-14 rounded-2xl bg-primary text-white font-black text-lg btn-glow shadow-primary/20 group overflow-hidden"
                                     >
-                                        <span className="relative z-10 flex items-center justify-center">
-                                            BUY NOW <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                                        <span className="relative z-10 flex items-center justify-center uppercase italic">
+                                            Inquire Now <MessageSquare className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                                         </span>
                                     </Button>
                                 </div>

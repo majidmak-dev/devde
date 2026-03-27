@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Cloud, BarChart, Shield, Rocket, ArrowRight, ShoppingCart, Sparkles, Layers } from 'lucide-react';
+import { Cloud, BarChart, Shield, Rocket, ArrowRight, MessageSquare, Sparkles, Layers } from 'lucide-react';
 import { useInteraction } from '@/components/interaction-provider';
 
 const stack = [
@@ -13,7 +13,7 @@ const stack = [
 ];
 
 export default function SaaSDevelopmentPage() {
-    const { openModal, addToCart } = useInteraction();
+    const { openModal } = useInteraction();
 
     const packages = [
         { id: 'saas-starter', name: 'SaaS MVP Infrastructure', price: '$8,000', icon: Rocket, color: 'text-blue-500' },
@@ -51,10 +51,10 @@ export default function SaaSDevelopmentPage() {
                                 <p className="text-3xl font-black italic text-primary">{pkg.price}</p>
                             </div>
                             <Button
-                                onClick={() => addToCart(pkg)}
+                                onClick={() => openModal(`I'm interested in the ${pkg.name} package for my SaaS project. Let's discuss the technical requirements.`)}
                                 className="w-full bg-primary hover:bg-primary/90 text-white font-black rounded-2xl h-14 italic tracking-widest shadow-xl shadow-primary/20 flex items-center justify-center"
                             >
-                                <ShoppingCart className="w-5 h-5 mr-2" /> ADD TO CART
+                                <MessageSquare className="w-5 h-5 mr-2" /> CONTACT US
                             </Button>
                         </motion.div>
                     ))}

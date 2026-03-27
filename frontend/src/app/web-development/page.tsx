@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Code, Globe, Zap, Database, ShieldCheck, ArrowRight, ShoppingCart, Sparkles, Layers } from 'lucide-react';
+import { Code, Globe, Zap, Database, ShieldCheck, ArrowRight, MessageSquare, Sparkles, Layers } from 'lucide-react';
 import { useInteraction } from '@/components/interaction-provider';
 
 const stack = [
@@ -13,7 +13,7 @@ const stack = [
 ];
 
 export default function WebDevelopmentPage() {
-    const { openModal, addToCart } = useInteraction();
+    const { openModal } = useInteraction();
 
     const packages = [
         { id: 'web-mvp', name: 'Web App MVP Architecture', price: '$5,000', icon: Zap, color: 'text-amber-500' },
@@ -51,10 +51,10 @@ export default function WebDevelopmentPage() {
                                 <p className="text-3xl font-black italic text-secondary">{pkg.price}</p>
                             </div>
                             <Button
-                                onClick={() => addToCart(pkg)}
+                                onClick={() => openModal(`I'm interested in the ${pkg.name} for my web application project. Let's discuss the technical roadmap.`)}
                                 className="w-full bg-secondary hover:bg-secondary/90 text-white font-black rounded-2xl h-14 italic tracking-widest shadow-xl shadow-secondary/20 flex items-center justify-center"
                             >
-                                <ShoppingCart className="w-5 h-5 mr-2" /> ADD TO CART
+                                <MessageSquare className="w-5 h-5 mr-2" /> CONTACT US
                             </Button>
                         </motion.div>
                     ))}

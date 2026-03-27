@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'UI/UX Design | Emotion-Driven User Experiences',
-    description: 'Premium user interface and experience design for high-impact digital products.'
+    title: 'Elite UI/UX Design | Emotion-Driven User Experiences',
+    description: 'World-class user interface and experience design. We create stunning, high-conversion digital products that resonate with users and define brands.',
+    keywords: 'UI/UX Design, User Experience Research, Interface Design, Visual Identity, Design Systems, Strategic UX Audit, High-Conversion Design'
 };
 
 export default function UIUXLayout({

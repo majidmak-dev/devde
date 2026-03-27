@@ -7,7 +7,13 @@ export interface ImageResult {
     source: 'pexels' | 'unsplash';
 }
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
+const isProd = typeof window !== 'undefined' && !window.location.hostname.includes('localhost');
+const defaultApi = isProd ? '/api' : 'http://localhost:5001/api';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || defaultApi;
+
+if (typeof window !== 'undefined' && API_BASE.includes('localhost') && isProd) {
+    console.warn('WARNING: Frontend is pointing to LOCALHOST API in a production environment. Ensure NEXT_PUBLIC_API_URL is set.');
+}
 
 export async function fetchImages(query: string, limit: number = 10): Promise<ImageResult[]> {
     try {

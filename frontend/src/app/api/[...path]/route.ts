@@ -43,9 +43,14 @@ async function handleRequest(request: NextRequest, pathSegments: string[]) {
   const path = pathSegments.join('/');
   const searchParams = request.nextUrl.searchParams.toString();
   
-  const targetUrl = `${BACKEND_URL}/api/${path}${searchParams ? '?' + searchParams : ''}`;
+  // Robust URL normalization
+  const normalizedBase = BACKEND_URL.replace(/\/+$/, ''); // Remove all trailing slashes
+  // Ensure we don't double up on /api if the user included it in BACKEND_URL
+  const apiBase = normalizedBase.endsWith('/api') ? normalizedBase : `${normalizedBase}/api`;
   
-  console.log(`Proxying ${request.method} to: ${targetUrl}`);
+  const targetUrl = `${apiBase}/${path}${searchParams ? '?' + searchParams : ''}`;
+  
+  console.log(`[Proxy] ${request.method} ${request.nextUrl.pathname} -> ${targetUrl}`);
 
   try {
     const headers = new Headers(request.headers);
@@ -67,12 +72,18 @@ async function handleRequest(request: NextRequest, pathSegments: string[]) {
     let data;
     if (contentType?.includes('application/json')) {
       data = await response.json();
-      return NextResponse.json(data, { status: response.status });
+      return NextResponse.json(data, { 
+        status: response.status,
+        headers: { 'X-Proxy-Target': targetUrl }
+      });
     } else {
       data = await response.text();
       return new NextResponse(data, { 
         status: response.status,
-        headers: { 'Content-Type': contentType || 'text/plain' }
+        headers: { 
+          'Content-Type': contentType || 'text/plain',
+          'X-Proxy-Target': targetUrl
+        }
       });
     }
   } catch (error) {

@@ -34,6 +34,12 @@ export async function DELETE(
 
 async function handleRequest(request: NextRequest, pathSegments: string[]) {
   const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5001';
+  const isDev = process.env.NODE_ENV === 'development';
+  
+  if (!process.env.BACKEND_URL && !isDev) {
+    console.warn('CRITICAL: BACKEND_URL is not set in production. Proxying to localhost (likely to fail).');
+  }
+
   const path = pathSegments.join('/');
   const searchParams = request.nextUrl.searchParams.toString();
   

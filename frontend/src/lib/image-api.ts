@@ -7,12 +7,12 @@ export interface ImageResult {
     source: 'pexels' | 'unsplash';
 }
 
-const API_BASE = 'https://devdesigns.net/api';
+const API_BASE = '/api';
 
 export async function fetchImages(query: string, limit: number = 10): Promise<ImageResult[]> {
     try {
         const response = await fetch(`${API_BASE}/images/search?query=${encodeURIComponent(query)}&limit=${limit}`);
-        if (!response.ok) throw new Error('Failed to fetch images');
+        if (!response.ok) throw new Error(`Failed to fetch images - Status: ${response.status}`);
         return await response.json();
     } catch (error) {
         console.error('Image Fetch Error:', error);
@@ -31,7 +31,7 @@ export interface VideoResult {
 export async function fetchVideos(query: string, limit: number = 5): Promise<VideoResult[]> {
     try {
         const response = await fetch(`${API_BASE}/images/videos/search?query=${encodeURIComponent(query)}&limit=${limit}`);
-        if (!response.ok) throw new Error('Failed to fetch videos');
+        if (!response.ok) throw new Error(`Failed to fetch videos - Status: ${response.status}`);
         return await response.json();
     } catch (error) {
         console.error('Video Fetch Error:', error);

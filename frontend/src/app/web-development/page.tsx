@@ -5,6 +5,9 @@ import { Button } from '@/components/ui/button';
 import { Code, Globe, Zap, Database, ShieldCheck, ArrowRight, MessageSquare, Sparkles, Layers } from 'lucide-react';
 import { useInteraction } from '@/components/interaction-provider';
 
+import { useState, useEffect } from 'react';
+import { fetchVideos } from '@/lib/image-api';
+
 const stack = [
     { name: 'Next.js 14+', icon: Globe },
     { name: 'TypeScript', icon: Code },
@@ -14,6 +17,13 @@ const stack = [
 
 export default function WebDevelopmentPage() {
     const { openModal } = useInteraction();
+    const [heroVideo, setHeroVideo] = useState<string | null>(null);
+
+    useEffect(() => {
+        fetchVideos('software development coding programming', 1).then(vids => {
+            if (vids.length > 0) setHeroVideo(vids[0].url);
+        });
+    }, []);
 
     const packages = [
         { id: 'web-mvp', name: 'Web App MVP Architecture', price: '$5,000', icon: Zap, color: 'text-amber-500' },
@@ -105,8 +115,25 @@ export default function WebDevelopmentPage() {
                         ))}
                     </ul>
                 </div>
-                <div className="glass aspect-video rounded-3xl bg-slate-800 border-white/5 flex items-center justify-center p-8">
-                    <span className="text-secondary/20 text-4xl font-mono">{'<'} Code Excellence {'/>'}</span>
+                <div className="relative glass aspect-video rounded-3xl overflow-hidden border border-white/5 bg-slate-800">
+                    {heroVideo ? (
+                        <video
+                            src={heroVideo}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover opacity-80"
+                        />
+                    ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-emerald-900/40 to-teal-900/40 animate-pulse flex items-center justify-center">
+                            <span className="text-secondary/30 text-3xl font-mono">{'<'} Loading... {'/>'}</span>
+                        </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 glass px-4 py-2 rounded-full border border-white/10">
+                        <span className="text-xs font-black italic tracking-widest uppercase text-secondary">Code Excellence</span>
+                    </div>
                 </div>
             </section>
 

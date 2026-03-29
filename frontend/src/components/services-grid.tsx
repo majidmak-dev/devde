@@ -121,7 +121,7 @@ export default function ServicesGrid() {
                                     loop
                                     muted
                                     playsInline
-                                    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity duration-1000 scale-110 group-hover:scale-100"
+                                    className="absolute inset-0 w-full h-full object-cover opacity-15 group-hover:opacity-30 transition-opacity duration-1000 scale-110 group-hover:scale-100"
                                 />
                             )}
 

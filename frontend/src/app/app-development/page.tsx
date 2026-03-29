@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Smartphone, Tablet, Watch, Layout, Shield, ArrowRight, AppWindow } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { fetchVideos } from '@/lib/image-api';
 
 const solutions = [
     { name: 'iOS Development', icon: Smartphone, description: 'Native Swift apps for high-performance Apple ecosystem experiences.' },
@@ -12,6 +14,14 @@ const solutions = [
 ];
 
 export default function AppDevelopmentPage() {
+    const [heroVideo, setHeroVideo] = useState<string | null>(null);
+
+    useEffect(() => {
+        fetchVideos('mobile app smartphone interface modern', 1).then(vids => {
+            if (vids.length > 0) setHeroVideo(vids[0].url);
+        });
+    }, []);
+
     return (
         <div className="pt-32 pb-20">
             <section className="container mx-auto px-4 text-center space-y-8 mb-20 text-white">
@@ -44,6 +54,29 @@ export default function AppDevelopmentPage() {
                         <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
                     </motion.div>
                 ))}
+            </div>
+
+            {/* Dynamic Video Banner */}
+            <div className="container mx-auto px-4 py-12">
+                <div className="relative rounded-[3rem] overflow-hidden border border-white/5 aspect-video max-h-[480px]">
+                    {heroVideo ? (
+                        <video
+                            src={heroVideo}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover"
+                        />
+                    ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-accent/20 to-purple-900/30 animate-pulse" />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-transparent to-slate-900/70" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center space-y-4 z-10">
+                        <span className="glass px-6 py-2 rounded-full border border-accent/30 text-sm font-black italic tracking-widest uppercase text-accent">Mobile Excellence</span>
+                        <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter">Crafted for <span className="text-accent">Every Screen</span></h2>
+                    </div>
+                </div>
             </div>
 
             <section className="py-20 bg-accent/5 mt-20">

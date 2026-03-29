@@ -4,9 +4,19 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useInteraction } from "@/components/interaction-provider";
 import { Target, Rocket, Zap, Shield, Globe, Cpu, Sparkles } from "lucide-react";
+import { useState, useEffect } from "react";
+import { fetchVideos } from "@/lib/image-api";
 
 export default function AboutPage() {
     const { openModal } = useInteraction();
+    const [heroVideo, setHeroVideo] = useState<string | null>(null);
+
+    useEffect(() => {
+        fetchVideos('modern technology office team collaboration', 1).then(vids => {
+            if (vids.length > 0) setHeroVideo(vids[0].url);
+        });
+    }, []);
+
 
     const sections = [
         {
@@ -74,6 +84,29 @@ export default function AboutPage() {
                                 Meet the Team
                             </Button>
                         </div>
+                    </motion.div>
+                </section>
+
+                {/* Team/Office Visual */}
+                <section className="pb-12">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.97 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="relative rounded-[3rem] overflow-hidden border border-white/5 aspect-[21/9]"
+                    >
+                        {heroVideo ? (
+                            <video
+                                src={heroVideo}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="w-full h-full object-cover"
+                            />
+                        ) : (
+                            <div className="w-full h-full bg-gradient-to-br from-primary/10 to-blue-900/20 animate-pulse" />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020617]/80" />
                     </motion.div>
                 </section>
 

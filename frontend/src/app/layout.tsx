@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/navbar";
 import FooterComponent from "@/components/footer";
 import Chatbot from "@/components/chatbot";
+import SystemStatus from '@/components/system-status';
 import { InteractionProvider } from "@/components/interaction-provider";
 import Preloader from "@/components/preloader";
 
@@ -53,10 +54,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={outfit.variable} suppressHydrationWarning={true}>
       <head>
-        <script
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9460255466960810"
           crossOrigin="anonymous"
+          strategy="afterInteractive"
         />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-6PXL01XDVC`}
@@ -89,6 +91,7 @@ export default function RootLayout({
               <main className="flex-1">{children}</main>
               <FooterComponent />
               <Chatbot />
+              <SystemStatus />
               <Toaster position="bottom-right" toastOptions={{
                 duration: 4000,
                 style: {

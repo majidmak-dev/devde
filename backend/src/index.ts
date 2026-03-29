@@ -30,6 +30,10 @@ app.get('/health', (req: Request, res: Response) => {
     res.json({ status: 'DevDesigns API is running' });
 });
 
+app.get('/api/health', (req: Request, res: Response) => {
+    res.json({ status: 'DevDesigns API is running' });
+});
+
 // Only listen locally — Vercel handles the HTTP server in production
 if (process.env.NODE_ENV !== 'production') {
     app.listen(PORT, () => {

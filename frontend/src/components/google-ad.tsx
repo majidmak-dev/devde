@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface GoogleAdProps {
   slot?: string;
@@ -10,7 +10,10 @@ interface GoogleAdProps {
 }
 
 export default function GoogleAd({ slot, format = 'auto', className = "", style = {} }: GoogleAdProps) {
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     try {
       // @ts-ignore
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -28,19 +31,23 @@ export default function GoogleAd({ slot, format = 'auto', className = "", style 
         </div>
       
       <div className="w-full min-h-[100px] flex items-center justify-center relative">
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block', minWidth: '250px', ...style }}
-          data-ad-client="ca-pub-9460255466960810"
-          data-ad-slot={slot || "auto"}
-          data-ad-format={format}
-          data-full-width-responsive="true"
-        />
-        
-        {/* Placeholder for Dev Environment / Visual Feedback */}
-        <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-10">
-            <span className="text-4xl font-black italic tracking-tighter">ADSBYGOOGLE</span>
-        </div>
+        {mounted && (
+          <>
+            <ins
+              className="adsbygoogle"
+              style={{ display: 'block', minWidth: '250px', ...style }}
+              data-ad-client="ca-pub-9460255466960810"
+              data-ad-slot={slot || "auto"}
+              data-ad-format={format}
+              data-full-width-responsive="true"
+            />
+            
+            {/* Placeholder for Dev Environment / Visual Feedback */}
+            <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-10">
+                <span className="text-4xl font-black italic tracking-tighter">ADSBYGOOGLE</span>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="mt-4 flex gap-4 opacity-20 text-[8px] font-bold tracking-widest uppercase">

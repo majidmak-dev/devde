@@ -44,6 +44,9 @@ export const metadata: Metadata = {
     shortcut: '/icon.svg',
     apple: '/icon.svg',
   },
+  alternates: {
+    canonical: 'https://devdesigns.net',
+  },
 };
 
 export default function RootLayout({
@@ -53,7 +56,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={outfit.variable} suppressHydrationWarning={true}>
-      <head />
+      <head>
+        {/* AdSense: must be raw tag in SSR head for Google crawler to detect it */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9460255466960810"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className={`${geistMono.variable} antialiased font-sans`}
         suppressHydrationWarning={true}
@@ -72,12 +83,6 @@ export default function RootLayout({
               <FooterComponent />
               <Chatbot />
               <SystemStatus />
-              <Script
-                async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9460255466960810"
-                crossOrigin="anonymous"
-                strategy="afterInteractive"
-              />
               <Script
                 src={`https://www.googletagmanager.com/gtag/js?id=G-6PXL01XDVC`}
                 strategy="afterInteractive"

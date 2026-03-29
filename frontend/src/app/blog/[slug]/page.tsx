@@ -1,8 +1,12 @@
 import { notFound } from 'next/navigation';
-import { getPostBySlug } from '@/lib/blog-data';
+import { blogPosts, getPostBySlug } from '@/lib/blog-data';
 import { Sparkles, Calendar, Clock, User, ArrowLeft, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+
+export async function generateStaticParams() {
+    return blogPosts.map((post) => ({ slug: post.slug }));
+}
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
     const post = getPostBySlug(params.slug);

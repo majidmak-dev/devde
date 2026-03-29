@@ -2,47 +2,61 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ChevronRight, Play } from 'lucide-react';
+import { ArrowRight, ChevronRight, Play, Pause } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { fetchVideos, VideoResult } from '@/lib/image-api';
 import { useInteraction } from '@/components/interaction-provider';
 
 export default function Hero() {
-    const [video, setVideo] = useState<VideoResult | null>(null);
+    const [bgVideo, setBgVideo] = useState<VideoResult | null>(null);
+    const [previewVideo, setPreviewVideo] = useState<VideoResult | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const previewVideoRef = useRef<HTMLVideoElement>(null);
     const { openModal } = useInteraction();
 
     useEffect(() => {
-        const loadVideo = async () => {
-            const videos = await fetchVideos('digital technology background', 1);
-            if (videos.length > 0) {
-                setVideo(videos[0]);
-            }
+        const loadVideos = async () => {
+            // Fetch two different videos in parallel
+            const [bgResults, previewResults] = await Promise.all([
+                fetchVideos('digital technology background abstract', 1),
+                fetchVideos('modern software app interface dashboard', 1),
+            ]);
+            if (bgResults.length > 0) setBgVideo(bgResults[0]);
+            if (previewResults.length > 0) setPreviewVideo(previewResults[0]);
         };
-        loadVideo();
+        loadVideos();
     }, []);
+
+    const togglePlay = () => {
+        if (!previewVideoRef.current) return;
+        if (isPlaying) {
+            previewVideoRef.current.pause();
+            setIsPlaying(false);
+        } else {
+            previewVideoRef.current.play().catch(e => console.error('Playback failed:', e));
+            setIsPlaying(true);
+        }
+    };
 
     return (
         <section className="relative pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center">
-            {/* Video Background */}
+            {/* Full-Page Video Background */}
             <div className="absolute inset-0 z-0">
-                {video ? (
+                {bgVideo ? (
                     <>
                         <video
                             autoPlay
                             loop
                             muted
                             playsInline
-                            poster={video.image}
                             className="w-full h-full object-cover opacity-20 transition-opacity duration-1000"
                         >
-                            <source src={video.url} type="video/mp4" />
+                            <source src={bgVideo.url} type="video/mp4" />
                         </video>
-                        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/40 to-background" />
                     </>
                 ) : (
-                    <div className="absolute inset-0 bg-slate-950" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
                 )}
             </div>
 
@@ -102,6 +116,7 @@ export default function Hero() {
                         </Button>
                     </motion.div>
 
+                    {/* Platform Preview — Video Player */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -111,43 +126,47 @@ export default function Hero() {
                         <div className="glass rounded-[2.5rem] p-4 shadow-2xl border border-white/10 overflow-hidden bg-white/5">
                             <div
                                 className="aspect-video rounded-[2rem] bg-slate-900/50 flex items-center justify-center relative overflow-hidden group cursor-pointer"
-                                onClick={() => {
-                                    if (previewVideoRef.current) {
-                                        if (isPlaying) {
-                                            previewVideoRef.current.pause();
-                                            setIsPlaying(false);
-                                        } else {
-                                            previewVideoRef.current.play().catch(e => console.error("Playback failed:", e));
-                                            setIsPlaying(true);
-                                        }
-                                    }
-                                }}
+                                onClick={togglePlay}
                             >
-                                {video ? (
+                                {/* Preview Video */}
+                                {previewVideo ? (
                                     <video
                                         ref={previewVideoRef}
-                                        poster={video.image}
-                                        className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                                        poster={previewVideo.image}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                         loop
                                         muted={false}
                                         playsInline
                                     >
-                                        <source src={video.url} type="video/mp4" />
+                                        <source src={previewVideo.url} type="video/mp4" />
                                     </video>
                                 ) : (
-                                    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800" />
+                                    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800 animate-pulse" />
                                 )}
 
+                                {/* Play/Pause Overlay */}
                                 <AnimatePresence>
                                     {!isPlaying && (
                                         <motion.div
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             exit={{ opacity: 0 }}
-                                            className="absolute inset-0 flex items-center justify-center bg-black/20"
+                                            className="absolute inset-0 flex items-center justify-center bg-black/30"
                                         >
                                             <div className="w-20 h-20 rounded-full bg-primary/20 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                                <Play className="w-8 h-8 text-white fill-white" />
+                                                <Play className="w-8 h-8 text-white fill-white ml-1" />
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                    {isPlaying && (
+                                        <motion.div
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10"
+                                        >
+                                            <div className="w-16 h-16 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                                                <Pause className="w-6 h-6 text-white fill-white" />
                                             </div>
                                         </motion.div>
                                     )}

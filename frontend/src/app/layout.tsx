@@ -7,7 +7,6 @@ import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/navbar";
 import FooterComponent from "@/components/footer";
 import Chatbot from "@/components/chatbot";
-import SystemStatus from '@/components/system-status';
 import { InteractionProvider } from "@/components/interaction-provider";
 import Preloader from "@/components/preloader";
 
@@ -82,7 +81,6 @@ export default function RootLayout({
               <main className="flex-1">{children}</main>
               <FooterComponent />
               <Chatbot />
-              <SystemStatus />
               <Script
                 src={`https://www.googletagmanager.com/gtag/js?id=G-6PXL01XDVC`}
                 strategy="afterInteractive"

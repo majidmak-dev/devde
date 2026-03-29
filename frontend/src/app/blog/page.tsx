@@ -15,7 +15,7 @@ const filterCategories = ['All', 'Development', 'Infrastructure', 'Design', 'Sec
 type BlogPostWithImage = typeof blogPosts[0] & { image?: string };
 
 export default function BlogListing() {
-    const [posts, setPosts] = useState<BlogPostWithImage[]>(blogPosts);
+    const [posts, setPosts] = useState<BlogPostWithImage[]>([...blogPosts].reverse());
     const [activeFilter, setActiveFilter] = useState('All');
     const [blogIdea, setBlogIdea] = useState('');
     const [aiResult, setAiResult] = useState<{ title: string, outline: string[] } | null>(null);
@@ -30,7 +30,7 @@ export default function BlogListing() {
                     image: images.length > 0 ? images[0].url : ''
                 };
             }));
-            setPosts(updatedPosts);
+            setPosts(updatedPosts.reverse());
         };
         loadImages();
     }, []);

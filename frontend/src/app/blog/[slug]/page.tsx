@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { blogPosts, getPostBySlug } from '@/lib/blog-data';
-import { Sparkles, Calendar, Clock, User, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Sparkles, Clock, User, ArrowLeft, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
@@ -8,12 +8,11 @@ export async function generateStaticParams() {
     return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-    const post = getPostBySlug(params.slug);
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const post = getPostBySlug(slug);
 
-    if (!post) {
-        notFound();
-    }
+    if (!post) return notFound();
 
     return (
         <article className="min-h-screen pt-32 pb-20">

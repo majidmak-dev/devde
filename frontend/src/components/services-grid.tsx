@@ -12,7 +12,7 @@ import {
     Sparkles
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { fetchImages } from '@/lib/image-api';
+import { fetchVideos } from '@/lib/image-api';
 import Link from 'next/link';
 
 const services = [
@@ -21,7 +21,7 @@ const services = [
         description: 'Breathtaking, user-centric interfaces designed to convert and captivate your audience.',
         icon: Layout,
         color: 'from-blue-500 to-indigo-600',
-        query: 'modern app design interface',
+        query: 'app design interface animation',
         href: '/ui-ux-design'
     },
     {
@@ -45,7 +45,7 @@ const services = [
         description: 'Secure the perfect digital identity with our AI-powered domain suggestions.',
         icon: Globe,
         color: 'from-purple-500 to-pink-600',
-        query: 'global network internet',
+        query: 'global network internet digital',
         href: '/contact'
     },
     {
@@ -53,7 +53,7 @@ const services = [
         description: 'Premium digital assets, templates, and ready-to-deploy software solutions.',
         icon: ShoppingBag,
         color: 'from-amber-500 to-orange-600',
-        query: 'ecommerce digital products',
+        query: 'ecommerce digital technology',
         href: '/marketplace'
     },
     {
@@ -61,26 +61,26 @@ const services = [
         description: 'Data-driven strategies to boost your visibility and accelerate business growth.',
         icon: Search,
         color: 'from-cyan-500 to-blue-600',
-        query: 'data analytics growth',
+        query: 'data analytics business growth',
         href: '/seo-growth'
     }
 ];
 
 export default function ServicesGrid() {
-    const [serviceImages, setServiceImages] = useState<Record<string, string>>({});
+    const [serviceVideos, setServiceVideos] = useState<Record<string, string>>({});
 
     useEffect(() => {
-        const loadImages = async () => {
-            const imagesMap: Record<string, string> = {};
+        const loadVideos = async () => {
+            const videosMap: Record<string, string> = {};
             await Promise.all(services.map(async (service) => {
-                const images = await fetchImages(service.query, 1);
-                if (images.length > 0) {
-                    imagesMap[service.title] = images[0].url;
+                const videos = await fetchVideos(service.query, 1);
+                if (videos.length > 0) {
+                    videosMap[service.title] = videos[0].url;
                 }
             }));
-            setServiceImages(imagesMap);
+            setServiceVideos(videosMap);
         };
-        loadImages();
+        loadVideos();
     }, []);
 
     return (
@@ -112,12 +112,15 @@ export default function ServicesGrid() {
                         viewport={{ once: true }}
                         className="group relative"
                     >
-                        <div className={`glass rounded-[2.5rem] p-10 h-full border border-white/5 bg-slate-900/40 hover:bg-slate-900/60 transition-all duration-500 overflow-hidden flex flex-col hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 group-hover:-translate-y-2 ${!serviceImages[service.title] ? 'animate-shimmer' : ''}`}>
-                            {/* Background Image Preview */}
-                            {serviceImages[service.title] && (
-                                <img
-                                    src={serviceImages[service.title]}
-                                    alt={service.title}
+                        <div className={`glass rounded-[2.5rem] p-10 h-full border border-white/5 bg-slate-900/40 hover:bg-slate-900/60 transition-all duration-500 overflow-hidden flex flex-col hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 group-hover:-translate-y-2 ${!serviceVideos[service.title] ? 'animate-shimmer' : ''}`}>
+                            {/* Background Video Preview */}
+                            {serviceVideos[service.title] && (
+                                <video
+                                    src={serviceVideos[service.title]}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
                                     className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity duration-1000 scale-110 group-hover:scale-100"
                                 />
                             )}

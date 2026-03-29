@@ -33,11 +33,13 @@ export async function DELETE(
 }
 
 async function handleRequest(request: NextRequest, pathSegments: string[]) {
-  const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5001';
   const isDev = process.env.NODE_ENV === 'development';
+  const BACKEND_URL = process.env.BACKEND_URL || (
+    isDev ? 'http://localhost:5001' : 'https://devde-backend.vercel.app'
+  );
   
-  if (!process.env.BACKEND_URL && !isDev) {
-    console.warn('CRITICAL: BACKEND_URL is not set in production. Proxying to localhost (likely to fail).');
+  if (!process.env.BACKEND_URL) {
+    console.warn(`[Proxy] BACKEND_URL not set — using default: ${BACKEND_URL}`);
   }
 
   const path = pathSegments.join('/');

@@ -90,7 +90,10 @@ async function handleRequest(request: NextRequest, pathSegments: string[]) {
     console.error('Proxy Error:', error);
     return NextResponse.json(
       { error: 'Failed to proxy request', details: error instanceof Error ? error.message : 'Unknown error' },
-      { status: 502 }
+      { 
+        status: 502,
+        headers: { 'X-Proxy-Target': targetUrl }
+      }
     );
   }
 }

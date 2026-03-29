@@ -526,8 +526,249 @@ The simplest cost optimization is deletion. Unattached EBS volumes, old snapshot
         readTime: '12 min read',
         category: 'Infrastructure',
         query: 'cloud computing aws cost management server'
+    },
+    {
+        slug: 'web3-dapps-production-guide',
+        title: 'Building Production-Ready dApps: Web3 Development in 2026',
+        excerpt: 'A hardcore guide to decentralized application architecture—from smart contract security audits to gas optimization and wallet UX patterns that actually convert.',
+        content: `Web3 development has matured past the hype cycle. In 2026, building a dApp that users actually trust and use requires the same rigor applied to any production web application — plus an entirely new domain of concerns unique to blockchain: immutability, gas costs, wallet UX, and decentralized trust.
+
+## Smart Contract Security: The Non-Negotiables
+Every line of Solidity deployed to mainnet is public, permanent, and potentially exploitable. Before deployment, every contract must survive a formal security audit. Common attack vectors include reentrancy (the exploit that drained The DAO), integer overflow, frontrunning, and access control failures. Tools like Slither, Mythril, and Echidna provide automated analysis — but they complement human audits, they don't replace them.
+
+## Gas Optimization: Writing Cheaper Contracts
+Gas is paid in ETH; every unnecessary computation costs your users real money. Use \`uint256\` over smaller types (Solidity packs tightly but arithmetic is 256-bit regardless), avoid unnecessary storage writes (SSTORE is the most expensive opcode), use events instead of storage for data that doesn't need to be read on-chain, and cache storage reads in memory variables within loops.
+
+## Wallet UX: Reducing Abandonment at the Signature Step
+The wallet connection and transaction signing flow is where most users drop off. Best practices: use Wagmi + Viem instead of direct ethers.js for better abstraction, implement EIP-6963 for multi-wallet support without conflicts, show human-readable transaction summaries before the MetaMask dialog appears, and implement optimistic UI updates with proper revert handling.
+
+## Indexing with The Graph
+Reading historical blockchain data through RPC calls is slow and expensive. The Graph Protocol lets you define subgraph schemas that index specific contract events into a GraphQL API. This enables your frontend to query historical transfers, trades, or governance votes with the same performance you'd expect from a traditional REST API.`,
+        author: 'Majid Desk',
+        date: 'Mar 5, 2026',
+        readTime: '13 min read',
+        category: 'Development',
+        query: 'blockchain cryptocurrency technology web3'
+    },
+    {
+        slug: 'edge-computing-cloudflare-workers',
+        title: 'Edge Computing with Cloudflare Workers: Moving Logic to the User',
+        excerpt: 'How edge functions at 300+ global PoPs can eliminate cold starts, reduce latency to single-digit milliseconds, and transform how you architect globally-distributed applications.',
+        content: `Traditional server architectures have a geographic problem: your server lives somewhere, your users live everywhere. Every request travels thousands of miles to your origin and back. Edge computing flips this model — your application logic runs at data centers distributed globally, executing within milliseconds of every user on the planet.
+
+## Cloudflare Workers: V8 Isolates, Not Containers
+Workers uses V8 isolates — the same sandbox that powers Chrome tabs — instead of containers or VMs. Isolates start in microseconds, not hundreds of milliseconds. There are no cold starts in the traditional sense. This architecture enables genuine sub-millisecond execution for lightweight functions and makes Workers uniquely suited for latency-sensitive workloads.
+
+## What Belongs at the Edge
+Edge functions excel at request transformation, A/B testing routing, authentication and JWT validation, personalization header injection, and edge-side rendering with KV-backed data. They struggle with long-running computations, large binary processing, and any operation requiring persistent database connections — though Cloudflare D1 and Hyperdrive are rapidly closing those gaps.
+
+## KV, Durable Objects, and R2
+Cloudflare's storage primitives each serve different use cases. KV is globally replicated key-value storage ideal for configuration and user session lookups — it's eventually consistent with predictable low latency. Durable Objects provide strongly consistent, single-instance coordination — perfect for real-time collaboration and websocket hubs. R2 is S3-compatible object storage with zero egress fees, making it an immediate cost winner for any high-traffic media serving use case.
+
+## Deploying Next.js to the Edge
+Next.js supports edge runtime for individual routes — add \`export const runtime = 'edge'\` to any page or API route. This enables edge rendering with Cloudflare Workers when deployed via OpenNext or Cloudflare's official Next.js adapter, combining Next.js's routing and RSC capabilities with true global edge distribution.`,
+        author: 'Sarah Chen',
+        date: 'Mar 8, 2026',
+        readTime: '10 min read',
+        category: 'Infrastructure',
+        query: 'global network edge server technology'
+    },
+    {
+        slug: 'ai-prompt-engineering-production',
+        title: 'Production AI: Engineering Prompts That Actually Perform at Scale',
+        excerpt: 'Beyond ChatGPT wrappers — a systems engineering approach to building LLM-powered features that are reliable, cost-effective, and maintainable in production.',
+        content: `LLM integration has moved from novelty to expectation. Every product team is building AI features. Most are doing it wrong — shipping brittle prompt strings concatenated with user input, with no evaluation framework, no cost controls, and no fallback strategy. Here's the engineering discipline required to do it right.
+
+## Prompt Architecture: Separating Concerns
+Treat prompts as code. Store system prompts in version-controlled files, not database fields or environment variables. Parameterize dynamic content through clearly defined template slots. Use TypeScript types to validate prompt inputs before they hit the API. This makes prompts testable, reviewable in PRs, and rollback-able when a prompt change causes regression.
+
+## Evaluation-Driven Development
+You cannot improve what you cannot measure. Build an eval suite of representative input/output pairs before you start iterating on prompts. Use LLM-as-judge patterns (GPT-4 evaluating Sonnet's output against a rubric) for subjective quality dimensions. Track metrics like output token counts, latency, cost-per-request, and error rates across prompt versions. Tools like Braintrust, LangSmith, and Promptfoo provide structured eval infrastructure.
+
+## Cost Management at Scale
+At 100 users, LLM costs are invisible. At 100,000 users, they define your unit economics. Implement aggressive caching for identical or near-identical inputs — semantic caching using embeddings similarity can cache outputs for paraphrased versions of the same question. Use smaller models for classification and routing decisions, reserving frontier models for generation tasks that require their capability.
+
+## Streaming and Perceived Performance
+LLMs are slow compared to traditional APIs. Streaming tokens as they generate transforms user perception of speed — the interface feels responsive immediately even if the complete response takes 8 seconds. Implement streaming with SSE (Server-Sent Events) or WebSocket connections, and design your UI to gracefully progressive-render partial outputs.`,
+        author: 'Alex Rivera',
+        date: 'Mar 10, 2026',
+        readTime: '11 min read',
+        category: 'Development',
+        query: 'artificial intelligence machine learning technology'
+    },
+    {
+        slug: 'rust-webassembly-frontend',
+        title: 'Rust + WebAssembly: When JavaScript Isn\'t Fast Enough',
+        excerpt: 'A practical guide to integrating Rust-compiled WebAssembly modules into your Next.js frontend for image processing, cryptography, and compute-intensive tasks.',
+        content: `JavaScript dominates the browser, but it has performance ceilings. For CPU-intensive tasks — image manipulation, audio processing, cryptographic operations, physics simulations — JavaScript simply cannot compete with native-speed code. WebAssembly (WASM) closes that gap, and Rust is the premier language for writing WASM modules due to its first-class toolchain support and zero-runtime overhead.
+
+## When to Reach for Wasm
+The decision to introduce WebAssembly should be driven by profiling, not architecture preference. Browser dev tools will tell you exactly which operations are bottlenecks. Common candidates: image resizing in the browser (Canvas API is slow), AES encryption for client-side encryption apps, video frame processing, parsing of binary file formats (PDFs, GPX files), and any hot loop that runs millions of iterations.
+
+## Setting Up the Rust-to-Wasm Pipeline
+Install the wasm32-unknown-unknown target (\`rustup target add wasm32-unknown-unknown\`) and wasm-pack. Create your Rust library crate with functions annotated \`#[wasm_bindgen]\` for JavaScript interop. wasm-pack builds the .wasm binary and generates TypeScript type definitions automatically — the interop is seamless. The generated npm package can be imported in any JavaScript or TypeScript project.
+
+## Integrating with Next.js
+Next.js 14+ supports WebAssembly imports natively via experimental webpack config (\`experiments: { asyncWebAssembly: true }\`). Load your WASM module asynchronously on the client side using dynamic import(). Since WASM execution is synchronous and CPU-blocking, computationally heavy operations should be offloaded to a Web Worker to keep the main thread responsive.
+
+## Performance Reality Check
+Rust/WASM is typically 1.5x–5x faster than optimized JavaScript for compute-heavy tasks, with peak advantages in tight numeric loops. For I/O-bound code, network calls, or code that does frequent small JavaScript↔WASM round-trips, the overhead of boundary crossing can negate the gains. Always benchmark your specific use case.`,
+        author: 'Priya Mehta',
+        date: 'Mar 12, 2026',
+        readTime: '12 min read',
+        category: 'Development',
+        query: 'coding software programming technical'
+    },
+    {
+        slug: 'design-tokens-system-scale',
+        title: 'Design Tokens: The Foundation of Scalable Design Systems',
+        excerpt: 'How to architect a token-based design system that keeps design and engineering in sync across multiple platforms, brands, and themes — without the chaos.',
+        content: `Design systems fail in one of two ways: they're too rigid (no flexibility for product teams) or too loose (every team does their own thing anyway). Design tokens are the architectural pattern that threads this needle — a single source of truth for design decisions that scales across platforms, themes, and teams.
+
+## What Design Tokens Actually Are
+Design tokens are name-value pairs that represent design decisions: colors, typography scales, spacing values, border radii, shadow depths, animation durations. The key insight is that naming matters as much as values. A token named \`--color-brand-primary\` is consumed correctly regardless of its value. A token named \`--blue-500\` bakes its value into its name, breaking when the brand color changes.
+
+## The Three-Tier Token Hierarchy
+Mature design systems use three token tiers: Primitive tokens define the raw palette (\`--color-indigo-600: #4f46e5\`). Semantic tokens map primitives to roles (\`--color-action-primary: var(--color-indigo-600)\`). Component tokens scope semantic tokens to specific components (\`--button-background: var(--color-action-primary)\`). This hierarchy enables global theme changes (swap \`--color-indigo-600\`) that cascade through the entire system automatically.
+
+## Style Dictionary: Transforming Tokens to Platforms
+Style Dictionary (by Amazon) transforms a JSON token definition into CSS custom properties, iOS Swift constants, Android XML values, JavaScript objects, and Sass variables in a single build step. Your design team edits token values in Figma (using the Tokens Studio plugin), exports JSON, and your CI pipeline transforms that JSON into platform-specific code. Design changes propagate to all platforms simultaneously.
+
+## W3C Design Token Spec: The Emerging Standard
+The W3C Design Token Community Group is standardizing the token format. Major tools — Tokens Studio, Theo, and Style Dictionary — are aligning with the spec. Adopting the standard now avoids future migration pain. The spec defines composites (typography tokens that bundle font-size, line-height, and font-weight), references ($value: '{color.brand.primary}'), and type annotations for validation.`,
+        author: 'Alex Rivera',
+        date: 'Mar 15, 2026',
+        readTime: '9 min read',
+        category: 'Design',
+        query: 'design system ui components interface'
+    },
+    {
+        slug: 'postgresql-query-optimization',
+        title: 'PostgreSQL Query Optimization: From Slow Queries to Sub-Millisecond Responses',
+        excerpt: 'A DBA-level deep dive into EXPLAIN ANALYZE, index strategy, query planning, and the configuration changes that will transform your database performance.',
+        content: `PostgreSQL is extraordinarily capable. Almost every "PostgreSQL is slow" complaint traces back to either missing indexes, inefficient query patterns, or default configuration values designed for minimal resource usage rather than performance. Here's a systematic approach to diagnosing and fixing each category.
+
+## EXPLAIN ANALYZE: Learning to Read Execution Plans
+\`EXPLAIN ANALYZE\` is the most important command in your optimization toolkit. It shows the query planner's chosen execution strategy, the estimated vs. actual row counts, and the time spent in each node. Key things to look for: Seq Scan on large tables (usually means missing index), Hash Join instead of Index Nested Loop for small result sets (estimates are wrong — analyze your table), and row estimate accuracy (wild divergence between actual and estimated rows means stale statistics).
+
+## Index Strategy: Beyond Basic B-Trees
+Every PostgreSQL table should have a primary key (clustered B-tree index). Beyond that, index creation should be query-driven. Partial indexes (\`CREATE INDEX ON orders(customer_id) WHERE status = 'pending'\`) are dramatically smaller and faster than full indexes for filtered queries. GIN indexes power full-text search and JSONB queries. BRIN indexes are efficient for time-series data with natural ordering. Cover frequently-used query columns with composite indexes, ordering by selectivity.
+
+## Connection Pooling with PgBouncer
+PostgreSQL spawns a process per connection. At 1000 concurrent connections, you have 1000 processes competing for CPU and maintaining shared memory structures. PgBouncer's transaction-mode pooling multiplexes hundreds of application connections through a handful of actual PostgreSQL connections, dramatically reducing overhead. This single change has resolved performance crises for more production databases than any other optimization.
+
+## Configuration: max_connections, work_mem, shared_buffers
+Default PostgreSQL configuration is deliberately conservative. \`shared_buffers\` should be 25% of system RAM. \`work_mem\` controls memory per-operation (sorting, hashing) — setting it too low forces disk spills; too high and many simultaneous queries cause OOM. \`effective_cache_size\` informs the planner about available OS cache — set it to 75% of system RAM. Enable \`pg_stat_statements\` to surface your slowest queries automatically.`,
+        author: 'Majid Desk',
+        date: 'Mar 17, 2026',
+        readTime: '14 min read',
+        category: 'Development',
+        query: 'database server technology infrastructure'
+    },
+    {
+        slug: 'frontend-testing-strategy-2026',
+        title: 'The Modern Frontend Testing Pyramid: Unit, Integration, and E2E in 2026',
+        excerpt: 'A pragmatic testing strategy that actually catches real bugs, runs fast in CI, and doesn\'t take longer to maintain than the features it covers.',
+        content: `Frontend testing has a reputation problem. Teams bounce between "no tests" (move fast, break things) and "test everything" (builds take 20 minutes, tests are brittle, no one updates them). A pragmatic testing pyramid solves both failure modes: targeted unit tests for logic, focused component integration tests, and a lean E2E suite for critical user journeys.
+
+## Vitest: The Modern Unit Test Runner
+Vitest has replaced Jest as the de facto unit test runner for Vite-based projects — and even for many Next.js projects via vitest's compatibility mode. Its key advantage: it uses the same configuration as your build tool, so transforms, aliases, and environment variables just work. Test files co-located with source files encourages testing as a first-class concern during development.
+
+## React Testing Library: Testing Behavior, Not Implementation
+The core RTL heuristic: query elements the way users find them — by accessible role, label text, or display value, not by CSS class or data-testid. This produces tests that survive refactors because they're coupled to what users see, not to internal implementation details. Use \`userEvent.click\` over \`fireEvent.click\` for realistic event simulation (including focus management and pointer events).
+
+## Playwright for E2E: The Gold Standard
+Playwright has definitively won the E2E testing landscape. Multi-browser support (Chromium, Firefox, WebKit) with a single API, auto-waiting for elements (eliminating flaky sleep() calls), network interception for mocking API responses, and trace viewer for debugging failures in CI — it's a complete testing platform. Limit your Playwright suite to the 5–10 critical user journeys that represent actual user value.
+
+## Contract Testing with MSW
+Mock Service Worker (MSW) intercepts network requests at the Service Worker level in browsers and at the Node.js http module level in tests. It enables true contract testing: your frontend tests against mock API responses that mirror the real API's shape, catching integration issues before they reach E2E tests or production. MSW mocks are reusable across Storybook, unit tests, and development.`,
+        author: 'Sarah Chen',
+        date: 'Mar 19, 2026',
+        readTime: '10 min read',
+        category: 'Development',
+        query: 'software testing code quality development'
+    },
+    {
+        slug: 'tailwind-css-v4-architecture',
+        title: 'Tailwind CSS v4: What\'s New, What Changed, and How to Migrate',
+        excerpt: 'Tailwind v4 is a ground-up rewrite with a new CSS-first configuration, a new high-performance engine, and a simpler developer experience. Here\'s everything you need to know.',
+        content: `Tailwind CSS v4 represents the most significant architectural shift since the utility-first framework launched. The JavaScript config file is gone. The CSS @import configuration is in. The Oxide engine replaces the Node.js-based processing pipeline. For most projects, this means 5–10x faster full builds and 100x+ faster incremental builds. The migration path is manageable.
+
+## The New CSS-First Configuration
+In v4, you configure Tailwind directly in your CSS file using @import and @theme directives. Your design tokens are CSS custom properties. There is no tailwind.config.js. This isn't just aesthetics — your theme values are now directly usable as CSS variables throughout your stylesheets without any special syntax.
+
+\`\`\`css
+@import "tailwindcss";
+
+@theme {
+  --color-brand: oklch(65% 0.25 250);
+  --font-sans: "Inter Variable", sans-serif;
+  --radius-card: 1.5rem;
+}
+\`\`\`
+
+## The Oxide Engine: Performance at Scale
+The Oxide engine rewrites the CSS parsing pipeline in Rust, eliminating the Node.js overhead for class scanning. For a large codebase with thousands of components, this means full rebuilds in under 100ms instead of 2–5 seconds. Incremental rebuilds (on save during development) drop to <5ms. The development experience improvement is immediately perceptible.
+
+## New Utilities Worth Knowing
+v4 ships with several new utility categories that previously required plugins: \`field-sizing-content\` for auto-resizing textareas, container queries directly in Tailwind classes (\`@sm:flex\`), 3D transform utilities (\`rotate-x-45\`, \`translate-z-8\`), and \`text-shadow\` utilities. The color palette has been updated to use OKLCH throughout, providing more perceptual uniformity across the color scale.
+
+## Migration from v3
+The official upgrade tool handles the majority of breaking changes automatically: \`npx @tailwindcss/upgrade\`. Review the output carefully — the tool migrates config to CSS @theme, updates deprecated class names (\`shadow-sm\` is now \`shadow-xs\`), and adjusts JIT mode references. Most projects complete migration in under an hour.`,
+        author: 'Alex Rivera',
+        date: 'Mar 21, 2026',
+        readTime: '9 min read',
+        category: 'Design',
+        query: 'web design css frontend development interface'
+    },
+    {
+        slug: 'microservices-communication-patterns',
+        title: 'Microservices Communication Patterns: Sync vs. Async and When Each Wins',
+        excerpt: 'API gateways, service meshes, event streaming, and saga orchestration — a practical guide to the communication patterns that define resilient microservice architectures.',
+        content: `The microservices promise — independent deployability, technology heterogeneity, team autonomy — comes with a distributed systems tax. Communication between services is where complexity concentrates. Getting these patterns wrong produces systems that are slower, harder to debug, and more fragile than the monolith they replaced.
+
+## Synchronous Communication: REST and gRPC
+REST over HTTP is the default for service-to-service communication because it's universally understood and debuggable with standard tools. gRPC outperforms REST for internal communication: binary Protobuf encoding, HTTP/2 multiplexing, bidirectional streaming, and generated client stubs in multiple languages eliminate serialization overhead and API contract ambiguity. For compute-sensitive internal APIs, gRPC typically delivers 5–10x throughput improvement over JSON REST.
+
+## Asynchronous Communication: Event Streaming
+Kafka and RabbitMQ enable services to communicate without temporal coupling — the producer doesn't wait for consumers, and consumers process at their own rate. This pattern is essential for workflows where reliability matters more than immediacy: order processing, email notifications, audit logging, and analytics pipelines. Event sourcing complements this approach, using the event log itself as the system of record.
+
+## The Saga Pattern: Distributed Transactions
+Services need to coordinate multi-step operations without distributed ACID transactions. The Saga pattern breaks a cross-service workflow into a sequence of local transactions, each publishing events that trigger the next step. When a step fails, compensating transactions run in reverse to undo completed steps. Choreography (each service reacts to events) is simpler but harder to trace. Orchestration (a coordinator service directs each step) is more complex but provides explicit control flow visibility.
+
+## Service Mesh with Istio
+A service mesh abstracts infrastructure concerns — mutual TLS, load balancing, circuit breaking, distributed tracing, and retry policies — out of application code and into the infrastructure layer. Istio's sidecar proxy pattern intercepts all service-to-service traffic without code changes. The operational overhead is substantial (Istio is genuinely complex), but for organizations with dozens of services, the observability and security guarantees justify the investment.`,
+        author: 'Majid Desk',
+        date: 'Mar 23, 2026',
+        readTime: '13 min read',
+        category: 'Infrastructure',
+        query: 'software architecture backend microservices server'
+    },
+    {
+        slug: 'advanced-css-animations-performance',
+        title: 'Advanced CSS Animations: The 60fps Guide to Delightful Motion',
+        excerpt: 'CSS animations that captivate without killing performance — covering composited layers, the FLIP technique, scroll-driven animations, and the View Transitions API.',
+        content: `Animation done wrong destroys user experience and device battery. Animation done right signals quality, guides attention, and makes interactions feel physical. The performance gap between these outcomes comes down to which CSS properties you animate, how you orchestrate them, and whether you respect the browser's rendering pipeline.
+
+## The Compositor Thread: Your Performance Foundation
+The browser renders frames using two threads: the main thread (JavaScript execution, layout, paint) and the compositor thread (layer compositing). Animations running only on the compositor thread maintain 60fps even when the main thread is busy. Only two CSS properties composite cleanly: \`transform\` and \`opacity\`. Every other animated property — width, height, top, left, background-color — triggers layout or paint and risks frame drops. This is the most important rule in CSS animation performance.
+
+## The FLIP Technique: Animating From and To
+FLIP (First, Last, Invert, Play) enables smooth transitions for elements that move between DOM positions — an element expanding from a card into a fullscreen view, a list item moving to a different position. The technique: capture the element's starting position (First), move it to the end state (Last), calculate the difference and apply an inverted transform (Invert), then animate the transform to zero (Play). The result is a smooth position change using only compositor-safe transform.
+
+## Scroll-Driven Animations: Pure CSS
+Chrome 115+ brought native scroll-driven animations without JavaScript. Link an animation's progress to scroll position using \`animation-timeline: scroll()\` or element visibility using \`animation-timeline: view()\`. This enables parallax effects, scroll-progress indicators, and reveal animations that were previously only possible with Intersection Observer and JavaScript.
+
+## The View Transitions API
+The View Transitions API (now stable in Chrome, Safari, and Firefox) enables smooth animated transitions between page states — including full-page navigations in multi-page apps. Tag elements with \`view-transition-name\` and the browser automatically captures and morphs them across navigation. Combined with Next.js App Router, this delivers native-app-quality page transitions with minimal code.`,
+        author: 'Sarah Chen',
+        date: 'Mar 25, 2026',
+        readTime: '11 min read',
+        category: 'Design',
+        query: 'web design animation interface modern'
     }
 ];
+
 
 export function getPostBySlug(slug: string) {
     return blogPosts.find(post => post.slug === slug);

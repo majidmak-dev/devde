@@ -14,13 +14,17 @@ export default function GoogleAd({ slot, format = 'auto', className = "", style 
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     try {
       // @ts-ignore
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (err) {
-      console.error('Google Ads Error:', err);
+      // Suppress "already have ads" - happens during hot reload
     }
-  }, []);
+  }, [mounted]);
 
   return (
     <div className={`ad-container w-full max-w-5xl mx-auto my-12 overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 backdrop-blur-md flex flex-col items-center justify-center p-8 transition-all hover:bg-white/10 ${className}`}>

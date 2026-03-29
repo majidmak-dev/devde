@@ -53,27 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={outfit.variable} suppressHydrationWarning={true}>
-      <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9460255466960810"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=G-6PXL01XDVC`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-6PXL01XDVC');
-          `}
-        </Script>
-      </head>
+      <head />
       <body
         className={`${geistMono.variable} antialiased font-sans`}
         suppressHydrationWarning={true}
@@ -92,6 +72,24 @@ export default function RootLayout({
               <FooterComponent />
               <Chatbot />
               <SystemStatus />
+              <Script
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9460255466960810"
+                crossOrigin="anonymous"
+                strategy="afterInteractive"
+              />
+              <Script
+                src={`https://www.googletagmanager.com/gtag/js?id=G-6PXL01XDVC`}
+                strategy="afterInteractive"
+              />
+              <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-6PXL01XDVC');
+                `}
+              </Script>
               <Toaster position="bottom-right" toastOptions={{
                 duration: 4000,
                 style: {

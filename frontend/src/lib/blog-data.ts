@@ -299,6 +299,233 @@ Each PostgreSQL connection consumes 5-10MB of RAM. At thousands of concurrent co
         readTime: '15 min read',
         category: 'Development',
         query: 'database postgresql server infrastructure'
+    },
+    {
+        slug: 'typescript-advanced-patterns',
+        title: 'Advanced TypeScript Patterns Every Senior Developer Should Know',
+        excerpt: 'From discriminated unions to mapped types — master the TypeScript features that make large codebases safe, maintainable, and a joy to work in.',
+        content: `TypeScript has moved far beyond simple type annotations. The advanced type system features — conditional types, infer, mapped types, template literal types — enable patterns that were impossible in plain JavaScript and dramatically reduce runtime bugs in large applications.
+
+## Discriminated Unions: The State Machine Pattern
+Discriminated unions are TypeScript's most powerful pattern for modeling application state. By adding a literal \`type\` field to each variant of a union, TypeScript can exhaustively check all cases in a switch statement, catching missing branches at compile time.
+
+## Branded Types for Type-Safe IDs
+The classic bug: passing a \`userId\` where an \`orderId\` is expected — both are strings, TypeScript allows it, production breaks. Branded types create nominal typing in TypeScript's structural type system, making it impossible to accidentally mix incompatible ID types.
+
+## The Builder Pattern with Method Chaining
+Builder patterns with TypeScript's return type inference create incredibly ergonomic, type-safe APIs. Each builder method returns an updated type that tracks accumulated configuration, giving users autocomplete that reflects only the valid next steps.
+
+## Mapped Types for DRY APIs
+Instead of defining request and response types separately for every endpoint, use mapped types to derive one from the other. This ensures API contracts stay in sync automatically — change the source type and all derived types update instantly.`,
+        author: 'Majid Desk',
+        date: 'Mar 25, 2026',
+        readTime: '13 min read',
+        category: 'Development',
+        query: 'typescript javascript programming code'
+    },
+    {
+        slug: 'realtime-apps-websockets-2026',
+        title: 'Building Real-Time Applications: WebSockets vs. SSE vs. WebRTC',
+        excerpt: 'A practical guide to choosing and implementing the right real-time technology for your application — from live dashboards to video conferencing.',
+        content: `Real-time features have moved from differentiators to expectations. Users want live notifications, collaborative editing, live analytics dashboards, and instant messaging. The choice of technology fundamentally shapes your architecture, scalability strategy, and client experience.
+
+## WebSockets: Full-Duplex Communication
+WebSockets establish a persistent, bidirectional connection between client and server over a single TCP connection. They are the right choice for applications requiring high-frequency, bidirectional message exchange — chat applications, multiplayer games, live trading dashboards, and collaborative tools like Google Docs.
+
+## Server-Sent Events: The Underrated Option
+SSE uses standard HTTP and delivers a one-way stream from server to client. Its simplicity is its superpower: it works through HTTP/2 multiplexing, respects standard CDN caching infrastructure, and reconnects automatically. For live feeds, notification systems, and dashboards where the client only needs to receive data, SSE is often the better choice than WebSockets.
+
+## WebRTC: Peer-to-Peer Media
+WebRTC enables direct browser-to-browser communication without a central media server, making it ideal for video and audio conferencing. A signaling server (which can use WebSockets or SSE) negotiates the connection, but actual media streams flow directly between peers. This dramatically reduces infrastructure costs at scale compared to routing media through a server.
+
+## Scalability: The Sticky Session Problem
+Both WebSockets and SSE require persistent connections, which breaks the stateless assumption of traditional load balancers. Use Redis Pub/Sub or similar message brokers to distribute messages across horizontally scaled server instances, and configure your load balancer for sticky sessions or consistent hashing.`,
+        author: 'Sarah Chen',
+        date: 'Mar 22, 2026',
+        readTime: '10 min read',
+        category: 'Development',
+        query: 'realtime technology websocket network data'
+    },
+    {
+        slug: 'docker-production-best-practices',
+        title: 'Docker in Production: The Best Practices Nobody Told You About',
+        excerpt: 'From multi-stage builds to non-root containers to health checks — the Docker practices that separate toy projects from production-grade deployments.',
+        content: `Running Docker in development is straightforward. Running it reliably in production is an art form. After years of deploying containerized applications at scale, these are the practices that make the difference between fragile and bulletproof container deployments.
+
+## Multi-Stage Builds: Small Images, Big Impact
+A Node.js application's development dependencies — TypeScript compiler, testing frameworks, linting tools — have no place in a production image. Multi-stage builds use a full development image to compile your application, then copy only the production artifacts into a minimal base image. This can reduce image size from 1.5GB to under 150MB.
+
+## Never Run as Root
+By default, Docker containers run as root, which is a massive security risk. If your container is compromised, the attacker has root access to the container's filesystem and everything mounted into it. Always add a non-root user in your Dockerfile and switch to it before running your application.
+
+## Health Checks: Containers That Self-Report
+Without a \`HEALTHCHECK\` instruction, Docker only knows if your container's main process is running — not if your application is actually serving requests. A proper health check hits your application's /health endpoint and marks the container unhealthy if it fails, enabling orchestrators like Kubernetes to restart it automatically.
+
+## Layer Caching: Speed Up Your CI Pipeline
+Docker builds each instruction as a separate layer and caches them. Ordering instructions from least-frequently-changing to most-frequently-changing maximizes cache reuse. Always copy your \`package.json\` and run \`npm install\` before copying your application source — this avoids reinstalling dependencies on every code change.`,
+        author: 'Priya Mehta',
+        date: 'Mar 19, 2026',
+        readTime: '11 min read',
+        category: 'Infrastructure',
+        query: 'docker container devops deployment'
+    },
+    {
+        slug: 'progressive-web-apps-2026',
+        title: 'Progressive Web Apps in 2026: Why PWAs Are Winning the Mobile Wars',
+        excerpt: 'How modern PWA capabilities — push notifications, background sync, and offline-first architecture — are closing the gap with native apps.',
+        content: `The gap between Progressive Web Apps and native applications has narrowed to near-invisibility. With Project Fugu APIs expanding browser capabilities to file system access, Bluetooth, and NFC, PWAs can now do things that once required native code. And they still ship instantly, update automatically, and work on every platform.
+
+## The Offline-First Imperative
+Designing your application offline-first — assuming the network is unreliable and building functionality around the Service Worker cache — produces apps that feel dramatically faster even on fast connections. Cache-first strategies for static assets and stale-while-revalidate for API responses deliver instant loads that native apps struggle to match.
+
+## Push Notifications Without the App Store
+Web Push Notifications work across Android and increasingly on iOS 17+. Users can receive timely, relevant notifications after granting permission — no App Store install, no 30% platform tax, no review process. For e-commerce and content applications, web push consistently outperforms email for engagement rates on re-marketing campaigns.
+
+## The Install Moment: Getting Used to the Home Screen
+When a user installs your PWA (adds to home screen), engagement metrics typically double. The Web App Manifest controls how your app appears when installed: name, icons, splash screen, display mode, and orientation. Trigger the install prompt at the right moment — after the user has demonstrated clear intent, not on the first visit.`,
+        author: 'Alex Rivera',
+        date: 'Mar 16, 2026',
+        readTime: '9 min read',
+        category: 'Development',
+        query: 'mobile app development progressive web pwa'
+    },
+    {
+        slug: 'cicd-pipeline-github-actions',
+        title: 'CI/CD Mastery: Building a Zero-Downtime Deployment Pipeline with GitHub Actions',
+        excerpt: 'A detailed walkthrough of a production-grade CI/CD pipeline that tests, builds, and deploys with zero downtime using blue-green deployments.',
+        content: `A great CI/CD pipeline is invisible. Developers push code, tests run, and new versions deploy without anyone manually SSH-ing into a server or praying the deployment doesn't break production. Here's how to build one you can trust.
+
+## The Pipeline Stages That Actually Matter
+Not every CI/CD recommendation is worth implementing. Focus on: linting and type checking (fast feedback, catches whole classes of bugs), unit and integration tests (confidence in correctness), security scanning (SAST and dependency vulnerability checks), build (reproducible artifact), and deployment (consistent, automated, reversible).
+
+## GitHub Actions: Secrets and Environment Management
+Never hardcode secrets in your workflow files. Use GitHub Actions Secrets for sensitive values and GitHub Environments for environment-specific configuration (staging vs. production approval gates). The \`environment\` key in your workflow enables required reviewers, deployment protection rules, and environment-specific secrets.
+
+## Blue-Green Deployments: Eliminating Downtime
+Blue-green deployment maintains two identical production environments. Traffic always flows to the active (blue) environment. When deploying, you deploy to the inactive (green) environment, run smoke tests against it, then switch the load balancer to point at green. The old blue environment becomes the next green, ready for fast rollback.
+
+## Rollback in 30 Seconds
+A deployment pipeline is only as good as its rollback strategy. With containerized deployments, rolling back is re-deploying the previous container image — a process that should take under 30 seconds. Tag every production image with the git SHA and keep the previous 5 images available for instant rollback.`,
+        author: 'Majid Desk',
+        date: 'Mar 11, 2026',
+        readTime: '12 min read',
+        category: 'Infrastructure',
+        query: 'cicd devops automation github pipeline'
+    },
+    {
+        slug: 'web-accessibility-enterprise',
+        title: 'Web Accessibility in 2026: Beyond WCAG Compliance to Inclusive Design',
+        excerpt: 'Why accessibility is a business imperative — and how to build genuinely inclusive digital experiences that serve all users and protect your organization legally.',
+        content: `Web accessibility is no longer a checkbox exercise. With ADA and EAA enforcement increasing dramatically, organizations face real legal and financial risk from inaccessible digital products. But beyond compliance, accessible design is simply better design — it benefits everyone, not just users with disabilities.
+
+## The Business Case: Beyond Legal Risk
+Approximately 1.3 billion people globally live with a disability. An inaccessible website excludes this audience from your product entirely. Beyond users with permanent disabilities, accessibility features benefit users with temporary limitations (a broken arm), situational limitations (bright sunlight on a phone screen), and the aging population whose needs evolve over time.
+
+## Keyboard Navigation: The Foundation
+If your application can't be fully operated by keyboard alone, it fails users who rely on screen readers, switch controls, or voice navigation. Every interactive element must be focusable and operable without a mouse. Use \`focus-visible\` CSS to restore visible focus indicators (which many developers incorrectly suppress for aesthetic reasons).
+
+## ARIA: Use It Sparingly and Correctly
+The first rule of ARIA is don't use ARIA. Native HTML elements have built-in accessibility semantics that ARIA can't improve. \`<button>\` is always better than \`<div role="button">\`. When you do need ARIA — for custom components like date pickers and comboboxes — use it precisely. Incorrect ARIA is worse than no ARIA.
+
+## Automated Testing: Catching the Obvious Early
+Tools like Axe, Lighthouse accessibility audit, and Playwright accessibility assertions catch approximately 30% of accessibility issues automatically. They're not a substitute for manual testing with real screen readers (NVDA, VoiceOver, JAWS), but they eliminate the most common and obvious barriers in your CI pipeline.`,
+        author: 'Alex Rivera',
+        date: 'Mar 7, 2026',
+        readTime: '8 min read',
+        category: 'Design',
+        query: 'web accessibility inclusive design user interface'
+    },
+    {
+        slug: 'graphql-vs-rest-2026',
+        title: 'GraphQL vs. REST in 2026: When to Use Each and Why It Matters',
+        excerpt: 'A pragmatic, experience-backed analysis of when GraphQL genuinely outperforms REST and when it adds unnecessary complexity to your stack.',
+        content: `The GraphQL vs. REST debate has matured. We now have years of production experience with both, and the answer — as with most engineering decisions — is deeply contextual. Let's cut through the hype and analyze when each approach actually wins.
+
+## Where GraphQL Excels
+GraphQL shines in three specific scenarios: highly interconnected data with complex relationships (social graphs, content management systems), mobile applications where bandwidth is precious and over-fetching is expensive, and platforms with multiple clients (web, iOS, Android, third-party) that need different data shapes from the same API.
+
+## REST's Underappreciated Advantages
+REST's simplicity and ubiquity are genuine advantages. HTTP caching works out of the box with REST — CDNs, browser caches, and proxy servers all understand HTTP cache semantics natively, something that GraphQL (operating over a single POST endpoint) fundamentally cannot leverage without additional complexity. REST is also far easier to secure at the infrastructure level.
+
+## The N+1 Problem: GraphQL's Achilles Heel
+GraphQL's flexibility comes with a trap: the N+1 query problem. Resolving a list of 100 posts with their authors can trigger 101 database queries instead of 1, decimating performance. The DataLoader pattern (batching and caching resolver calls) solves this but adds significant complexity that REST endpoints don't need.
+
+## The Pragmatic Verdict
+Use REST for: simple CRUD APIs, public APIs consumed by third parties, and teams that prioritize operational simplicity. Use GraphQL for: complex, interconnected data models, applications with diverse clients, and teams willing to invest in the tooling ecosystem (Apollo, DataLoader, persisted queries).`,
+        author: 'Sarah Chen',
+        date: 'Mar 2, 2026',
+        readTime: '10 min read',
+        category: 'Development',
+        query: 'graphql rest api software architecture'
+    },
+    {
+        slug: 'mobile-performance-react-native',
+        title: 'React Native Performance: Eliminating Jank and Achieving 60fps',
+        excerpt: 'Deep-dive into the JavaScript bridge, the new architecture, and the rendering optimizations that will make your React Native app feel truly native.',
+        content: `React Native's promise is compelling: one codebase for iOS and Android, built with JavaScript and React. The reality often involves performance compromises. But with deep understanding of the architecture and targeted optimizations, React Native apps can achieve native-quality performance indistinguishable from Swift or Kotlin.
+
+## The Bridge: Understanding the Bottleneck
+Classic React Native serializes all communication between JavaScript and native code through an asynchronous JSON bridge. Every UI update, gesture event, and animation frame crosses this bridge. The bridge is the primary source of performance issues: when the JavaScript thread is busy, the UI thread still runs — but UI updates queue up and deliver late, causing visible jank.
+
+## The New Architecture: JSI and Fabric
+React Native's new architecture (enabled by default in React Native 0.73+) replaces the JSON bridge with JSI (JavaScript Interface), enabling synchronous, direct calls from JavaScript to native code without serialization. Fabric, the new rendering system, runs layout calculations on both threads concurrently. Together, these changes eliminate the fundamental bottlenecks of the old architecture.
+
+## FlatList Optimization: The Infinite Scroll Pattern
+Rendering long lists is the most common performance battleground in React Native. FlatList virtualizes rendering, only mounting list items visible on screen. But naive usage still causes frame drops: use \`keyExtractor\` consistently, keep \`renderItem\` pure and memoized, set \`getItemLayout\` when item heights are fixed, and use \`initialNumToRender\` to control startup cost.
+
+## Hermes: The Engine That Changes Everything
+Hermes, Meta's JavaScript engine optimized for React Native, pre-compiles JavaScript to bytecode at build time. This eliminates JIT compilation startup time, reducing time-to-interactive for cold launches dramatically — a critical metric for app store ratings and user retention.`,
+        author: 'Priya Mehta',
+        date: 'Feb 25, 2026',
+        readTime: '14 min read',
+        category: 'Development',
+        query: 'react native mobile app performance'
+    },
+    {
+        slug: 'headless-cms-architecture',
+        title: 'Headless CMS Architecture: Choosing Between Contentful, Sanity, and Strapi',
+        excerpt: 'A vendor-neutral comparison of leading headless CMS platforms with a framework for choosing the right one for your content, team, and budget.',
+        content: `The headless CMS market has matured into a crowded, highly capable space. Choosing the wrong platform early means expensive migrations later. Here's a structured framework for evaluating your options based on your actual requirements.
+
+## What Makes a CMS Truly "Headless"
+A headless CMS decouples content management from content presentation. Content editors work in a structured, UI-friendly interface. Developers consume content via API — REST or GraphQL — and render it using any frontend framework. This separation enables omnichannel publishing: the same content can power your website, mobile app, digital signage, and voice interface simultaneously.
+
+## Contentful: Enterprise-Grade with Enterprise Pricing
+Contentful is the market leader for large organizations. Its content model is flexible — you define custom content types with rich field types, and Contentful manages the storage and delivery infrastructure. The Contentful Delivery API is fast and globally distributed. The catch: pricing scales steeply with usage, and the free tier is severely limited for production use.
+
+## Sanity: Developer Experience First
+Sanity's standout feature is its open-source Portable Text format and fully customizable Studio. Developers can build custom input components, live preview, and complex workflows directly in the CMS UI using React. The real-time collaboration features and GROQ query language are genuinely innovative. It's the choice for teams that want full control over the editing experience.
+
+## Strapi: Open Source and Self-Hosted
+Strapi is the self-hosted champion — you own your data, your infrastructure, and your configuration. The automatic REST and GraphQL API generation from your content model is excellent developer experience. For organizations with data residency requirements, security restrictions, or simply the infrastructure to run it, Strapi's zero licensing cost at scale is a decisive advantage.`,
+        author: 'Alex Rivera',
+        date: 'Feb 15, 2026',
+        readTime: '11 min read',
+        category: 'Development',
+        query: 'content management cms website development'
+    },
+    {
+        slug: 'cloud-cost-management-aws',
+        title: 'Cloud Cost Management: How to Cut Your AWS Bill Without Cutting Corners',
+        excerpt: 'Proven strategies for identifying cost waste, implementing governance, and continuously optimizing your cloud spend without impacting reliability.',
+        content: `Cloud costs have a gravity: they grow. Without active governance, teams provision resources for peak load, forget to decommission experiments, and choose on-demand pricing when reserved capacity would be far cheaper. The average organization wastes 32% of cloud spend on idle or oversized resources.
+
+## Start with Visibility: Tagging and Cost Allocation
+You cannot optimize what you cannot see. Implement mandatory resource tagging across your entire AWS estate: environment (production/staging/development), team, application, and cost center. AWS Cost Explorer with tag-based filtering reveals exactly which projects and teams are driving spend — essential for accountability and optimization prioritization.
+
+## Reserved Instances and Savings Plans
+On-demand pricing is the most expensive way to run predictable workloads. EC2 Savings Plans offer up to 66% discount compared to on-demand in exchange for a usage commitment (not a specific instance commitment). For predictable database workloads, RDS Reserved Instances offer similar savings. Analyzing your last 90 days of usage in AWS Cost Explorer's Savings Plans recommendations typically surfaces immediate savings opportunities.
+
+## S3 Intelligent-Tiering: Set It and Forget It
+Most S3 buckets contain a mixture of frequently accessed and rarely accessed objects. S3 Intelligent-Tiering automatically moves objects between access tiers based on access patterns, and it costs nothing to transition objects between tiers. For buckets where access patterns are unpredictable, enabling Intelligent-Tiering is a zero-risk cost reduction.
+
+## Delete What You Don't Use
+The simplest cost optimization is deletion. Unattached EBS volumes, old snapshots, unused Elastic IPs, idle NAT gateways, and forgotten load balancers accumulate silently. Run AWS Trusted Advisor or third-party tools like Infracost monthly to surface these forgotten resources for cleanup.`,
+        author: 'Priya Mehta',
+        date: 'Feb 10, 2026',
+        readTime: '12 min read',
+        category: 'Infrastructure',
+        query: 'cloud computing aws cost management server'
     }
 ];
 

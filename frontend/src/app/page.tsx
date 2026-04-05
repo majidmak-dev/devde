@@ -42,7 +42,7 @@ export default function Home() {
       <div className="container mx-auto px-4">
         {/* Trusted By Section (Mock) */}
         <div className="py-10 border-y border-border/50 flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-          {['GOOGLE', 'AWS', 'VERCEL', 'STRIPE', 'MICROSOFT'].map(brand => (
+          {['Weekendtravellers.com', 'Unqode.com', 'skgah.com', 'Hagarbath.com', 'Investments2go.com'].map(brand => (
             <span key={brand} className="text-xl font-bold tracking-widest cursor-pointer hover:text-primary transition-colors" onClick={() => openModal(`${brand} partnership and case study details with DevDesigns`)}>{brand}</span>
           ))}
         </div>

@@ -4,6 +4,7 @@ import { Clock, User, ArrowLeft, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import GoogleAd from '@/components/google-ad';
 
 export async function generateStaticParams() {
     return blogPosts.map((post) => ({ slug: post.slug }));
@@ -120,7 +121,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                             {post.excerpt}
                         </p>
 
+                        <GoogleAd slot="blog_post_top" />
+
                         <div className="space-y-6 text-white/80 leading-loose" dangerouslySetInnerHTML={{ __html: post.content.replace(/\n\n/g, '<br/><br/>').replace(/## (.*)/g, '<h2 class="text-3xl font-black italic text-white mt-12 mb-6 tracking-tight">$1</h2>') }} />
+                    
+                        <GoogleAd slot="blog_post_bottom" />
                     </div>
 
                     {/* Sidebar CTA */}

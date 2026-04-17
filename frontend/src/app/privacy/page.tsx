@@ -9,35 +9,35 @@ const privacySections = [
         title: "Data Collection & Sovereignty",
         icon: Globe,
         summary: "We only collect what's vital for your enterprise performance.",
-        content: `At DevDesigns, we prioritize your digital sovereignty. We collect minimal information required to provide our elite infrastructure services. This includes account details, technical logs for performance optimization, and communication preferences. We do not engage in unauthorized tracking or data harvesting. Your data remains your asset.`
+        content: `At DevDesigns, we prioritize your digital sovereignty and the privacy of your users. We collect minimal information required to provide our elite infrastructure services. This includes account details, technical logs for performance optimization, communication preferences, and analytics telemetry data which helps us identify potential performance bottlenecks. We explicitly do not engage in unauthorized tracking, shadow profiling, or data harvesting logic. Our commitment to you is transparency and limitation of purpose. Your data remains your absolute asset and we only process it in alignment with strict, GDPR-compliant protocols that put you firmly in control of your digital footprint.`
     },
     {
         id: "security-protocols",
         title: "Fortress Security Standards",
         icon: Shield,
         summary: "Military-grade encryption for all assets at rest and in transit.",
-        content: `Our &quot;Fortress&quot; security architecture ensures that your data is protected by AES-256 encryption. We implement Zero Trust protocols, meaning every access request is verified. Our OpenAI-driven monitoring systems proactively identify and neutralize threats, ensuring your private information never falls into the wrong hands.`
+        content: `Our &quot;Fortress&quot; security architecture ensures that your data is heavily protected by AES-256 encryption at all times, both at rest in our distributed databases and in transit across the global network. We implement Zero Trust network protocols natively, meaning every single access request is verified individually regardless of its origin. Furthermore, our AI-driven monitoring systems proactively identify and neutralize potential threats across our ecosystem. Multi-factor authentication, regular penetration testing by independent security auditors, and isolated tenant environments guarantee that your private information never falls into the wrong environments.`
     },
     {
         id: "ai-processing",
         title: "AI & Machine Learning Usage",
         icon: Lock,
         summary: "OpenAI models used for optimization, never for re-training.",
-        content: `We utilize advanced OpenAI models to provide predictive maintenance and security auditing. Importantly, your proprietary data is never used to re-train public AI models. All AI processing is performed within our secure, sandboxed environments, maintaining total confidentiality for your codebases and strategies.`
+        content: `We actively utilize advanced OpenAI models and proprietary machine learning algorithms to provide sophisticated predictive maintenance, intelligent traffic routing, and proactive security auditing. Importantly, your proprietary data, application logs, or source code are never used to re-train any public or shared AI models. All artificial intelligence processing is performed strictly within our secure, isolated sandboxed environments. This ensures we can deliver next-generation AI-powered performance optimizations while maintaining total and uncompromised confidentiality for your complex business strategies and intellectual property.`
     },
     {
         id: "third-party",
         title: "Third-Party Integrity",
         icon: UserCheck,
         summary: "Zero-selling policy. Third parties only for essential infra.",
-        content: `DevDesigns follows a strict zero-selling policy. We never sell your data to advertisers or brokers. We only share information with essential infrastructure partners (e.g., global cloud providers, payment processors) under strict confidentiality agreements and for the sole purpose of delivering our services.`
+        content: `DevDesigns follows an uncompromising zero-selling policy. We absolutely never sell, rent, or lease your data, personal information, or user analytics to advertisers, data brokers, or third-party marketing agencies. We only share required technical information with essential and vetted infrastructure partners—such as global cloud hosting providers and secure payment processors—under highly strict, non-disclosure and confidentiality agreements. These partnerships exist for the sole purpose of reliably delivering our enterprise-grade services and maintaining our high availability guarantees.`
     },
     {
         id: "device-interconnectivity",
         title: "App & Service Interconnectivity",
         icon: Bell,
         summary: "Local network permissions used only for secure API handshakes.",
-        content: `To provide a seamless enterprise experience, our platform may request access to other apps and services on your device. This is strictly for secure local network handshakes, OpenAI service connectivity, and real-time infrastructure pulse monitoring. We do not access your personal files, other applications' data, or any non-essential device services.`
+        content: `To provide a cohesive and highly performant enterprise experience, our platform may occasionally request access to coordinate with other necessary edge services or perform local network handshakes. This interconnectivity is maintained strictly for secure API authentication, OpenAI service integration, and real-time infrastructure pulse monitoring. We rigorously respect device boundaries—we do not blindly access your personal system files, interact with other applications' local data, or invoke any non-essential background device services. User consent is critical, and all integration pathways are transparently logged and available for your review.`
     }
 ];
 

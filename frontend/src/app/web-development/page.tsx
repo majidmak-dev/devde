@@ -40,9 +40,17 @@ export default function WebDevelopmentPage() {
                 >
                     Scalable <span className="text-secondary">Web App</span> Solutions
                 </motion.h1>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto italic opacity-80 mb-10">
-                    We build high-performance, secure, and SEO-optimized web applications using the latest industry standards and frameworks.
-                </p>
+                <div className="text-xl text-muted-foreground max-w-3xl mx-auto italic opacity-80 mb-10 space-y-4 pt-4">
+                    <p>
+                        We build high-performance, secure, and SEO-optimized web applications using the latest industry standards and frameworks. Our development methodology revolves around delivering lightning-fast load times, exceptional user experiences, and rock-solid backend infrastructure.
+                    </p>
+                    <p>
+                        In today's digital landscape, a website is more than just a digital brochure; it's the core engine of your business growth. We leverage next-generation technologies like React, Next.js, and scalable cloud databases to ensure that your application not only meets current market demands but is entirely future-proofed against the rapid evolution of the web.
+                    </p>
+                    <p>
+                        Whether you are migrating from a legacy monolith or building a disruptive new platform from scratch, our elite engineering team implements rigorous testing, strict type safety, and comprehensive CI/CD pipelines. This guarantees that your final product is secure by design, highly available, and perfectly aligned with search engine algorithms to maximize your organic reach and overall digital footprint.
+                    </p>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto pt-8">
                     {packages.map(pkg => (

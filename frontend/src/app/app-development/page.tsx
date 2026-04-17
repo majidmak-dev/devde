@@ -32,9 +32,17 @@ export default function AppDevelopmentPage() {
                 >
                     High-Performance <span className="text-accent underline decoration-accent/30 decoration-8 underline-offset-8">Mobile Apps</span>
                 </motion.h1>
-                <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                    We transform your ideas into powerful mobile experiences. From consumer apps to enterprise mobility solutions.
-                </p>
+                <div className="text-xl text-slate-300 max-w-3xl mx-auto space-y-4 pt-4">
+                    <p>
+                        We transform your visionary ideas into exceptionally powerful, native mobile experiences. In an increasingly mobile-first world, your application must provide zero-friction usability, instant load times, and complete platform reliability to stand out in crowded app marketplaces.
+                    </p>
+                    <p>
+                        Our specialized mobile engineering teams are experts in both high-performance native development (Swift for iOS and Kotlin for Android) and modern cross-platform frameworks like React Native and Flutter. We rigorously analyze your precise target demographic, device hardware requirements, and time-to-market constraints to architect the optimal technological foundation for your specific application.
+                    </p>
+                    <p>
+                        From intricate consumer social platforms requiring real-time WebSocket integrations to secure, heavy-compute enterprise mobility solutions managing sensitive proprietary data, we meticulously handle the entire lifecycle. This includes seamless App Store submission, strict compliance auditing, biometric security implementations, and continuous post-launch performance monitoring to guarantee a truly elite mobile presence.
+                    </p>
+                </div>
                 <Button size="lg" className="rounded-full bg-accent hover:bg-accent/90 h-14 px-8 text-white">Consult Mobile Strategy</Button>
             </section>
 

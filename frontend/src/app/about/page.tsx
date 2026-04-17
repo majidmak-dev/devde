@@ -21,21 +21,21 @@ export default function AboutPage() {
     const sections = [
         {
             title: "Our Mission",
-            description: "To democratize elite digital infrastructure, providing every business with the tools to scale, secure, and succeed in the modern era.",
+            description: "To democratize elite digital infrastructure, providing every business with the tools to scale autonomously, secure user assets effectively, and ultimately succeed in an intensely competitive modern digital era. We bridge the gap between complex engineering concepts and intuitive, high-converting consumer experiences, ensuring that powerful tools are directly accessible to visionaries across all industries without the friction of technical debt.",
             icon: Target,
             color: "text-primary",
             prompt: "Explain the core mission of DevDesigns and how it helps businesses scale."
         },
         {
             title: "Technical Philosophy",
-            description: "We build for performance, resilience, and elegance. Our stack is modern, our code is clean, and our solutions are future-proof.",
+            description: "We inherently build for uncompromising performance, multi-layered resilience, and architectural elegance. Our comprehensive technology stack is fundamentally modern, utilizing Next.js, Rust, and serverless databases to guarantee speed. Our code is rigidly clean and extensively documented, and our custom engineering solutions are entirely future-proof, allowing your application pipelines to adopt new innovations seamlessly over the coming decades.",
             icon: Cpu,
             color: "text-blue-400",
             prompt: "What is the technical philosophy of DevDesigns? Focus on tech stack and performance."
         },
         {
             title: "Global Reach",
-            description: "Operating at scale with a worldwide perspective. We bridge the gap between complex infrastructure and intuitive user experiences.",
+            description: "We are proudly operating at massive scale with a truly worldwide perspective, deploying edge infrastructure across hundreds of international presence points. We seamlessly bridge the ever-growing gap between complex cloud infrastructure orchestration and fluid, intuitive end-user experiences, ensuring that your enterprise operates with sub-100ms latency globally regardless of where your customers are digitally located.",
             icon: Globe,
             color: "text-emerald-400",
             prompt: "Tell me about DevDesigns global operations and reach."

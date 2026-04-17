@@ -30,9 +30,17 @@ export default function MaintenancePage() {
                 >
                     Seamless <span className="text-accent italic">Maintenance</span>
                 </motion.h1>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto italic opacity-80 mb-10">
-                    Keep your digital infrastructure running at peak performance with our dedicated maintenance and reliability engineering services.
-                </p>
+                <div className="text-xl text-muted-foreground max-w-3xl mx-auto italic opacity-80 mb-10 space-y-4 pt-4">
+                    <p>
+                        Keep your digital infrastructure running at peak performance with our dedicated maintenance and reliability engineering services. Building an exceptional platform is only the first phase; maintaining its operational integrity as you scale is fundamentally critical.
+                    </p>
+                    <p>
+                        Our specialized DevOps and Site Reliability Engineering (SRE) teams provide relentless, 24/7 proactive monitoring of your entire technology stack. We aggressively identify and resolve underlying latency issues, impending database deadlocks, and asynchronous memory leaks entirely behind the scenes, long before they can physically impact your users or trigger costly downtime.
+                    </p>
+                    <p>
+                        We treat maintenance not as reactive triage, but as an ongoing process of aggressive optimization. This includes executing zero-downtime security patch deployments, continuous vulnerability scanning, intelligent load-balancer reconfiguration during traffic surges, and conducting regular chaos-engineering audits. By partnering with us, you fundamentally eliminate technical debt and ensure your platform remains a pristine, frictionless engine for your global business.
+                    </p>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto pt-8">
                     {packages.map(pkg => (

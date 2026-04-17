@@ -5,24 +5,24 @@ import { Scale, Zap, ShieldCheck, Globe, Cpu } from "lucide-react";
 
 const termsSections = [
     {
-        title: "1. Acceptance of Sovereignty",
-        content: `By accessing the DevDesigns platform, you enter into a professional partnership. You agree to utilize our elite digital infrastructure and design services in compliance with all international regulations and our core standards of engineering excellence.`
+        title: "1. Acceptance of Sovereignty and Professional Partnership",
+        content: `By actively accessing, browsing, or utilizing the DevDesigns digital platform and its associated services, you enter into a binding professional partnership. You agree to utilize our elite digital infrastructure, technical capabilities, and design services in absolute compliance with all international regulations, internet standards, and our core standards of engineering excellence. Failure to abide by these fundamental principles gives DevDesigns the right to restrict or terminate access to maintain ecosystem integrity. This legally binding agreement sets the framework for a high-performance collaboration between your enterprise and our infrastructure experts.`
     },
     {
-        title: "2. Service Provision & Maintenance",
-        content: `DevDesigns provides world-class UI/UX, development, and hosting. We maintain a 99.999% uptime target. Scheduled maintenance is performed using OpenAI-driven predictive models to minimize impact. You acknowledge that infrastructure requires periodic optimization for peak performance.`
+        title: "2. Service Provision, Maintenance, and Edge Network Reliability",
+        content: `DevDesigns is fiercely committed to providing world-class UI/UX, software development, and edge hosting infrastructure. We rigorously maintain a 99.999% uptime target through redundant server deployments and cross-region load balancing. Scheduled maintenance is performed using cutting-edge OpenAI-driven predictive models to ensure minimal impact on live deployments. You acknowledge that world-class infrastructure requires periodic, sophisticated optimization cycles for peak performance. During these critical optimization windows, we prioritize keeping your primary application services uninterrupted.`
     },
     {
-        title: "3. Intellectual Property Rights",
-        content: `Your visions, once deployed, are your assets. However, all underlying framework logic, proprietary AI models, and design systems developed by DevDesigns remain the exclusive property of DevDesigns. We grant you a perpetual license to use these systems within your assets.`
+        title: "3. Intellectual Property Rights and Usage Licenses",
+        content: `We fundamentally respect that your creative visions, customer data, and brand identity, once deployed, are purely your proprietary assets. However, all underlying framework logic, proprietary artificial intelligence models, automation scripts, and foundational design systems developed originally by DevDesigns remain the exclusive and protected intellectual property of DevDesigns. We grant you a perpetual, non-exclusive, multi-region license to utilize these underlying systems purely within the scope of your active assets and hosted deployments. You agree not to reverse-engineer, resell, or distribute our proprietary source infrastructure without explicit authorization.`
     },
     {
-        title: "4. User Responsibilities & Conduct",
-        content: `As a partner, you are responsible for maintaining the security of your account credentials. Unauthorized attempts to breach our "Fortress" security architecture or misuse our AI infrastructure will result in immediate termination of services to protect our global network integrity.`
+        title: "4. User Responsibilities, Security Obligations, and Platform Conduct",
+        content: `As an engaged partner in this digital ecosystem, you bear the primary responsibility for maintaining the strict security and confidentiality of your administrative account credentials and API keys. Any unauthorized attempts to breach our "Fortress" security architecture, intercept internal network traffic, or misuse our AI infrastructure for scraping or brute-force attacks will result in immediate and permanent termination of services. We vigorously protect our global network integrity to ensure all our clients experience an uncompromisingly secure environment, and we enforce a zero-tolerance policy for malicious technical conduct.`
     },
     {
-        title: "5. Limitation of Liability",
-        content: `DevDesigns provides ultra-premium infrastructure, but we are not liable for external network failures, downstream data breaches caused by user negligence, or indirect market fluctuations. Our liability is strictly limited to the service fees paid in the trailing 12-month period.`
+        title: "5. Comprehensive Limitation of Liability and Reliability Matrix",
+        content: `While DevDesigns provides ultra-premium infrastructure built on battle-tested technologies, we are not legally or financially liable for catastrophic external network internet failures, downstream data breaches caused directly by user negligence and compromised passwords, or indirect market fluctuations impacting your business revenue. In the event of system errors or service interruptions, our total collective liability is strictly and contractually limited to the actual service fees paid by your entity to DevDesigns in the trailing 12-month period. We recommend maintaining your own comprehensive disaster recovery plans for total business continuity.`
     }
 ];
 

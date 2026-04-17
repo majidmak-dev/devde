@@ -73,9 +73,17 @@ export default function SecurityPage() {
                         <h1 className="text-6xl md:text-9xl font-black tracking-tighter italic leading-none">
                             The <span className="text-primary italic">Fortress</span> of Digital Assets
                         </h1>
-                        <p className="text-xl md:text-2xl text-muted-foreground italic max-w-3xl mx-auto opacity-80 leading-relaxed font-medium">
-                            Securing enterprise sovereignty with OpenAI-driven defense protocols and proactive, predictive maintenance.
-                        </p>
+                        <div className="text-xl md:text-2xl text-muted-foreground italic max-w-4xl mx-auto opacity-80 leading-relaxed font-medium space-y-6 pt-6 text-center">
+                            <p>
+                                Securing total enterprise sovereignty with devastatingly effective OpenAI-driven defense protocols, military-grade encryption, and proactive, intensely predictive infrastructure maintenance.
+                            </p>
+                            <p className="text-lg">
+                                In 2026, the global threat landscape is entirely automated, and your defense mechanisms must be equally intelligent. We deploy absolutely uncompromising, Zero-Trust architectural paradigms where no single request is ever intrinsically trusted, regardless of origin. Our machine learning integration constantly analyzes incoming traffic patterns, decisively neutralizing sophisticated DDoS attempts, SQL injections, and zero-day vulnerabilities in under 50 milliseconds.
+                            </p>
+                            <p className="text-lg">
+                                But pure defense is merely the baseline. We fundamentally believe in "Self-Healing Infrastructure." Our predictive maintenance algorithms actively monitor crucial hardware thermals, database indexing inefficiencies, and asynchronous memory leaks. By autonomously executing perfectly timed micro-patches and seamlessly provisioning edge compute resources before catastrophic failures occur, we unequivocally guarantee a 99.999% uptime for your mission-critical applications.
+                            </p>
+                        </div>
 
                         <div className="flex flex-wrap justify-center gap-6 pt-12">
                             <Button

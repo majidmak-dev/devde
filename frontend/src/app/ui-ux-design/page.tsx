@@ -57,9 +57,17 @@ export default function UIUXDesignPage() {
                         <h1 className="text-5xl md:text-8xl font-black tracking-tighter italic">
                             Elevate your <br /><span className="text-primary italic">Digital Soul</span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-muted-foreground italic max-w-2xl mx-auto opacity-80 leading-relaxed font-medium">
-                            We design world-class interfaces that don&apos;t just look stunning—they drive conversion, loyalty, and enterprise-grade growth.
-                        </p>
+                        <div className="text-xl md:text-2xl text-muted-foreground italic max-w-3xl mx-auto opacity-80 leading-relaxed font-medium space-y-6 pt-4">
+                            <p>
+                                We meticulously design world-class, immersive digital interfaces that don&apos;t just look aesthetically stunning—they are precision-engineered to aggressively drive conversion rates, build unbreakable user loyalty, and fuel enterprise-grade business growth.
+                            </p>
+                            <p className="text-lg">
+                                Exceptional UI/UX is the silent ambassador of your entire brand. We deploy advanced psychological research, deeply nuanced interaction design, and rigorous multivariate testing. By profoundly understanding your users' core friction points, we craft frictionless digital journeys that rapidly transition visitors into lifelong, evangelical customers.
+                            </p>
+                            <p className="text-lg">
+                                Our bespoke design systems are completely future-proofed. We establish incredibly robust, scalable atomic design libraries that ensure absolute consistency across massive product ecosystems. This guarantees that whether your user is engaging via a smart watch or a complex enterprise desktop dashboard, the cognitive load remains minimal and the brand experience remains overwhelmingly premium.
+                            </p>
+                        </div>
                         <div className="flex flex-wrap justify-center gap-6 pt-8">
                             <Button
                                 onClick={() => openModal("I'm interested in a Premium UI/UX Audit & Strategy for my platform. Let's discuss the details.")}

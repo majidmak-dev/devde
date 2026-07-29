@@ -13,11 +13,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const smtpHost = (process.env.SMTP_HOST || 'mail.devdesigns.net').replace(/^"(.*)"$/, '$1');
-    const smtpPort = Number((process.env.SMTP_PORT || '587').replace(/^"(.*)"$/, '$1'));
+    const smtpHost = (process.env.SMTP_HOST || 'in10.fastwebhost.com').replace(/^"(.*)"$/, '$1');
+    const smtpPort = Number((process.env.SMTP_PORT || '465').replace(/^"(.*)"$/, '$1'));
     const smtpUser = (process.env.SMTP_USER || 'hello@devdesigns.net').replace(/^"(.*)"$/, '$1');
     const smtpPass = (process.env.SMTP_PASS || '').replace(/^"(.*)"$/, '$1');
-    const smtpSecure = (process.env.SMTP_SECURE || 'false').replace(/^"(.*)"$/, '$1') === 'true';
+    const smtpSecure = (process.env.SMTP_SECURE || 'true').replace(/^"(.*)"$/, '$1') === 'true';
 
     const transporter = nodemailer.createTransport({
       host: smtpHost,

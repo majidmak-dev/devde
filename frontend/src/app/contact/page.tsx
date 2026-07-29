@@ -155,6 +155,7 @@ export default function Contact() {
                                     <option value="UI/UX Design">UI/UX Design</option>
                                     <option value="Web Development">Web Development</option>
                                     <option value="App Development">App Development</option>
+                                    <option value="PowerApps & Automation">PowerApps & Automation</option>
                                     <option value="SaaS Development">SaaS Development</option>
                                     <option value="Hosting Solutions">Hosting Solutions</option>
                                     <option value="Domain Booking">Domain Booking</option>

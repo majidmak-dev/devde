@@ -2,6 +2,7 @@
 
 import Hero from "@/components/hero";
 import ServicesGrid from "@/components/services-grid";
+import PowerAppsSection from "@/components/powerapps-section";
 import WhyChooseUs from "@/components/why-choose-us";
 import PricingPreview from "@/components/pricing-preview";
 import StatsBar from "@/components/stats-bar";
@@ -49,6 +50,7 @@ export default function Home() {
       </div>
       <StatsBar />
       <ServicesGrid />
+      <PowerAppsSection />
       <div className="container mx-auto px-4">
         <GoogleAd slot="home_after_services" />
       </div>

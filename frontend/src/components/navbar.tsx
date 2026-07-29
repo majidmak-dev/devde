@@ -19,6 +19,7 @@ const mainLinks = [
 const serviceLinks = [
     { name: 'UI/UX Design', href: '/ui-ux-design' },
     { name: 'Web & App Dev', href: '/web-development' },
+    { name: 'PowerApps Solutions', href: '/powerapps' },
     { name: 'SaaS Development', href: '/saas-development' },
     { name: 'Hosting Solutions', href: '/contact' },
     { name: 'Domain Booking', href: '/contact' },

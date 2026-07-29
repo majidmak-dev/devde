@@ -9,6 +9,7 @@ import FooterComponent from "@/components/footer";
 import Chatbot from "@/components/chatbot";
 import { InteractionProvider } from "@/components/interaction-provider";
 import Preloader from "@/components/preloader";
+import JsonLd from "@/components/json-ld";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -26,7 +27,18 @@ export const metadata: Metadata = {
     template: '%s | DevDesigns'
   },
   description: 'DevDesigns provides world-class UI/UX, Web & App Development, High-Performance Hosting, and Domain Management solutions for scaling businesses.',
-  keywords: 'Enterprise Digital Infrastructure, UI/UX Design Modern, High-Performance Web Development, Scalable Mobile Apps, Managed Cloud Hosting, SEO Growth Strategy',
+  keywords: 'Enterprise Digital Infrastructure, UI/UX Design Modern, High-Performance Web Development, Scalable Mobile Apps, Managed Cloud Hosting, SEO Growth Strategy, Generative Engine Optimization, GEO, AEO, Answer Engine Optimization',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: 'DevDesigns | Premium Digital Infrastructure',
     description: 'Transform your vision into world-class digital reality.',
@@ -34,6 +46,11 @@ export const metadata: Metadata = {
     siteName: 'DevDesigns',
     locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DevDesigns | Premium Digital Infrastructure',
+    description: 'Transform your vision into world-class digital reality.',
   },
   verification: {
     google: "nBZWi-6Z1b9kVVcHpW_UUd8a1qCQijOIChD_VSnqVYo",
@@ -56,6 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={outfit.variable} suppressHydrationWarning={true}>
       <head>
+        <JsonLd />
         {/* AdSense: must be raw tag in SSR head for Google crawler to detect it */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script

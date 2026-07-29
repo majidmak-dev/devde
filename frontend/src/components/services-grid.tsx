@@ -9,7 +9,8 @@ import {
     ShoppingBag,
     Search,
     ArrowRight,
-    Sparkles
+    Sparkles,
+    Cpu
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { fetchVideos } from '@/lib/image-api';
@@ -31,6 +32,14 @@ const services = [
         color: 'from-emerald-500 to-teal-600',
         query: 'coding software development',
         href: '/web-development'
+    },
+    {
+        title: 'PowerApps Automation',
+        description: 'Custom Microsoft PowerApps, Power Automate flows, and Dataverse enterprise solutions.',
+        icon: Cpu,
+        color: 'from-purple-500 to-pink-600',
+        query: 'software dashboard workflow',
+        href: '/powerapps'
     },
     {
         title: 'Premium Hosting',

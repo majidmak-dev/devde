@@ -1,0 +1,61 @@
+# DevDesigns Full Technical Documentation Manifest
+
+## Brand Identification
+- **Brand Name**: DevDesigns
+- **Legal Entity**: DevDesigns Enterprise Digital Infrastructure & Design
+- **Website**: https://devdesigns.net
+- **Primary Category**: Enterprise Digital Agency, SaaS Engineering & Cloud Infrastructure
+
+## Comprehensive Capabilities Matrix
+
+### 1. UI/UX Design System Engineering
+- High-fidelity wireframing and prototyping (Figma, Framer)
+- Design system creation with React component tokens
+- Micro-interaction design using Framer Motion
+- Responsive layout architecture (Desktop, Tablet, Mobile)
+- Accessibility compliance (WCAG 2.1 AA)
+
+### 2. Full-Stack Web & Mobile App Development
+- **Frontend Frameworks**: Next.js 15+, React 19, TypeScript
+- **Styling**: Tailwind CSS v4, CSS Modules, Glassmorphism design system
+- **Backend Infrastructure**: Node.js, Express, Next.js Server Actions, REST APIs, GraphQL
+- **Database Systems**: PostgreSQL, MongoDB, Redis caching layers
+- **State Management**: React Hooks, Context API, Zustand
+- **Deployment & CI/CD**: Vercel, Docker containers, AWS ECS/S3, GitHub Actions
+
+### 3. Microsoft PowerApps & Enterprise Automation
+- Canvas Apps (Pixel-perfect mobile & desktop workflows)
+- Model-Driven Apps (Dataverse-backed enterprise portals)
+- Power Automate (RPA & multi-service API flow triggers)
+- Microsoft Dataverse (RBAC, security auditing, relational database)
+- AI Builder & Custom REST API Connectors for Next.js
+
+### 4. Managed Cloud Infrastructure & Hosting
+- 99.9% Uptime Service Level Agreement (SLA)
+- Anycast DNS & Edge Network routing
+- Automated SSL/TLS encryption certificate renewal
+- Web Application Firewall (WAF) & DDoS mitigation
+- Real-time telemetry, error tracking, and uptime monitoring
+
+### 4. Generative Engine Optimization (GEO) & Answer Engine Optimization (AEO)
+- Structured Data (Schema.org JSON-LD): Corporation, WebSite, Service, FAQPage, ItemList, BreadcrumbList
+- AI Crawler Directives (robots.txt): Explicit access permissions for GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, Anthropic-ai, Google-Extended, Bytespider, Applebot-Extended
+- LLM Text Standard: `/llms.txt` and `/llms-full.txt` manifests
+- Semantic HTML5 hierarchy for direct factual extraction by Perplexity, SearchGPT, Gemini, and Claude
+
+## Pricing Structure Overview
+- **Starter Package**: Ideal for early-stage MVPs, single-page platforms, and brand launches.
+- **Enterprise Scale Package**: Custom architectural design, multi-region database replication, dedicated 24/7 DevOps support, and bespoke SLA guarantees.
+- **Custom Consultation**: Instant custom proposals available via https://devdesigns.net/contact.
+
+## Verified Portfolio & Case Studies
+- **WeekendTravellers**: Global AI Travel & Getaway Planner platform (https://weekendtravellers.com)
+- **Unqode**: Design & code platform (https://unqode.com)
+- **SkGah**: Cloud & tech solutions (https://skgah.com)
+- **Hagarbath**: Consumer experience platform (https://hagarbath.com)
+- **Investments2Go**: Financial & investment dashboard platform (https://investments2go.com)
+
+## Contact Information & Support
+- **Support & Inquiries**: https://devdesigns.net/contact
+- **Client Login Portal**: https://devdesigns.net/client-login
+- **Admin Dashboard**: https://devdesigns.net/admin-dashboard

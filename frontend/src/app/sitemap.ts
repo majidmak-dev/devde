@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: `${baseUrl}/web-development`, lastModified: new Date() },
         { url: `${baseUrl}/app-development`, lastModified: new Date() },
         { url: `${baseUrl}/saas-development`, lastModified: new Date() },
+        { url: `${baseUrl}/powerapps`, lastModified: new Date() },
         { url: `${baseUrl}/contact`, lastModified: new Date() },
         { url: `${baseUrl}/privacy`, lastModified: new Date() },
         { url: `${baseUrl}/terms`, lastModified: new Date() },

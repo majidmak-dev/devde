@@ -80,11 +80,11 @@ export default function CaseStudies() {
                                         </div>
 
                                         <div className="flex items-center gap-6">
-                                            <Link href={`/case-studies/${study.id}`}>
-                                                <Button className="bg-primary hover:bg-primary/90 text-white font-black rounded-2xl h-14 px-10 text-lg btn-glow shadow-primary/20">
+                                            <Button asChild className="bg-primary hover:bg-primary/90 text-white font-black rounded-2xl h-14 px-10 text-lg btn-glow shadow-primary/20">
+                                                <Link href={`/case-studies/${study.id}`}>
                                                     View Full Analysis <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                                </Button>
-                                            </Link>
+                                                </Link>
+                                            </Button>
                                             <div className="text-lg font-black italic text-primary/80">
                                                 {study.impact}
                                             </div>

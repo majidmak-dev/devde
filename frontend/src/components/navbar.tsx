@@ -47,13 +47,14 @@ export default function Navbar() {
 
     return (
         <nav
+            aria-label="Main Navigation"
             className={cn(
                 'fixed top-0 w-full z-50 transition-all duration-300',
                 scrolled ? 'glass py-3' : 'bg-transparent py-5'
             )}
         >
             <div className="container mx-auto px-4 flex items-center justify-between">
-                <Link href="/" className="flex items-center space-x-2 group shrink-0">
+                <Link href="/" className="flex items-center space-x-2 group shrink-0" aria-label="DevDesigns Home">
                     <Logo className="w-10 h-10 group-hover:scale-110 transition-transform duration-300" />
                     <span className="text-2xl font-black tracking-tighter">
                         DEV<span className="text-primary italic text-3xl">DESIGNS</span>
@@ -70,6 +71,7 @@ export default function Navbar() {
                     >
                         <Link
                             href="/services"
+                            aria-expanded={servicesOpen}
                             className={cn(
                                 "flex items-center text-sm font-semibold transition-all duration-300 py-2",
                                 isServicesActive ? "text-primary" : "text-foreground/80 hover:text-primary"
@@ -151,23 +153,32 @@ export default function Navbar() {
                 </div>
 
                 <div className="hidden md:flex items-center space-x-4 shrink-0">
-                    <Link href="/client-login">
-                        <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary/10 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+                    <Button asChild variant="outline" className="border-primary/50 text-primary hover:bg-primary/10 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+                        <Link href="/client-login">
                             <User className="w-4 h-4 mr-2" />
                             Client Login
-                        </Button>
-                    </Link>
-                    <Link href="/contact" className="relative cursor-pointer">
+                        </Link>
+                    </Button>
+                    <div className="relative">
                         <div className="absolute inset-0 bg-primary/20 blur-lg rounded-full animate-pulse group-hover:bg-primary/40 transition-all pointer-events-none" />
-                        <Button className="bg-primary hover:bg-primary/90 text-white font-bold rounded-xl relative z-10 btn-glow shadow-primary/20 pointer-events-none">
-                            Start Project
+                        <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold rounded-xl relative z-10 btn-glow shadow-primary/20">
+                            <Link href="/contact">
+                                Start Project
+                            </Link>
                         </Button>
-                    </Link>
+                    </div>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden flex items-center space-x-4">
-                    <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label="Toggle navigation menu"
+                        aria-expanded={isOpen}
+                        aria-controls="mobile-menu"
+                    >
                         {isOpen ? <X /> : <Menu />}
                     </Button>
                 </div>
@@ -177,6 +188,7 @@ export default function Navbar() {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
+                        id="mobile-menu"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
@@ -187,6 +199,7 @@ export default function Navbar() {
                             <div className="space-y-2">
                                 <button
                                     onClick={() => setServicesOpen(!servicesOpen)}
+                                    aria-expanded={servicesOpen}
                                     className={cn(
                                         "w-full flex items-center justify-between text-lg font-bold transition-colors",
                                         isServicesActive ? "text-primary italic" : "text-foreground"
@@ -240,12 +253,12 @@ export default function Navbar() {
                                 );
                             })}
                             <div className="pt-4 border-t border-white/10 flex flex-col space-y-4">
-                                <Link href="/client-login" onClick={() => setIsOpen(false)}>
-                                    <Button variant="outline" className="w-full h-12 rounded-xl">Client Login</Button>
-                                </Link>
-                                <Link href="/contact" onClick={() => setIsOpen(false)}>
-                                    <Button className="w-full bg-primary h-12 rounded-xl font-bold">Start Project</Button>
-                                </Link>
+                                <Button asChild variant="outline" className="w-full h-12 rounded-xl">
+                                    <Link href="/client-login" onClick={() => setIsOpen(false)}>Client Login</Link>
+                                </Button>
+                                <Button asChild className="w-full bg-primary h-12 rounded-xl font-bold">
+                                    <Link href="/contact" onClick={() => setIsOpen(false)}>Start Project</Link>
+                                </Button>
                             </div>
                         </div>
                     </motion.div>

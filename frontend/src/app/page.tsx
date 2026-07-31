@@ -44,7 +44,21 @@ export default function Home() {
         {/* Trusted By Section (Mock) */}
         <div className="py-10 border-y border-border/50 flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
           {['Weekendtravellers.com', 'Unqode.com', 'skgah.com', 'Hagarbath.com', 'Investments2go.com'].map(brand => (
-            <span key={brand} className="text-xl font-bold tracking-widest cursor-pointer hover:text-primary transition-colors" onClick={() => openModal(`${brand} partnership and case study details with DevDesigns`)}>{brand}</span>
+            <span
+              key={brand}
+              role="button"
+              tabIndex={0}
+              aria-label={`View partnership details for ${brand}`}
+              className="text-xl font-bold tracking-widest cursor-pointer hover:text-primary transition-colors focus:outline-none focus:text-primary"
+              onClick={() => openModal(`${brand} partnership and case study details with DevDesigns`)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  openModal(`${brand} partnership and case study details with DevDesigns`);
+                }
+              }}
+            >
+              {brand}
+            </span>
           ))}
         </div>
       </div>
@@ -78,6 +92,7 @@ export default function Home() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your business email"
+                aria-label="Enter your business email"
                 className="px-8 py-4 rounded-full border border-white/10 bg-slate-900 focus:ring-2 ring-primary outline-none min-w-[320px] text-lg font-medium transition-all group-hover:bg-slate-800"
               />
               <AnimatePresence>
@@ -95,6 +110,7 @@ export default function Home() {
             <Button
               type="submit"
               disabled={isSubmitting}
+              aria-label="Submit newsletter email subscription"
               className="bg-primary text-white h-14 px-10 rounded-full font-black text-lg hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 flex items-center justify-center"
             >
               {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : 'GET STARTED FREE'}

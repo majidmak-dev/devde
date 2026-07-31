@@ -48,25 +48,27 @@ export default function NotFound() {
                     transition={{ delay: 0.4 }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8"
                 >
-                    <Link href="/">
-                        <Button
-                            size="lg"
-                            className="bg-primary text-white h-16 px-12 rounded-full font-black text-lg hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 flex items-center group overflow-hidden"
-                        >
+                    <Button
+                        asChild
+                        size="lg"
+                        className="bg-primary text-white h-16 px-12 rounded-full font-black text-lg hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 flex items-center group overflow-hidden"
+                    >
+                        <Link href="/">
                             <Home className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
                             BACK TO HEADQUARTERS
-                        </Button>
-                    </Link>
-                    <Link href="/services">
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="h-16 px-12 rounded-full font-black text-lg border-2 hover:bg-white/5 flex items-center group uppercase italic"
-                        >
+                        </Link>
+                    </Button>
+                    <Button
+                        asChild
+                        size="lg"
+                        variant="outline"
+                        className="h-16 px-12 rounded-full font-black text-lg border-2 hover:bg-white/5 flex items-center group uppercase italic"
+                    >
+                        <Link href="/services">
                             <ArrowLeft className="w-5 h-5 mr-3 group-hover:-translate-x-1 transition-transform" />
                             Explore Services
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </motion.div>
 
                 {/* Footer Insight */}

@@ -69,10 +69,10 @@ export default function Chatbot() {
                                 </div>
                             </div>
                             <div className="flex items-center space-x-1">
-                                <Button size="icon" variant="ghost" className="h-8 w-8 text-white hover:bg-white/10" onClick={() => setIsMinimized(true)}>
+                                <Button size="icon" variant="ghost" className="h-8 w-8 text-white hover:bg-white/10" onClick={() => setIsMinimized(true)} aria-label="Minimize AI Assistant">
                                     <Minus className="w-4 h-4" />
                                 </Button>
-                                <Button size="icon" variant="ghost" className="h-8 w-8 text-white hover:bg-white/10" onClick={() => setIsOpen(false)}>
+                                <Button size="icon" variant="ghost" className="h-8 w-8 text-white hover:bg-white/10" onClick={() => setIsOpen(false)} aria-label="Close AI Assistant">
                                     <X className="w-4 h-4" />
                                 </Button>
                             </div>
@@ -120,11 +120,13 @@ export default function Chatbot() {
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     placeholder="Type your message..."
+                                    aria-label="Type your message to AI assistant"
                                     className="w-full bg-slate-900 border border-white/10 rounded-2xl pl-4 pr-12 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                                 />
                                 <Button
                                     type="submit"
                                     size="icon"
+                                    aria-label="Send message"
                                     className="absolute right-1.5 top-1/2 -translate-y-1/2 h-8 w-8 bg-primary rounded-xl"
                                     disabled={isLoading || !input.trim()}
                                 >
@@ -142,6 +144,7 @@ export default function Chatbot() {
                 whileTap={{ scale: 0.95 }}
             >
                 <Button
+                    aria-label={isOpen && !isMinimized ? "Close AI Assistant Chat" : "Open AI Assistant Chat"}
                     onClick={() => {
                         if (isOpen && !isMinimized) {
                             setIsOpen(false);
@@ -173,7 +176,15 @@ export default function Chatbot() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 20 }}
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Restore AI Assistant chat window"
                         onClick={() => setIsMinimized(false)}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                setIsMinimized(false);
+                            }
+                        }}
                         className="absolute bottom-16 right-0 bg-primary/20 backdrop-blur-xl border border-primary/30 text-white px-5 py-3 rounded-full shadow-2xl cursor-pointer flex items-center space-x-3 whitespace-nowrap group hover:bg-primary/30 transition-all"
                     >
                         <Bot className="w-5 h-5 text-primary" />

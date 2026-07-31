@@ -51,6 +51,11 @@ export default function Preloader() {
                     initial={{ y: 0 }}
                     exit={{ y: "-100%" }}
                     transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }} // Exquisite ease-in-out curve
+                    role="progressbar"
+                    aria-valuenow={progress}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-label="Loading DevDesigns experience"
                     className="fixed inset-0 z-[1000] bg-[#020617] flex flex-col items-center justify-center p-4 overflow-hidden"
                 >
                     {/* Background Orbs */}

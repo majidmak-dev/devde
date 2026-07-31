@@ -49,6 +49,7 @@ export default function Hero() {
                             loop
                             muted
                             playsInline
+                            aria-hidden="true"
                             className="w-full h-full object-cover opacity-20 transition-opacity duration-1000"
                         >
                             <source src={bgVideo.url} type="video/mp4" />
@@ -125,14 +126,24 @@ export default function Hero() {
                     >
                         <div className="glass rounded-[2.5rem] p-4 shadow-2xl border border-white/10 overflow-hidden bg-white/5">
                             <div
+                                role="button"
+                                tabIndex={0}
+                                aria-label="Play or pause platform preview video"
                                 className="aspect-video rounded-[2rem] bg-slate-900/50 flex items-center justify-center relative overflow-hidden group cursor-pointer"
                                 onClick={togglePlay}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                        e.preventDefault();
+                                        togglePlay();
+                                    }
+                                }}
                             >
                                 {/* Preview Video */}
                                 {previewVideo ? (
                                     <video
                                         ref={previewVideoRef}
                                         poster={previewVideo.image}
+                                        aria-label="DevDesigns platform preview video"
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                         loop
                                         muted={false}

@@ -132,11 +132,11 @@ export default function PowerAppsSection() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 relative z-10 shrink-0">
-          <Link href="/powerapps">
-            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-full h-14 px-8 font-black text-base shadow-xl shadow-purple-600/30 flex items-center">
+          <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-full h-14 px-8 font-black text-base shadow-xl shadow-purple-600/30 flex items-center">
+            <Link href="/powerapps">
               Explore PowerApps <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </motion.div>
     </section>

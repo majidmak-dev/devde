@@ -86,6 +86,12 @@ export default function RootLayout({
         className={`${geistMono.variable} antialiased font-sans`}
         suppressHydrationWarning={true}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-6 focus:py-3 focus:bg-primary focus:text-white focus:rounded-xl focus:shadow-2xl focus:outline-none focus:ring-2 focus:ring-white font-bold"
+        >
+          Skip to main content
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -96,7 +102,7 @@ export default function RootLayout({
           <InteractionProvider>
             <div className="flex min-h-screen flex-col">
               <Navbar />
-              <main className="flex-1">{children}</main>
+              <main id="main-content" className="flex-1">{children}</main>
               <FooterComponent />
               <Chatbot />
               <Script

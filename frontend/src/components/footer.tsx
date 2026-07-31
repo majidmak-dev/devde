@@ -55,9 +55,9 @@ export default function Footer() {
                             Empowering modern businesses with world-class digital infrastructure and premium experiences.
                         </p>
                         <div className="flex space-x-4">
-                            <Link href="#" className="text-muted-foreground hover:text-primary"><Twitter className="w-5 h-5" /></Link>
-                            <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin className="w-5 h-5" /></Link>
-                            <Link href="#" className="text-muted-foreground hover:text-primary"><Github className="w-5 h-5" /></Link>
+                            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="DevDesigns Twitter Profile" className="text-muted-foreground hover:text-primary"><Twitter className="w-5 h-5" aria-hidden="true" /></Link>
+                            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="DevDesigns LinkedIn Page" className="text-muted-foreground hover:text-primary"><Linkedin className="w-5 h-5" aria-hidden="true" /></Link>
+                            <Link href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="DevDesigns GitHub Repository" className="text-muted-foreground hover:text-primary"><Github className="w-5 h-5" aria-hidden="true" /></Link>
                         </div>
                     </div>
 

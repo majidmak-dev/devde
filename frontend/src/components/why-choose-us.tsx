@@ -1,6 +1,6 @@
 'use client';
 
-import { Shield, Zap, TrendingUp, Users } from 'lucide-react';
+import { Shield, Zap, TrendingUp, Users, Rocket } from 'lucide-react';
 
 const stats = [
     { label: 'Successful Projects', value: '500+', icon: Zap },
@@ -54,5 +54,3 @@ export default function WhyChooseUs() {
         </section>
     );
 }
-
-import { Rocket } from 'lucide-react';

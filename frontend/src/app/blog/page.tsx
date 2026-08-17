@@ -14,8 +14,12 @@ const filterCategories = ['All', 'Development', 'Infrastructure', 'Design', 'Sec
 
 type BlogPostWithImage = typeof blogPosts[0] & { image?: string };
 
+const sortByDateDesc = <T extends { date: string }>(arr: T[]): T[] => {
+    return [...arr].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+};
+
 export default function BlogListing() {
-    const [posts, setPosts] = useState<BlogPostWithImage[]>([...blogPosts].reverse());
+    const [posts, setPosts] = useState<BlogPostWithImage[]>(() => sortByDateDesc(blogPosts));
     const [activeFilter, setActiveFilter] = useState('All');
     const [blogIdea, setBlogIdea] = useState('');
     const [aiResult, setAiResult] = useState<{ title: string, outline: string[] } | null>(null);
@@ -30,7 +34,7 @@ export default function BlogListing() {
                     image: images.length > 0 ? images[0].url : ''
                 };
             }));
-            setPosts(updatedPosts.reverse());
+            setPosts(sortByDateDesc(updatedPosts));
         };
         loadImages();
     }, []);

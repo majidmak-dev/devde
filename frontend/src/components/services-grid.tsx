@@ -121,38 +121,39 @@ export default function ServicesGrid() {
                         viewport={{ once: true }}
                         className="group relative"
                     >
-                        <div className={`glass rounded-[2.5rem] p-10 h-full border border-white/5 bg-slate-900/40 hover:bg-slate-900/60 transition-all duration-500 overflow-hidden flex flex-col hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 group-hover:-translate-y-2 ${!serviceVideos[service.title] ? 'animate-shimmer' : ''}`}>
-                            {/* Background Video Preview */}
-                            {serviceVideos[service.title] && (
-                                <video
-                                    src={serviceVideos[service.title]}
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                    className="absolute inset-0 w-full h-full object-cover opacity-15 group-hover:opacity-30 transition-opacity duration-1000 scale-110 group-hover:scale-100"
-                                />
-                            )}
+                        <Link href={service.href} className="block h-full">
+                            <div className={`glass rounded-[2.5rem] p-10 h-full border border-white/5 bg-slate-900/40 hover:bg-slate-900/60 transition-all duration-500 overflow-hidden flex flex-col hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 group-hover:-translate-y-2 ${!serviceVideos[service.title] ? 'animate-shimmer' : ''}`}>
+                                {/* Background Video Preview */}
+                                {serviceVideos[service.title] && (
+                                    <video
+                                        src={serviceVideos[service.title]}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="absolute inset-0 w-full h-full object-cover opacity-15 group-hover:opacity-30 transition-opacity duration-1000 scale-110 group-hover:scale-100"
+                                    />
+                                )}
 
-                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-8 shadow-xl shadow-black/40 group-hover:rotate-6 transition-all duration-500 relative overflow-hidden`}>
-                                <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                <service.icon className="w-8 h-8 text-white relative z-10" />
-                            </div>
+                                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-8 shadow-xl shadow-black/40 group-hover:rotate-6 transition-all duration-500 relative overflow-hidden`}>
+                                    <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <service.icon className="w-8 h-8 text-white relative z-10" />
+                                </div>
 
-                            <div className="relative z-10 space-y-4 flex-1">
-                                <h3 className="text-3xl font-black italic tracking-tight group-hover:text-primary transition-colors">{service.title}</h3>
-                                <p className="text-muted-foreground text-sm italic leading-relaxed opacity-70 group-hover:opacity-100 transition-opacity">{service.description}</p>
-                            </div>
+                                <div className="relative z-10 space-y-4 flex-1">
+                                    <h3 className="text-3xl font-black italic tracking-tight group-hover:text-primary transition-colors">{service.title}</h3>
+                                    <p className="text-muted-foreground text-sm italic leading-relaxed opacity-70 group-hover:opacity-100 transition-opacity">{service.description}</p>
+                                </div>
 
-                            <div className="pt-8 mt-auto">
-                                <Link
-                                    href={service.href}
-                                    className="text-primary font-black uppercase text-xs tracking-widest group-hover:translate-x-3 transition-all duration-300 italic flex items-center inline-flex"
-                                >
-                                    Explore Service <ArrowRight className="w-4 h-4 ml-2" />
-                                </Link>
+                                <div className="pt-8 mt-auto">
+                                    <span
+                                        className="text-primary font-black uppercase text-xs tracking-widest group-hover:translate-x-3 transition-all duration-300 italic flex items-center inline-flex"
+                                    >
+                                        Explore Service <ArrowRight className="w-4 h-4 ml-2" />
+                                    </span>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </motion.div>
                 ))}
             </div>

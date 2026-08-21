@@ -96,7 +96,7 @@ export default function PowerAppsPage() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-7xl font-black italic tracking-tighter"
+          className="text-3xl sm:text-4xl md:text-7xl font-black italic tracking-tighter"
         >
           Enterprise <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent italic">PowerApps & Automation</span>
         </motion.h1>
@@ -168,7 +168,7 @@ export default function PowerAppsPage() {
             <span className="glass px-6 py-2 rounded-full border border-purple-500/30 text-xs font-black italic tracking-widest uppercase text-purple-300">
               High-Velocity Enterprise Automation
             </span>
-            <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter text-white">
+            <h2 className="text-2xl sm:text-4xl md:text-6xl font-black italic tracking-tighter text-white">
               Low-Code Velocity. <span className="text-purple-400">Enterprise Security.</span>
             </h2>
           </div>
@@ -213,7 +213,7 @@ export default function PowerAppsPage() {
 
       {/* CTA Section */}
       <section className="container mx-auto px-4 py-16">
-        <div className="glass p-12 rounded-[3.5rem] bg-gradient-to-r from-purple-950/40 to-indigo-950/40 border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+        <div className="glass p-6 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[3.5rem] bg-gradient-to-r from-purple-950/40 to-indigo-950/40 border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div className="space-y-4">
             <h2 className="text-3xl md:text-5xl font-black italic text-white">
               Build Your PowerApps Solution

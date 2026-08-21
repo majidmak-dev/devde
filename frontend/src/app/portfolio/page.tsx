@@ -84,7 +84,7 @@ export default function PortfolioPage() {
                         <Sparkles className="w-5 h-5" />
                         <span>Our Work</span>
                     </div>
-                    <h1 className="text-5xl md:text-8xl font-black italic tracking-tighter uppercase leading-none">
+                    <h1 className="text-3xl sm:text-5xl md:text-8xl font-black italic tracking-tighter uppercase leading-none">
                         Digital <span className="text-primary italic">Excellence</span>
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto italic mt-6">
@@ -188,7 +188,7 @@ export default function PortfolioPage() {
                     <Button
                         size="lg"
                         onClick={() => openModal('Start a new project inquiry from the portfolio page')}
-                        className="rounded-full bg-primary h-20 px-16 text-2xl font-black shadow-2xl shadow-primary/20 hover:scale-105 transition-transform"
+                        className="rounded-full bg-primary h-14 px-8 text-lg sm:h-20 sm:px-16 sm:text-2xl font-black shadow-2xl shadow-primary/20 hover:scale-105 transition-transform"
                     >
                         START YOUR JOURNEY <ArrowRight className="w-6 h-6 ml-3" />
                     </Button>

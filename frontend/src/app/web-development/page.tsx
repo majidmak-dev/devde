@@ -36,7 +36,7 @@ export default function WebDevelopmentPage() {
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-4xl md:text-6xl font-bold"
+                    className="text-3xl sm:text-4xl md:text-6xl font-bold"
                 >
                     Scalable <span className="text-secondary">Web App</span> Solutions
                 </motion.h1>
@@ -147,7 +147,7 @@ export default function WebDevelopmentPage() {
 
             {/* CTA Box */}
             <section className="container mx-auto px-4 py-20">
-                <div className="glass p-12 rounded-3xl bg-secondary/5 border-secondary/10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                <div className="glass p-6 sm:p-8 md:p-12 rounded-3xl bg-secondary/5 border-secondary/10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
                     <div className="space-y-4">
                         <h2 className="text-3xl font-bold">Ready to Build Your Platform?</h2>
                         <p className="text-muted-foreground">Let&apos;s discuss your requirements and build something extraordinary.</p>

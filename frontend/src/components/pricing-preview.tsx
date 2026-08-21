@@ -45,7 +45,7 @@ export default function PricingPreview() {
                     whileInView={{ opacity: 1, y: 0 }}
                     className="space-y-4 mb-16"
                 >
-                    <h2 className="text-4xl md:text-7xl font-black tracking-tighter italic">Simple, Transparent <span className="text-primary italic">Pricing</span></h2>
+                    <h2 className="text-3xl sm:text-4xl md:text-7xl font-black tracking-tighter italic">Simple, Transparent <span className="text-primary italic">Pricing</span></h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto italic text-lg opacity-80">Choose the plan that fits your business stage. All plans include 99.9% uptime guarantee.</p>
                 </motion.div>
 

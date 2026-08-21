@@ -36,7 +36,7 @@ function AnimatedCounter({ value, suffix, decimals = 0, color, isInView }: {
     }, [isInView, count, value]);
 
     return (
-        <span className={`text-5xl md:text-6xl font-black tracking-tighter italic ${color}`}>
+        <span className={`text-3xl sm:text-5xl md:text-6xl font-black tracking-tighter italic ${color}`}>
             {displayVal}{suffix}
         </span>
     );

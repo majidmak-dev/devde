@@ -80,7 +80,7 @@ export default function Home() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
 
           <div className="space-y-4">
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter italic">Ready to Elevate Your <span className="text-primary italic">Digital Presence?</span></h2>
+            <h2 className="text-2xl sm:text-4xl md:text-6xl font-black tracking-tighter italic">Ready to Elevate Your <span className="text-primary italic">Digital Presence?</span></h2>
             <p className="text-muted-foreground max-w-xl mx-auto italic text-lg text-pretty">Join 10,000+ businesses powered by DevDesigns high-performance infrastructure.</p>
           </div>
 
@@ -93,7 +93,7 @@ export default function Home() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your business email"
                 aria-label="Enter your business email"
-                className="px-8 py-4 rounded-full border border-white/10 bg-slate-900 focus:ring-2 ring-primary outline-none min-w-[320px] text-lg font-medium transition-all group-hover:bg-slate-800"
+                className="px-8 py-4 rounded-full border border-white/10 bg-slate-900 focus:ring-2 ring-primary outline-none min-w-0 w-full sm:min-w-[320px] text-lg font-medium transition-all group-hover:bg-slate-800"
               />
               <AnimatePresence>
                 {isSuccess && (

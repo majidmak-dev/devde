@@ -54,7 +54,7 @@ export default function UIUXDesignPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="space-y-6 max-w-4xl mx-auto"
                     >
-                        <h1 className="text-5xl md:text-8xl font-black tracking-tighter italic">
+                        <h1 className="text-3xl sm:text-5xl md:text-8xl font-black tracking-tighter italic">
                             Elevate your <br /><span className="text-primary italic">Digital Soul</span>
                         </h1>
                         <div className="text-xl md:text-2xl text-muted-foreground italic max-w-3xl mx-auto opacity-80 leading-relaxed font-medium space-y-6 pt-4">
@@ -71,7 +71,7 @@ export default function UIUXDesignPage() {
                         <div className="flex flex-wrap justify-center gap-6 pt-8">
                             <Button
                                 onClick={() => openModal("I'm interested in a Premium UI/UX Audit & Strategy for my platform. Let's discuss the details.")}
-                                className="bg-primary hover:bg-primary/90 text-white font-black rounded-2xl h-16 px-12 text-xl btn-glow shadow-primary/20 flex items-center group"
+                                className="bg-primary hover:bg-primary/90 text-white font-black rounded-2xl h-14 px-6 text-base sm:h-16 sm:px-12 sm:text-xl btn-glow shadow-primary/20 flex items-center group"
                             >
                                 <MessageSquare className="mr-3 w-6 h-6 group-hover:scale-110 transition-transform" /> REQUEST AUDIT
                             </Button>
@@ -145,7 +145,7 @@ export default function UIUXDesignPage() {
                                     </div>
                                 </div>
                                 <div className="p-10 space-y-6">
-                                    <div className="flex justify-between items-start">
+                                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                                         <h3 className="text-3xl font-black italic tracking-tight">{study.title}</h3>
                                         <div className="text-primary font-black italic uppercase text-sm tracking-widest">{study.impact}</div>
                                     </div>
@@ -195,7 +195,7 @@ export default function UIUXDesignPage() {
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="glass p-16 rounded-[4rem] border border-primary/20 bg-primary/5 shadow-2xl shadow-primary/10 text-center relative overflow-hidden group"
+                        className="glass p-8 sm:p-12 md:p-16 rounded-[2rem] sm:rounded-[3rem] md:rounded-[4rem] border border-primary/20 bg-primary/5 shadow-2xl shadow-primary/10 text-center relative overflow-hidden group"
                     >
                         <div className="orb -top-20 -right-20 bg-primary/20 w-[400px] h-[400px]" />
                         <h2 className="text-4xl md:text-7xl font-black tracking-tighter italic mb-8 relative z-10">
@@ -205,7 +205,7 @@ export default function UIUXDesignPage() {
                             Don&apos;t settle for &quot;good&quot; design. Launch an experience that defines your category and crushes your competition.
                         </p>
                         <Button
-                            className="bg-primary hover:bg-primary/90 text-white font-black rounded-3xl h-20 px-16 text-2xl btn-glow shadow-primary/20 relative z-10 group-hover:scale-105 transition-transform flex items-center mx-auto"
+                            className="bg-primary hover:bg-primary/90 text-white font-black rounded-3xl h-14 px-8 text-lg sm:h-20 sm:px-16 sm:text-2xl btn-glow shadow-primary/20 relative z-10 group-hover:scale-105 transition-transform flex items-center mx-auto"
                             onClick={() => openModal("I'm ready for a paradigm shift in my product's UI/UX. Let's start the design transformation.")}
                         >
                             Consult Lead Architect

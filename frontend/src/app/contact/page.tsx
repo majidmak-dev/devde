@@ -85,7 +85,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">{item.label}</p>
-                                        <p className="text-xl font-bold">{item.value}</p>
+                                        <p className="text-base sm:text-xl font-bold break-all sm:break-normal">{item.value}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -105,7 +105,7 @@ export default function Contact() {
                 </div>
 
                 {/* Contact Form */}
-                <div className="glass p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl relative">
+                <div className="glass p-5 sm:p-8 md:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] border border-white/10 shadow-2xl relative">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">

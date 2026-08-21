@@ -45,14 +45,14 @@ export default function Chatbot() {
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
             <AnimatePresence>
                 {isOpen && !isMinimized && (
                     <motion.div
                         initial={{ opacity: 0, y: 20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                        className="glass w-[380px] h-[520px] rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden mb-4"
+                        className="glass w-[calc(100vw-2rem)] sm:w-[380px] h-[min(520px,calc(100vh-8rem))] rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden mb-4"
                     >
                         {/* Header */}
                         <div className="p-4 bg-primary flex items-center justify-between text-white">

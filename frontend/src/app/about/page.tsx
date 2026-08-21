@@ -63,7 +63,7 @@ export default function AboutPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="space-y-6 max-w-4xl mx-auto"
                     >
-                        <h1 className="text-5xl md:text-8xl font-black tracking-tighter italic">
+                        <h1 className="text-3xl sm:text-5xl md:text-8xl font-black tracking-tighter italic">
                             Building the <span className="text-primary italic">Digital Future</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-muted-foreground italic max-w-2xl mx-auto opacity-80 leading-relaxed">
@@ -174,7 +174,7 @@ export default function AboutPage() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="glass p-16 rounded-[4rem] border border-primary/20 bg-primary/5 shadow-2xl shadow-primary/10 max-w-5xl mx-auto overflow-hidden relative"
+                        className="glass p-8 sm:p-12 md:p-16 rounded-[2rem] sm:rounded-[3rem] md:rounded-[4rem] border border-primary/20 bg-primary/5 shadow-2xl shadow-primary/10 max-w-5xl mx-auto overflow-hidden relative"
                     >
                         <div className="orb -top-20 -right-20 bg-primary/20 w-[400px] h-[400px]" />
                         <h2 className="text-4xl md:text-7xl font-black tracking-tighter italic mb-8 relative z-10">

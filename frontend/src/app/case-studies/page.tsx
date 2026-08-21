@@ -21,7 +21,7 @@ export default function CaseStudies() {
                         animate={{ opacity: 1, y: 0 }}
                         className="space-y-6 max-w-4xl mx-auto"
                     >
-                        <h1 className="text-5xl md:text-8xl font-black tracking-tighter italic">
+                        <h1 className="text-3xl sm:text-5xl md:text-8xl font-black tracking-tighter italic">
                             Success <span className="text-primary italic">Engineered.</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-muted-foreground italic max-w-2xl mx-auto opacity-80 leading-relaxed">
@@ -70,7 +70,7 @@ export default function CaseStudies() {
                                         </div>
 
                                         {/* Impact Metrics Snippet */}
-                                        <div className="grid grid-cols-3 gap-4">
+                                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                             {study.metrics.map((metric, i) => (
                                                 <div key={i} className="glass p-4 rounded-2xl border border-white/5 bg-white/2 overflow-hidden relative">
                                                     <div className="text-primary font-black text-xl mb-1">{metric.value}</div>
@@ -79,7 +79,7 @@ export default function CaseStudies() {
                                             ))}
                                         </div>
 
-                                        <div className="flex items-center gap-6">
+                                        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
                                             <Button asChild className="bg-primary hover:bg-primary/90 text-white font-black rounded-2xl h-14 px-10 text-lg btn-glow shadow-primary/20">
                                                 <Link href={`/case-studies/${study.id}`}>
                                                     View Full Analysis <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -101,7 +101,7 @@ export default function CaseStudies() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        className="glass p-16 rounded-[4rem] border border-primary/20 bg-primary/5 shadow-2xl shadow-primary/10 max-w-5xl mx-auto overflow-hidden relative group"
+                        className="glass p-8 sm:p-12 md:p-16 rounded-[2rem] sm:rounded-[3rem] md:rounded-[4rem] border border-primary/20 bg-primary/5 shadow-2xl shadow-primary/10 max-w-5xl mx-auto overflow-hidden relative group"
                     >
                         <div className="orb -top-20 -left-20 bg-primary/20 w-[400px] h-[400px]" />
                         <div className="flex justify-center mb-8">

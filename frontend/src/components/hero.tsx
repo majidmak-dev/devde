@@ -76,7 +76,7 @@ export default function Hero() {
                             Next-Gen Digital Solutions
                             <ChevronRight className="w-4 h-4 ml-1" />
                         </span>
-                        <h1 className="text-5xl md:text-8xl font-black tracking-tighter bg-clip-text text-white">
+                        <h1 className="text-4xl sm:text-5xl md:text-8xl font-black tracking-tighter bg-clip-text text-white">
                             Digital Infrastructure for <br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-400 to-secondary italic">
                                 Modern Businesses
@@ -183,9 +183,9 @@ export default function Hero() {
                                     )}
                                 </AnimatePresence>
 
-                                <div className="absolute bottom-8 left-8 text-left pointer-events-none">
-                                    <p className="text-white font-black text-2xl tracking-tighter drop-shadow-lg">PLATFORM PREVIEW</p>
-                                    <p className="text-white/80 text-sm font-medium drop-shadow-md">Experience the DevDesigns Ecosystem</p>
+                                <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 text-left pointer-events-none">
+                                    <p className="text-white font-black text-lg md:text-2xl tracking-tighter drop-shadow-lg">PLATFORM PREVIEW</p>
+                                    <p className="text-white/80 text-xs md:text-sm font-medium drop-shadow-md">Experience the DevDesigns Ecosystem</p>
                                 </div>
                             </div>
                         </div>

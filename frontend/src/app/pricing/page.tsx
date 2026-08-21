@@ -22,7 +22,7 @@ export default function PricingPage() {
                         <Sparkles className="w-5 h-5" />
                         <span>Invest in Your Growth</span>
                     </div>
-                    <h1 className="text-5xl md:text-8xl font-black italic tracking-tighter text-pretty">
+                    <h1 className="text-3xl sm:text-5xl md:text-8xl font-black italic tracking-tighter text-pretty">
                         Scaling Made <span className="text-primary italic">Affordable</span>
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto italic">
@@ -57,7 +57,7 @@ export default function PricingPage() {
 
             {/* FAQ / Bottom CTA */}
             <section className="container mx-auto px-4 py-20 text-center">
-                <div className="glass p-12 rounded-[3.5rem] bg-slate-900/50 border border-white/5 space-y-6">
+                <div className="glass p-6 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[3.5rem] bg-slate-900/50 border border-white/5 space-y-6">
                     <h2 className="text-4xl font-black italic tracking-tighter uppercase">Still have questions?</h2>
                     <p className="text-muted-foreground max-w-xl mx-auto italic text-lg">
                         Our technical consultants are available 24/7 to help you choose the right infrastructure for your specific needs.
@@ -66,7 +66,7 @@ export default function PricingPage() {
                         size="lg"
                         variant="secondary"
                         onClick={() => openModal('Request a detailed pricing breakdown or custom enterprise quote')}
-                        className="rounded-full h-16 px-12 text-xl font-black"
+                        className="rounded-full h-14 px-8 text-lg sm:h-16 sm:px-12 sm:text-xl font-black"
                     >
                         CONTACT SALES
                     </Button>

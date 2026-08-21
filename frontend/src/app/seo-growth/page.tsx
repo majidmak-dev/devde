@@ -27,7 +27,7 @@ export default function SEOGrowthPage() {
                         <TrendingUp className="w-5 h-5" />
                         <span>Growth Ecosystem</span>
                     </div>
-                    <h1 className="text-6xl md:text-9xl font-black italic tracking-tighter uppercase leading-none">
+                    <h1 className="text-4xl sm:text-6xl md:text-9xl font-black italic tracking-tighter uppercase leading-none">
                         Organic <span className="text-primary italic">Dominance</span>
                     </h1>
                     <div className="text-xl text-muted-foreground max-w-3xl mx-auto italic space-y-4 pt-6">
@@ -76,7 +76,7 @@ export default function SEOGrowthPage() {
 
             {/* Content Section */}
             <section className="container mx-auto px-4 mb-32">
-                <div className="glass p-12 md:p-24 rounded-[4rem] border border-white/5 bg-gradient-to-br from-slate-900/50 to-black relative overflow-hidden">
+                <div className="glass p-6 sm:p-12 md:p-24 rounded-[2rem] sm:rounded-[3rem] md:rounded-[4rem] border border-white/5 bg-gradient-to-br from-slate-900/50 to-black relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[100px] -mr-48 -mt-48" />
                     <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-8">
@@ -124,14 +124,14 @@ export default function SEOGrowthPage() {
                         <Sparkles className="w-4 h-4 text-primary" />
                         <span className="text-[10px] font-black uppercase tracking-[0.3em] italic">Growth Strategy 2026</span>
                     </div>
-                    <h2 className="text-5xl md:text-8xl font-black italic tracking-tighter uppercase leading-none">
+                    <h2 className="text-3xl sm:text-5xl md:text-8xl font-black italic tracking-tighter uppercase leading-none">
                         Scale without <span className="text-primary italic">Limits.</span>
                     </h2>
                     <div className="flex flex-col md:flex-row items-center justify-center gap-6">
                         <Button
                             size="lg"
                             onClick={() => openModal(`I'm interested in the SEO Pro Strategy for my business. Let's discuss a growth roadmap.`)}
-                            className="rounded-full bg-white text-black h-20 px-12 text-xl font-black hover:bg-primary hover:text-white transition-all w-full md:w-auto"
+                            className="rounded-full bg-white text-black h-14 px-8 text-base sm:h-20 sm:px-12 sm:text-xl font-black hover:bg-primary hover:text-white transition-all w-full md:w-auto"
                         >
                             GET SEO QUOTE <MessageSquare className="w-6 h-6 ml-3" />
                         </Button>

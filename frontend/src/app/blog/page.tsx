@@ -61,7 +61,7 @@ export default function BlogListing() {
         <div className="pt-32 pb-20">
             {/* Header */}
             <section className="container mx-auto px-4 mb-16 text-center space-y-4">
-                <h1 className="text-4xl md:text-7xl font-black tracking-tighter">Insights &amp; <span className="text-primary italic">Innovation</span></h1>
+                <h1 className="text-3xl sm:text-4xl md:text-7xl font-black tracking-tighter">Insights &amp; <span className="text-primary italic">Innovation</span></h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto italic">Expert perspectives on digital infrastructure, design, and growth strategy.</p>
             </section>
 
@@ -85,7 +85,7 @@ export default function BlogListing() {
 
             {/* AI Assistant Section */}
             <section className="container mx-auto px-4 mb-16">
-                <div className="glass p-8 md:p-12 rounded-[2rem] border border-primary/20 bg-gradient-to-br from-primary/5 via-transparent to-transparent relative overflow-hidden">
+                <div className="glass p-5 sm:p-8 md:p-12 rounded-[1.5rem] sm:rounded-[2rem] border border-primary/20 bg-gradient-to-br from-primary/5 via-transparent to-transparent relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-8 opacity-5">
                         <Sparkles className="w-32 h-32 text-primary" />
                     </div>

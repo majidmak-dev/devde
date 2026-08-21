@@ -116,14 +116,14 @@ export default function PowerAppsSection() {
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="glass rounded-[3rem] p-10 bg-gradient-to-r from-purple-950/40 via-slate-900/60 to-blue-950/40 border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl"
+        className="glass rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-10 bg-gradient-to-r from-purple-950/40 via-slate-900/60 to-blue-950/40 border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl"
       >
         <div className="space-y-4 relative z-10">
           <div className="inline-flex items-center space-x-2 text-emerald-400 text-xs font-bold uppercase tracking-widest">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
             <span>Microsoft Certified Solution Experts</span>
           </div>
-          <h3 className="text-3xl md:text-4xl font-black italic tracking-tight text-white">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-black italic tracking-tight text-white break-words">
             Ready to Automate Your Business Workflows with <span className="text-purple-400">PowerApps?</span>
           </h3>
           <p className="text-slate-300 max-w-xl italic text-base">

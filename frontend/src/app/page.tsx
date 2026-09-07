@@ -7,6 +7,7 @@ import WhyChooseUs from "@/components/why-choose-us";
 import PricingPreview from "@/components/pricing-preview";
 import StatsBar from "@/components/stats-bar";
 import GoogleAd from "@/components/google-ad";
+import AeoGeoShowcase from "@/components/aeo-geo-showcase";
 import { useState } from 'react';
 import { useInteraction } from '@/components/interaction-provider';
 import { Button } from '@/components/ui/button';
@@ -68,6 +69,7 @@ export default function Home() {
       <div className="container mx-auto px-4">
         <GoogleAd slot="home_after_services" />
       </div>
+      <AeoGeoShowcase />
       <WhyChooseUs />
       <PricingPreview />
       <div className="container mx-auto px-4">

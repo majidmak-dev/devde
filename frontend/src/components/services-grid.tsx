@@ -10,7 +10,8 @@ import {
     Search,
     ArrowRight,
     Sparkles,
-    Cpu
+    Cpu,
+    Bot
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { fetchVideos } from '@/lib/image-api';
@@ -66,12 +67,20 @@ const services = [
         href: '/marketplace'
     },
     {
-        title: 'SEO & Growth',
-        description: 'Data-driven strategies to boost your visibility and accelerate business growth.',
+        title: 'SEO & Growth Engine',
+        description: 'Data-driven technical SEO audits and growth strategies to compound high-converting organic traffic.',
         icon: Search,
         color: 'from-cyan-500 to-blue-600',
         query: 'data analytics business growth',
         href: '/seo-growth'
+    },
+    {
+        title: 'AEO & GEO Optimization',
+        description: 'Dominate ChatGPT, Perplexity, Gemini, and Claude with native LLM manifests, schema graphs, and citations.',
+        icon: Bot,
+        color: 'from-emerald-500 to-teal-600',
+        query: 'artificial intelligence neural network technology',
+        href: '/aeo-geo'
     }
 ];
 

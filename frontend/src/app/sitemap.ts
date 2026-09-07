@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: `${baseUrl}/domain-booking`, lastModified: new Date() },
         { url: `${baseUrl}/security`, lastModified: new Date() },
         { url: `${baseUrl}/seo-growth`, lastModified: new Date() },
+        { url: `${baseUrl}/aeo-geo`, lastModified: new Date() },
         { url: `${baseUrl}/marketplace`, lastModified: new Date() },
         { url: `${baseUrl}/pricing`, lastModified: new Date() },
         { url: `${baseUrl}/ui-ux-design`, lastModified: new Date() },

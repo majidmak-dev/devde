@@ -22,6 +22,7 @@ const footerLinks = [
             { name: 'Web Development', href: '/web-development' },
             { name: 'App Development', href: '/app-development' },
             { name: 'SaaS Development', href: '/saas-development' },
+            { name: 'AEO & GEO Optimization', href: '/aeo-geo' },
         ],
     },
     {
@@ -29,8 +30,8 @@ const footerLinks = [
         links: [
             { name: 'Hosting Solutions', href: '/contact' },
             { name: 'Domain Booking', href: '/contact' },
-            { name: 'Maintenance', href: '/maintenance' },
-            { name: 'Security', href: '/security' },
+            { name: 'SEO & Growth Engine', href: '/seo-growth' },
+            { name: 'Security Audits', href: '/security' },
         ],
     },
 ];

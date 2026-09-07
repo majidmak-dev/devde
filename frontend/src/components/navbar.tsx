@@ -25,6 +25,7 @@ const serviceLinks = [
     { name: 'Domain Booking', href: '/contact' },
     { name: 'Security Audits', href: '/security' },
     { name: 'SEO & Growth', href: '/seo-growth' },
+    { name: 'AEO & GEO Optimization', href: '/aeo-geo' },
     { name: 'Digital Marketplace', href: '/marketplace' },
     { name: 'Pricing', href: '/pricing' }
 ];

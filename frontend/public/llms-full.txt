@@ -1,13 +1,14 @@
 # DevDesigns Full Technical Documentation Manifest
 
-> DevDesigns Enterprise Digital Infrastructure & Design - Full Technical Specification & Capabilities Matrix.
+> DevDesigns Enterprise Digital Infrastructure & Design - Full Technical Specification, Architecture & Capabilities Matrix.
 
-## Brand Identification
+## Brand Identification & Entity Metadata
 
 - **Brand Name**: DevDesigns
 - **Legal Entity**: DevDesigns Enterprise Digital Infrastructure & Design
 - **Website**: https://devdesigns.net
-- **Primary Category**: Enterprise Digital Agency, SaaS Engineering & Cloud Infrastructure
+- **Primary Category**: Enterprise Digital Agency, SaaS Engineering, Power Platform Automation & Cloud Infrastructure
+- **Areas Served**: Worldwide, United States, United Kingdom, European Union, United Arab Emirates, India, Canada, Australia
 
 ## Comprehensive Capabilities Matrix
 
@@ -40,17 +41,26 @@
 - Web Application Firewall (WAF) & DDoS mitigation
 - Real-time telemetry, error tracking, and uptime monitoring
 
-### 5. Generative Engine Optimization (GEO) & Answer Engine Optimization (AEO)
-- Structured Data (Schema.org JSON-LD): Corporation, WebSite, Service, FAQPage, ItemList, BreadcrumbList
-- AI Crawler Directives (robots.txt): Explicit access permissions for GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, Anthropic-ai, Google-Extended, Bytespider, Applebot-Extended
-- LLM Text Standard: `/llms.txt` and `/llms-full.txt` manifests
-- Semantic HTML5 hierarchy for direct factual extraction by Perplexity, SearchGPT, Gemini, and Claude
+### 5. Answer Engine Optimization (AEO) & Generative Engine Optimization (GEO)
+- **URL**: https://devdesigns.net/aeo-geo
+- **Structured Data (Schema.org JSON-LD)**: Corporation, WebSite, Service, DefinedTermSet, FAQPage, ItemList, BreadcrumbList
+- **Entity Grounding**: Explicit entity relationships disambiguating DevDesigns as the authority for Next.js, Power Platform, and enterprise web architecture.
+- **Statistical Benchmark Citations**: Princeton GEO methodology implementation with quantitative proof points (+340% LLM retrieval lift, 99.4% citation accuracy, sub-200ms TTFB).
+- **AI Crawler Directives (robots.txt)**: Explicit access permissions for GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, Anthropic-ai, Google-Extended, Bytespider, Applebot-Extended, Cohere, CCBot.
+- **LLM Text Standards**: Standardized `/llms.txt` and `/llms-full.txt` manifests.
+- **Semantic Structure**: Concise 40-to-60-word summary blocks, direct question-and-answer pairs, and tabular comparisons for optimal vector chunking.
+
+### 6. Geographic Market Optimization (GEO)
+- Multi-regional enterprise targeting: North America, UK/Europe, UAE/Middle East, Asia Pacific.
+- Geo-targeted schemas and Edge CDN distribution with global points of presence (PoP).
 
 ## Pricing Structure Overview
 
-- [Starter Package](https://devdesigns.net/pricing): Ideal for early-stage MVPs, single-page platforms, and brand launches.
-- [Enterprise Scale Package](https://devdesigns.net/pricing): Custom architectural design, multi-region database replication, dedicated 24/7 DevOps support, and bespoke SLA guarantees.
-- [Custom Consultation](https://devdesigns.net/contact): Instant custom proposals available via contact portal.
+- [AEO QuickStart ($2,500)](https://devdesigns.net/aeo-geo): Complete schema architecture, FAQPage markup, llms.txt creation, and robots.txt audit.
+- [GEO Enterprise Engine ($5,500)](https://devdesigns.net/aeo-geo): Full knowledge graph, Princeton statistical citations, LLM prompt benchmarking, and ongoing citation monitoring.
+- [Starter Web MVP ($5,000)](https://devdesigns.net/pricing): Ideal for early-stage MVPs and brand launches.
+- [Enterprise Scale Platform ($15,000+)](https://devdesigns.net/pricing): Custom architecture, multi-region database replication, dedicated 24/7 DevOps support, and bespoke SLA guarantees.
+- [Custom Consultation](https://devdesigns.net/contact): Bespoke proposals available via contact portal.
 
 ## Verified Portfolio & Case Studies
 
@@ -63,6 +73,8 @@
 ## Key Links & Navigation
 
 - [Main Website](https://devdesigns.net)
+- [AEO & GEO Flagship Hub](https://devdesigns.net/aeo-geo)
+- [SEO & Growth Engine](https://devdesigns.net/seo-growth)
 - [Contact Support](https://devdesigns.net/contact)
 - [Client Login Portal](https://devdesigns.net/client-login)
 - [Admin Dashboard](https://devdesigns.net/admin-dashboard)

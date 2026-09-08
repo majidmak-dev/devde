@@ -163,10 +163,18 @@ export default function BlogListing() {
                                                 )}
                                             </div>
                                             <div className="space-y-3">
-                                                <div className="flex items-center space-x-4 text-xs font-bold text-primary uppercase tracking-widest">
+                                                <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-primary uppercase tracking-widest">
                                                     <span>{post.category}</span>
                                                     <span className="w-1 h-1 bg-primary rounded-full" />
                                                     <span className="text-muted-foreground">{post.date}</span>
+                                                    {post.directAnswer && (
+                                                        <>
+                                                            <span className="w-1 h-1 bg-primary rounded-full" />
+                                                            <span className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full font-mono normal-case tracking-normal">
+                                                                AEO / GEO Verified
+                                                            </span>
+                                                        </>
+                                                    )}
                                                 </div>
                                                 <h2 className="text-2xl font-black group-hover:text-primary transition-colors leading-tight">{post.title}</h2>
                                                 <p className="text-muted-foreground text-sm line-clamp-2 italic">{post.excerpt}</p>

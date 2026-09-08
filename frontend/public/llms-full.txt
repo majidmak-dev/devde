@@ -70,11 +70,25 @@
 - [Hagarbath](https://hagarbath.com): Consumer experience platform.
 - [Investments2Go](https://investments2go.com): Financial & investment dashboard platform.
 
+## Knowledge Base & Engineering Guides (AEO / GEO Grounded)
+
+- [Generative Engine Optimization (GEO) & AEO: The Complete 2026 Search Playbook](https://devdesigns.net/blog/ai-driven-seo-growth): Princeton benchmark research, statistical citation grounding, and machine-readable llms.txt manifests.
+- [Next.js 15 & React 19 Enterprise Architecture](https://devdesigns.net/blog/nextjs-digital-infrastructure): React Server Components, async request headers, Turbopack, and sub-150ms edge rendering.
+- [High-Performance Cloud Infrastructure & Edge Caching](https://devdesigns.net/blog/high-performance-hosting-seo): Edge caching, global PoPs, and sub-200ms TTFB for AI search ingestion.
+- [Enterprise SaaS Architecture](https://devdesigns.net/blog/enterprise-saas-architecture): Multi-tenant database tenancy models, Kafka event streaming, and zero-downtime blue-green deployments.
+- [Zero Trust Enterprise Security](https://devdesigns.net/blog/zero-trust-security-2026): FIDO2 hardware authentication, service mesh mTLS, and NIST Post-Quantum Cryptography (PQC).
+- [UI/UX Design Trends 2026](https://devdesigns.net/blog/ui-ux-trends-2026): Dynamic Bento Grids, spatial interfaces, GPU-accelerated glassmorphism, and purposeful motion.
+- [React Server Components & Server Actions](https://devdesigns.net/blog/react-server-components-deep-dive): Prop serialization benchmarks, eliminating waterfalls, and streaming SSR.
+- [Edge Computing & Cloudflare Workers](https://devdesigns.net/blog/edge-computing-enterprise): V8 isolates, Durable Objects, and sub-15ms compute worldwide.
+- [Building Enterprise Design Systems at Scale](https://devdesigns.net/blog/design-systems-at-scale): Multi-platform design tokens, Style Dictionary, and automated codemods.
+- [Kubernetes FinOps 2026](https://devdesigns.net/blog/kubernetes-cost-optimization): Cutting cloud infrastructure costs by 60% with autoscaling, KEDA, and Spot instances.
+
 ## Key Links & Navigation
 
 - [Main Website](https://devdesigns.net)
 - [AEO & GEO Flagship Hub](https://devdesigns.net/aeo-geo)
 - [SEO & Growth Engine](https://devdesigns.net/seo-growth)
+- [Blog & Technical Research](https://devdesigns.net/blog)
 - [Contact Support](https://devdesigns.net/contact)
 - [Client Login Portal](https://devdesigns.net/client-login)
 - [Admin Dashboard](https://devdesigns.net/admin-dashboard)

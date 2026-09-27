@@ -7,24 +7,47 @@ import { useState, useEffect, useRef } from 'react';
 import { fetchVideos, VideoResult } from '@/lib/image-api';
 import { useInteraction } from '@/components/interaction-provider';
 
+const DEFAULT_BG_VIDEO: VideoResult = {
+    id: "default-bg",
+    url: "https://videos.pexels.com/video-files/11041433/11041433-hd_1280_720_30fps.mp4",
+    image: "https://images.pexels.com/videos/11041433/pexels-photo-11041433.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
+    user: "DevDesigns Studio",
+    source: "pexels"
+};
+
+const DEFAULT_PREVIEW_VIDEO: VideoResult = {
+    id: "default-preview",
+    url: "https://videos.pexels.com/video-files/7047257/7047257-hd_1280_720_25fps.mp4",
+    image: "https://images.pexels.com/videos/7047257/pexels-photo-7047257.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
+    user: "DevDesigns Studio",
+    source: "pexels"
+};
+
 export default function Hero() {
-    const [bgVideo, setBgVideo] = useState<VideoResult | null>(null);
-    const [previewVideo, setPreviewVideo] = useState<VideoResult | null>(null);
+    const [bgVideo, setBgVideo] = useState<VideoResult | null>(DEFAULT_BG_VIDEO);
+    const [previewVideo, setPreviewVideo] = useState<VideoResult | null>(DEFAULT_PREVIEW_VIDEO);
     const [isPlaying, setIsPlaying] = useState(false);
     const previewVideoRef = useRef<HTMLVideoElement>(null);
     const { openModal } = useInteraction();
 
     useEffect(() => {
+        let isMounted = true;
         const loadVideos = async () => {
-            // Fetch two different videos in parallel
-            const [bgResults, previewResults] = await Promise.all([
-                fetchVideos('digital technology background abstract', 1),
-                fetchVideos('modern software app interface dashboard', 1),
-            ]);
-            if (bgResults.length > 0) setBgVideo(bgResults[0]);
-            if (previewResults.length > 0) setPreviewVideo(previewResults[0]);
+            try {
+                // Fetch dynamic videos
+                const [bgResults, previewResults] = await Promise.all([
+                    fetchVideos('digital technology background abstract', 1),
+                    fetchVideos('modern software app interface dashboard', 1),
+                ]);
+                if (!isMounted) return;
+                if (bgResults.length > 0 && bgResults[0]?.url) setBgVideo(bgResults[0]);
+                if (previewResults.length > 0 && previewResults[0]?.url) setPreviewVideo(previewResults[0]);
+            } catch (err) {
+                console.warn('Video fetch fallback active:', err);
+            }
         };
         loadVideos();
+        return () => { isMounted = false; };
     }, []);
 
     const togglePlay = () => {

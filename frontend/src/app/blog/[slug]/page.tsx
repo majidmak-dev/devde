@@ -132,7 +132,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
     if (!post) return notFound();
 
-    const imageUrl = await fetchPostImage(post.query);
+    const fetchedImage = await fetchPostImage(post.query);
+    const imageUrl = fetchedImage || post.image || 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200';
     const pageUrl = `https://devdesigns.net/blog/${post.slug}`;
     const isoDate = new Date(post.date).toISOString();
 
@@ -244,11 +245,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         <span className="bg-primary/10 border border-primary/20 px-3.5 py-1 rounded-full">{post.category}</span>
                         <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                         <span className="text-muted-foreground">{post.date}</span>
-                        <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                        <span className="text-emerald-400 flex items-center gap-1 text-xs">
-                            <ShieldCheck className="w-3.5 h-3.5" />
-                            AEO / GEO Verified
-                        </span>
                     </div>
 
                     <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter leading-tight italic">
@@ -291,7 +287,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                             <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-primary/15 via-primary/5 to-transparent border border-primary/30 my-8 space-y-3 relative overflow-hidden">
                                 <div className="flex items-center space-x-2 text-primary font-bold text-xs uppercase tracking-wider">
                                     <Sparkles className="w-4 h-4" />
-                                    <span>AEO Quick Answer • AI Overview Verified</span>
+                                    <span>Executive Summary</span>
                                 </div>
                                 <p className="text-base sm:text-lg text-white/90 leading-relaxed font-medium">
                                     {post.directAnswer}

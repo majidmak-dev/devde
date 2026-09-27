@@ -1,10 +1,21 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, Phone, MapPin, Send, Loader2, CheckCircle2, Sparkles, ShieldCheck } from 'lucide-react';
+import { Mail, MessageSquare, Phone, MapPin, Send, Loader2, CheckCircle2, Sparkles, ShieldCheck, RefreshCw, KeyRound, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useInteraction } from '@/components/interaction-provider';
+
+// Characters designed for high legibility, avoiding confusing letters (0, O, 1, I, L)
+const SECURITY_CHARS = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+
+function generateRandomSecurityCode(length = 4): string {
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += SECURITY_CHARS.charAt(Math.floor(Math.random() * SECURITY_CHARS.length));
+    }
+    return result;
+}
 
 export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -12,6 +23,18 @@ export default function Contact() {
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const { openModal } = useInteraction();
     const [formLoadedAt, setFormLoadedAt] = useState<number>(Date.now());
+    
+    // Security verification code state
+    const [securityCode, setSecurityCode] = useState<string>('');
+    const [userSecurityCode, setUserSecurityCode] = useState<string>('');
+    const [securityError, setSecurityError] = useState<string | null>(null);
+
+    const refreshSecurityCode = useCallback(() => {
+        setSecurityCode(generateRandomSecurityCode(4));
+        setUserSecurityCode('');
+        setSecurityError(null);
+    }, []);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -25,10 +48,25 @@ export default function Contact() {
 
     useEffect(() => {
         setFormLoadedAt(Date.now());
+        setSecurityCode(generateRandomSecurityCode(4));
     }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Validate security code
+        if (!userSecurityCode.trim()) {
+            setSecurityError('Please enter the security verification code.');
+            return;
+        }
+
+        if (userSecurityCode.trim().toUpperCase() !== securityCode.toUpperCase()) {
+            setSecurityError('Invalid security code. Please enter the characters shown.');
+            refreshSecurityCode();
+            return;
+        }
+
+        setSecurityError(null);
         setIsSubmitting(true);
 
         try {
@@ -39,6 +77,7 @@ export default function Contact() {
                 setErrorMessage(null);
                 setTimeout(() => setIsSuccess(false), 5000);
                 setFormData({ name: '', email: '', subject: '', service: '', message: '', website_hp: '', company_fax_hp: '' });
+                refreshSecurityCode();
                 return;
             }
 
@@ -48,7 +87,8 @@ export default function Contact() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     ...formData,
-                    formLoadedAt
+                    formLoadedAt,
+                    securityVerified: true
                 }),
             });
 
@@ -60,6 +100,7 @@ export default function Contact() {
 
             setIsSuccess(true);
             setErrorMessage(null);
+            refreshSecurityCode();
 
             setTimeout(() => setIsSuccess(false), 5000);
             setFormData({ name: '', email: '', subject: '', service: '', message: '', website_hp: '', company_fax_hp: '' });
@@ -233,6 +274,71 @@ export default function Contact() {
                                 value={formData.company_fax_hp}
                                 onChange={(e) => setFormData({ ...formData, company_fax_hp: e.target.value })}
                             />
+                        </div>
+
+                        {/* Interactive Security Verification Code */}
+                        <div className="space-y-3 p-5 rounded-2xl bg-slate-900/90 border border-white/10 shadow-inner">
+                            <div className="flex items-center justify-between">
+                                <label htmlFor="security_code_input" className="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
+                                    <KeyRound className="w-3.5 h-3.5 text-primary" />
+                                    Security Verification Code
+                                </label>
+                                <span className="text-[11px] text-muted-foreground/80 font-mono">Anti-Spam Verification</span>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
+                                {/* Visual Security Code Display Badge */}
+                                <div className="flex items-center justify-between px-4 py-3 bg-slate-950 rounded-xl border border-primary/20 select-none relative overflow-hidden group shadow-md">
+                                    <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:8px_8px] pointer-events-none" />
+                                    
+                                    <div 
+                                        aria-label={`Security verification code: ${securityCode}`}
+                                        className="flex items-center space-x-2 tracking-[0.35em] font-mono text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary via-emerald-400 to-sky-300 italic relative z-10 pl-2 select-none"
+                                    >
+                                        {securityCode || '••••'}
+                                    </div>
+
+                                    <button
+                                        type="button"
+                                        onClick={refreshSecurityCode}
+                                        title="Click to generate a new security code"
+                                        aria-label="Refresh security code"
+                                        className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-muted-foreground hover:text-white transition-all relative z-10 active:scale-95"
+                                    >
+                                        <RefreshCw className="w-4 h-4" />
+                                    </button>
+                                </div>
+
+                                {/* Security Code User Input */}
+                                <div>
+                                    <input
+                                        id="security_code_input"
+                                        type="text"
+                                        required
+                                        maxLength={6}
+                                        value={userSecurityCode}
+                                        onChange={(e) => {
+                                            setUserSecurityCode(e.target.value.toUpperCase());
+                                            if (securityError) setSecurityError(null);
+                                        }}
+                                        className={`w-full px-4 py-3 rounded-xl bg-slate-950 border ${
+                                            securityError 
+                                                ? 'border-red-500 focus:border-red-500' 
+                                                : 'border-white/10 focus:border-primary'
+                                        } outline-none font-mono uppercase tracking-widest text-center text-lg font-bold placeholder:text-muted-foreground/40 placeholder:tracking-normal placeholder:font-sans placeholder:text-xs transition-colors`}
+                                        placeholder="ENTER 4 DIGITS"
+                                        autoComplete="off"
+                                        spellCheck="false"
+                                    />
+                                </div>
+                            </div>
+
+                            {securityError && (
+                                <p className="text-xs text-red-400 font-medium flex items-center gap-1.5 pt-1">
+                                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                                    {securityError}
+                                </p>
+                            )}
                         </div>
 
                         <div className="flex items-center justify-between px-2 text-xs text-muted-foreground/80">

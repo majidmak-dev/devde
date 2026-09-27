@@ -8,6 +8,7 @@ export interface BlogPost {
     readTime: string;
     category: string;
     query: string;
+    image?: string;
     directAnswer?: string;
     keyTakeaways?: string[];
     faqs?: { question: string; answer: string }[];
@@ -2008,10 +2009,11 @@ export async function generateMetadata() {
 2. **Schema.org Knowledge Graph**: Embed deeply connected JSON-LD graphs linking your organization to Wikidata entities, authoritative founders, and verified production client domains.
 3. **Machine-Readable Manifests**: Host a clean, comprehensive \`/llms.txt\` and \`/llms-full.txt\` at your root directory to give LLMs canonical ground truth without hallucination risks.`,
         author: 'Majid Desk',
-        date: 'Mar 27, 2026',
+        date: 'Sep 27, 2026',
         readTime: '8 min read',
         category: 'SEO Growth',
-        query: 'generative engine optimization ai search ranking'
+        query: 'generative engine optimization ai search ranking',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200'
     },
     {
         slug: "ratemyux-neural-vision-ai-ux-auditing",
@@ -2090,10 +2092,11 @@ export async function analyzeInterfaceHeuristics(imageUrl: string): Promise<UXAu
 ## Real-World Impact: 34% Average Conversion Lift
 Platforms audited through RateMyUX consistently uncover critical friction points that human teams overlook. By resolving top-ranked heuristic violations, client platforms experience an average **34% lift in checkout conversion** and a **45% decrease in form abandonment**. Explore live audits at [RateMyUX](https://www.ratemyux.com).`,
         author: 'Majid Desk',
-        date: 'Mar 26, 2026',
+        date: 'Sep 26, 2026',
         readTime: '7 min read',
         category: 'UI/UX Design',
-        query: 'ratemyux artificial intelligence design audit heuristics'
+        query: 'ratemyux artificial intelligence design audit heuristics',
+        image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=1200'
     },
     {
         slug: "nooreilahi-astronomical-geodesy-scale",
@@ -2161,10 +2164,11 @@ export function calculateQiblaAzimuth(lat: number, lng: number): number {
 
 Experience the live platform at [Noor-e-ilahi](https://www.nooreilahi.com).`,
         author: 'Majid Desk',
-        date: 'Mar 25, 2026',
+        date: 'Sep 25, 2026',
         readTime: '9 min read',
         category: 'Web Development',
-        query: 'noor e ilahi islamic app platform architecture geodesy'
+        query: 'noor e ilahi islamic app platform architecture geodesy',
+        image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1200'
     },
     {
         slug: "nextjs-15-turbopack-enterprise-scale",
@@ -2233,10 +2237,11 @@ Because Server Actions accept HTTP POST requests directly, enterprise deployment
 - **Zod Schema Parsing**: Discard unexpected payload parameters before executing database queries.
 - **Session Context Assertion**: Validate JWT or session cookies within the action context before performing privilege-sensitive operations.`,
         author: 'Priya Mehta',
-        date: 'Mar 24, 2026',
+        date: 'Sep 24, 2026',
         readTime: '8 min read',
         category: 'Web Development',
-        query: 'nextjs 15 react 19 turbopack enterprise architecture'
+        query: 'nextjs 15 react 19 turbopack enterprise architecture',
+        image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200'
     },
     {
         slug: "enterprise-contact-form-spam-defense",
@@ -2303,10 +2308,11 @@ For years, digital agencies slapped Google reCAPTCHA or hCaptcha on forms. In 20
 The golden rule of anti-bot engineering is: **Never tell the bot it was caught.**
 When a bot receives an error message (like \`400 Honeypot Detected\`), the bot script author simply adds an exception rule to leave that field blank. By returning a standard 200 Success acknowledgement, the bot records a successful submission and moves on to another target, permanently protecting your infrastructure.`,
         author: 'Majid Desk',
-        date: 'Mar 23, 2026',
+        date: 'Sep 23, 2026',
         readTime: '7 min read',
         category: 'Security',
-        query: 'contact form anti spam bot security honeypot'
+        query: 'contact form anti spam bot security honeypot',
+        image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200'
     },
     {
         slug: "aeo-schema-mastery-llms-knowledge-graph",
@@ -2385,10 +2391,11 @@ With the explosion of conversational smart devices and wearable AI pins, voice s
 
 By deploying these schemas site-wide, DevDesigns clients routinely secure featured answer snippets across Google, Perplexity, and Apple Intelligence.`,
         author: 'Priya Mehta',
-        date: 'Mar 22, 2026',
+        date: 'Sep 22, 2026',
         readTime: '7 min read',
         category: 'SEO Growth',
-        query: 'answer engine optimization schema json ld llms txt'
+        query: 'answer engine optimization schema json ld llms txt',
+        image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200'
     },
     {
         slug: "power-platform-enterprise-custom-portals",
@@ -2456,10 +2463,11 @@ export async function fetchCustomerDataverseRecords(tenantId: string) {
 2. **Lighthouse 99 Performance**: Replace bloated legacy runtime bundles with lightweight React Server Components.
 3. **Enterprise Compliance**: Maintain full ISO 27001, SOC2, and HIPAA audit trails natively inside Dataverse.`,
         author: 'Majid Desk',
-        date: 'Mar 21, 2026',
+        date: 'Sep 21, 2026',
         readTime: '8 min read',
         category: 'PowerApps',
-        query: 'microsoft powerapps dataverse nextjs enterprise portal'
+        query: 'microsoft powerapps dataverse nextjs enterprise portal',
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200'
     },
     {
         slug: "core-web-vitals-inp-optimization-2026",
@@ -2518,10 +2526,11 @@ async function processMassiveDataset(items: Array<any>) {
 - **Preload Critical Viewport Media**: Ensure the hero LCP image is declared with \`fetchpriority="high"\` and modern AVIF formatting.
 - **Zero CLS via Aspect Ratio Containers**: Never render images or third-party ad blocks without hard-coded aspect-ratio bounding boxes.`,
         author: 'Priya Mehta',
-        date: 'Mar 20, 2026',
+        date: 'Sep 20, 2026',
         readTime: '7 min read',
         category: 'Web Development',
-        query: 'core web vitals inp performance lighthouse optimization'
+        query: 'core web vitals inp performance lighthouse optimization',
+        image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200'
     },
     {
         slug: "distributed-postgres-neon-edge-architecture",
@@ -2586,10 +2595,11 @@ By deploying read replicas co-located with your edge CDN points of presence:
 2. **Queries (Reads)**: Execute against the nearest local replica within 10-15ms latency.
 3. **Consistency**: Use replication watermarks to ensure users always see their own writes immediately without read-your-own-writes lag.`,
         author: 'Majid Desk',
-        date: 'Mar 19, 2026',
+        date: 'Sep 19, 2026',
         readTime: '8 min read',
         category: 'Infrastructure',
-        query: 'distributed postgres database serverless neon pgbouncer'
+        query: 'distributed postgres database serverless neon pgbouncer',
+        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200'
     },
     {
         slug: "finops-kubernetes-keda-autoscaling-2026",
@@ -2653,10 +2663,11 @@ spec:
 ## Measuring Success: Tenant Unit Economics
 The ultimate metric of FinOps maturity is **Cost per Active Tenant**. By instrumenting OpenTelemetry tracing and Prometheus cost exporters, engineering leaders can accurately quantify how much infrastructure each enterprise customer consumes, protecting operating margins as the platform scales.`,
         author: 'Priya Mehta',
-        date: 'Mar 18, 2026',
+        date: 'Sep 18, 2026',
         readTime: '8 min read',
         category: 'Infrastructure',
-        query: 'finops cloud cost kubernetes keda autoscaling'
+        query: 'finops cloud cost kubernetes keda autoscaling',
+        image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200'
     }
 ];
 

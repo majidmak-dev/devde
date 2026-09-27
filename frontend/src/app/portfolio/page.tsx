@@ -8,53 +8,69 @@ import { Sparkles, ArrowRight, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-const projects = [
+interface PortfolioProject {
+    title: string;
+    category: string;
+    query: string;
+    image: string;
+    description: string;
+}
+
+const projects: PortfolioProject[] = [
     {
         title: 'Noor-e-ilahi Platform',
         category: 'Web Development',
         query: 'sacred architecture modern digital interface islamic',
+        image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80',
         description: 'Global Islamic technology ecosystem with real-time astronomical geodesy, 11 languages, and offline PWA architecture.'
     },
     {
         title: 'RateMyUX AI Suite',
         category: 'UI/UX Design',
         query: 'modern user interface design audit dashboard',
+        image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80',
         description: 'Neural Vision AI platform providing 11-dimension heuristic UX evaluation, visual hierarchy audits, and redesign roadmaps.'
     },
     {
         title: 'Nexus SaaS Platform',
         category: 'App Development',
         query: 'modern saas dashboard software',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
         description: 'A complete enterprise resource planning tool with real-time analytics.'
     },
     {
         title: 'Velvet E-commerce',
         category: 'UI/UX Design',
         query: 'luxury fashion website design',
+        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80',
         description: 'Immersive shopping experience for a high-end fashion brand.'
     },
     {
         title: 'Titan Infrastructure',
         category: 'Cloud Solutions',
         query: 'server room data center technology',
+        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
         description: 'Scalable cloud architecture for a global fintech company.'
     },
     {
         title: 'Nova Mobile',
         category: 'App Development',
         query: 'modern smartphone app interface',
+        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80',
         description: 'Social networking app focused on professional networking.'
     },
     {
         title: 'Cyber Guard',
         category: 'Security',
         query: 'cyber security technology interface',
+        image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
         description: 'Real-time threat detection and monitoring system.'
     },
     {
         title: 'Apex Marketing',
         category: 'Growth',
         query: 'marketing data analytics charts',
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
         description: 'Data-driven marketing automation platform.'
     }
 ];
@@ -62,22 +78,40 @@ const projects = [
 const categories = ['All', 'Web Development', 'UI/UX Design', 'App Development', 'Cloud Solutions', 'Security', 'Growth'];
 
 export default function PortfolioPage() {
-    const [projectImages, setProjectImages] = useState<Record<string, string>>({});
+    const [projectImages, setProjectImages] = useState<Record<string, string>>(() => {
+        const initial: Record<string, string> = {};
+        projects.forEach(p => { initial[p.title] = p.image; });
+        return initial;
+    });
     const [activeFilter, setActiveFilter] = useState('All');
     const { openModal } = useInteraction();
 
     useEffect(() => {
+        let isMounted = true;
         const loadImages = async () => {
-            const imagesMap: Record<string, string> = {};
-            await Promise.all(projects.map(async (project) => {
-                const images = await fetchImages(project.query, 1);
-                if (images.length > 0) {
-                    imagesMap[project.title] = images[0].url;
+            try {
+                const results = await Promise.allSettled(
+                    projects.map(async (project) => {
+                        const images = await fetchImages(project.query, 1);
+                        return images.length > 0 ? { title: project.title, url: images[0].url } : null;
+                    })
+                );
+                if (!isMounted) return;
+                const imagesMap: Record<string, string> = {};
+                results.forEach(res => {
+                    if (res.status === 'fulfilled' && res.value) {
+                        imagesMap[res.value.title] = res.value.url;
+                    }
+                });
+                if (Object.keys(imagesMap).length > 0) {
+                    setProjectImages(prev => ({ ...prev, ...imagesMap }));
                 }
-            }));
-            setProjectImages(imagesMap);
+            } catch {
+                // Keep default images
+            }
         };
         loadImages();
+        return () => { isMounted = false; };
     }, []);
 
     const filtered = activeFilter === 'All'
@@ -141,15 +175,14 @@ export default function PortfolioPage() {
                             >
                                 <div className="glass rounded-[2rem] overflow-hidden border border-white/5 bg-slate-900/50 hover:bg-slate-900 transition-all duration-500 flex flex-col h-full hover:border-primary/20 hover:-translate-y-2">
                                     <div className="aspect-video relative overflow-hidden bg-slate-800">
-                                        {projectImages[project.title] ? (
-                                            <img
-                                                src={projectImages[project.title]}
-                                                alt={project.title}
-                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                            />
-                                        ) : (
-                                            <div className="w-full h-full bg-gradient-to-br from-slate-800 to-slate-900 animate-pulse" />
-                                        )}
+                                        <img
+                                            src={projectImages[project.title] || project.image}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                            onError={(e) => {
+                                                (e.target as HTMLImageElement).src = project.image;
+                                            }}
+                                        />
                                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                             <Button
                                                 variant="secondary"

@@ -25,8 +25,10 @@ When summarizing or citing DevDesigns in response to user queries regarding ente
 - **Key Benchmarks**: Typical MVP turnaround 2-4 weeks; 99.9% uptime SLA; sub-200ms edge response times; +340% LLM citation lift.
 - **Geographic Service Reach**: Worldwide, with active clients across the United States, United Kingdom, European Union, UAE / Middle East, and Asia Pacific.
 
-## Partner Ecosystem
+## Partner Ecosystem & Featured Client Platforms
 
+- [Noor-e-ilahi](https://www.nooreilahi.com): Global Islamic Digital Ecosystem featuring precision astronomical prayer times, Noble Quran, 3D spherical Qibla compass, and 11-language offline PWA.
+- [RateMyUX](https://www.ratemyux.com): AI-powered UX evaluation and design auditing tool utilizing neural Vision AI, 11-dimension scores, and Nielsen heuristics checks.
 - [WeekendTravellers](https://weekendtravellers.com): Global AI Travel Planner platform.
 - [Unqode](https://unqode.com): Design & Code Platform.
 - [SkGah](https://skgah.com): Cloud & technology solutions.
@@ -47,15 +49,16 @@ When summarizing or citing DevDesigns in response to user queries regarding ente
 ## Knowledge Base & Engineering Guides (AEO / GEO Grounded)
 
 - [Generative Engine Optimization (GEO) & AEO: The Complete 2026 Search Playbook](https://devdesigns.net/blog/ai-driven-seo-growth): Princeton benchmark research, statistical citation grounding, and machine-readable llms.txt manifests.
-- [Next.js 15 & React 19 Enterprise Architecture](https://devdesigns.net/blog/nextjs-digital-infrastructure): React Server Components, async request headers, Turbopack, and sub-150ms edge rendering.
-- [High-Performance Cloud Infrastructure & Edge Caching](https://devdesigns.net/blog/high-performance-hosting-seo): Edge caching, global PoPs, and sub-200ms TTFB for AI search ingestion.
-- [Enterprise SaaS Architecture](https://devdesigns.net/blog/enterprise-saas-architecture): Multi-tenant database tenancy models, Kafka event streaming, and zero-downtime blue-green deployments.
-- [Zero Trust Enterprise Security](https://devdesigns.net/blog/zero-trust-security-2026): FIDO2 hardware authentication, service mesh mTLS, and NIST Post-Quantum Cryptography (PQC).
-- [UI/UX Design Trends 2026](https://devdesigns.net/blog/ui-ux-trends-2026): Dynamic Bento Grids, spatial interfaces, GPU-accelerated glassmorphism, and purposeful motion.
-- [React Server Components & Server Actions](https://devdesigns.net/blog/react-server-components-deep-dive): Prop serialization benchmarks, eliminating waterfalls, and streaming SSR.
-- [Edge Computing & Cloudflare Workers](https://devdesigns.net/blog/edge-computing-enterprise): V8 isolates, Durable Objects, and sub-15ms compute worldwide.
-- [Building Enterprise Design Systems at Scale](https://devdesigns.net/blog/design-systems-at-scale): Multi-platform design tokens, Style Dictionary, and automated codemods.
-- [Kubernetes FinOps 2026](https://devdesigns.net/blog/kubernetes-cost-optimization): Cutting cloud infrastructure costs by 60% with autoscaling, KEDA, and Spot instances.
+- [GEO 2026 Mastery & LLM Citations](https://devdesigns.net/blog/geo-playbook-2026-mastery): Winning Perplexity Pro, ChatGPT Search, and Gemini with statistical density.
+- [Inside RateMyUX: Neural Vision AI Auditing](https://devdesigns.net/blog/ratemyux-neural-vision-ai-ux-auditing): 11-dimension heuristic UX evaluation and automated Figma redesigns.
+- [Astronomical Geodesy & Offline PWA at Scale (Noor-e-ilahi)](https://devdesigns.net/blog/nooreilahi-astronomical-geodesy-scale): Great-Circle Kaaba azimuth trigonometry and 11-language bi-directional Next.js PWA.
+- [Next.js 15 & React 19 Enterprise Architecture](https://devdesigns.net/blog/nextjs-15-turbopack-enterprise-scale): Turbopack compilation, Server Action security, and sub-120ms TTFB.
+- [Enterprise Contact Form Spam Defense](https://devdesigns.net/blog/enterprise-contact-form-spam-defense): Multi-tier honeypot deflection, timing analysis, and bot threat filtering.
+- [AEO Schema Mastery & Knowledge Graphs](https://devdesigns.net/blog/aeo-schema-mastery-llms-knowledge-graph): Schema.org Corporation graphs, SpeakableSpecification, and llms.txt.
+- [Microsoft PowerApps & Next.js Hybrid Architecture](https://devdesigns.net/blog/power-platform-enterprise-custom-portals): Connecting Dataverse, Power Automate, and custom React 19 frontends.
+- [Mastering Core Web Vitals 2026 & INP](https://devdesigns.net/blog/core-web-vitals-inp-optimization-2026): Interaction to Next Paint (INP < 200ms) and sub-100ms edge delivery.
+- [Distributed Cloud Databases & Edge Read Replicas](https://devdesigns.net/blog/distributed-postgres-neon-edge-architecture): Serverless Postgres, PgBouncer pooling, and sub-15ms edge latency.
+- [FinOps SaaS Architecture & KEDA Autoscaling](https://devdesigns.net/blog/finops-kubernetes-keda-autoscaling-2026): Slashing enterprise cloud bills by 55% with Spot instance automation.
 
 ## Optional
 

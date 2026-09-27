@@ -44,7 +44,7 @@ export default function Home() {
       <div className="container mx-auto px-4">
         {/* Trusted By Section (Mock) */}
         <div className="py-10 border-y border-border/50 flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-          {['Weekendtravellers.com', 'Unqode.com', 'skgah.com', 'Hagarbath.com', 'Investments2go.com'].map(brand => (
+          {['nooreilahi.com', 'ratemyux.com', 'Weekendtravellers.com', 'Unqode.com', 'skgah.com', 'Hagarbath.com', 'Investments2go.com'].map(brand => (
             <span
               key={brand}
               role="button"

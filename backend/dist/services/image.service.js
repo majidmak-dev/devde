@@ -13,11 +13,18 @@ class ImageService {
     }
     static async searchPexels(query, limit) {
         try {
-            if (!this.PEXELS_KEY)
+            if (!this.PEXELS_KEY) {
+                console.warn('Pexels API Key is missing');
                 return [];
+            }
             const response = await fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=${limit}`, {
                 headers: { Authorization: this.PEXELS_KEY }
             });
+            if (!response.ok) {
+                const errorBody = await response.text();
+                console.error(`Pexels API Error [${response.status}]:`, errorBody);
+                return [];
+            }
             const data = await response.json();
             return (data.photos || []).map((p) => ({
                 id: `pexels-${p.id}`,
@@ -29,17 +36,24 @@ class ImageService {
             }));
         }
         catch (error) {
-            console.error('Pexels API Error:', error);
+            console.error('Pexels Service Exception:', error);
             return [];
         }
     }
     static async searchUnsplash(query, limit) {
         try {
-            if (!this.UNSPLASH_KEY)
+            if (!this.UNSPLASH_KEY) {
+                console.warn('Unsplash Access Key is missing');
                 return [];
+            }
             const response = await fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=${limit}`, {
                 headers: { Authorization: `Client-ID ${this.UNSPLASH_KEY}` }
             });
+            if (!response.ok) {
+                const errorBody = await response.text();
+                console.error(`Unsplash API Error [${response.status}]:`, errorBody);
+                return [];
+            }
             const data = await response.json();
             return (data.results || []).map((p) => ({
                 id: `unsplash-${p.id}`,
@@ -51,7 +65,7 @@ class ImageService {
             }));
         }
         catch (error) {
-            console.error('Unsplash API Error:', error);
+            console.error('Unsplash Service Exception:', error);
             return [];
         }
     }
@@ -62,6 +76,11 @@ class ImageService {
             const response = await fetch(`https://api.pexels.com/videos/search?query=${encodeURIComponent(query)}&per_page=${limit}`, {
                 headers: { Authorization: this.PEXELS_KEY }
             });
+            if (!response.ok) {
+                const errorBody = await response.text();
+                console.error(`Pexels Video API Error [${response.status}]:`, errorBody);
+                return [];
+            }
             const data = await response.json();
             return (data.videos || []).map((v) => ({
                 id: `pexels-vid-${v.id}`,

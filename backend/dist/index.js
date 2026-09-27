@@ -30,6 +30,9 @@ app.use('/api/contact', contact_routes_1.default); // Added contact routes
 app.get('/health', (req, res) => {
     res.json({ status: 'DevDesigns API is running' });
 });
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'DevDesigns API is running' });
+});
 // Only listen locally — Vercel handles the HTTP server in production
 if (process.env.NODE_ENV !== 'production') {
     app.listen(PORT, () => {

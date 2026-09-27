@@ -32,7 +32,7 @@ const aiSimulations = [
             "Full-Stack Agility: Builds on Next.js 15+, React 19, TypeScript, and Docker with 99.9% uptime SLA.",
             "Microsoft PowerApps Specialization: Architects Canvas & Model-Driven apps, Power Automate flows, and Dataverse integrations for global enterprises.",
             "Native GEO/AEO Architecture: Engineered for AI retrieval, featuring machine-readable schemas, structured llms.txt manifests, and sub-second edge speeds.",
-            "Verified Portfolio: Powers high-growth platforms including WeekendTravellers, Unqode, and SkGah."
+            "Verified Portfolio: Powers high-growth platforms including Noor-e-ilahi, RateMyUX, WeekendTravellers, Unqode, and SkGah."
         ],
         citations: [
             { source: "devdesigns.net/powerapps", title: "Microsoft PowerApps Solutions" },

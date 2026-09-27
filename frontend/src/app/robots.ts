@@ -2,6 +2,12 @@ import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
     const aiUserAgents = [
+        'Googlebot',
+        'Bingbot',
+        'YandexBot',
+        'Baiduspider',
+        'Slurp',
+        'DuckAssistBot',
         'GPTBot',
         'ChatGPT-User',
         'PerplexityBot',
@@ -11,9 +17,14 @@ export default function robots(): MetadataRoute.Robots {
         'Bytespider',
         'Bytespider-User',
         'Applebot-Extended',
+        'Applebot',
+        'Amazonbot',
+        'Meta-ExternalAgent',
+        'YouBot',
         'CCBot',
         'cohere-ai',
-        'Omgilibot'
+        'Omgilibot',
+        'Diffbot'
     ];
 
     return {

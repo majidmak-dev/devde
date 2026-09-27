@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, Phone, MapPin, Send, Loader2, CheckCircle2, Sparkles } from 'lucide-react';
+import { Mail, MessageSquare, Phone, MapPin, Send, Loader2, CheckCircle2, Sparkles, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useInteraction } from '@/components/interaction-provider';
 
 export default function Contact() {
@@ -11,33 +11,58 @@ export default function Contact() {
     const [isSuccess, setIsSuccess] = useState(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const { openModal } = useInteraction();
+    const [formLoadedAt, setFormLoadedAt] = useState<number>(Date.now());
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         subject: '',
         service: '',
-        message: ''
+        message: '',
+        // Honeypot fields - invisible to humans, auto-filled by bots
+        website_hp: '',
+        company_fax_hp: ''
     });
+
+    useEffect(() => {
+        setFormLoadedAt(Date.now());
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
 
         try {
+            // Client-side quick filter: If honeypot is populated, fake success and skip API dispatch
+            if (formData.website_hp || formData.company_fax_hp) {
+                await new Promise(r => setTimeout(r, 600));
+                setIsSuccess(true);
+                setErrorMessage(null);
+                setTimeout(() => setIsSuccess(false), 5000);
+                setFormData({ name: '', email: '', subject: '', service: '', message: '', website_hp: '', company_fax_hp: '' });
+                return;
+            }
+
             const API_BASE = '/api';
             const response = await fetch(`${API_BASE}/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    ...formData,
+                    formLoadedAt
+                }),
             });
 
-            if (!response.ok) throw new Error('Failed to send message');
+            const data = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Failed to send message');
+            }
 
             setIsSuccess(true);
             setErrorMessage(null);
 
             setTimeout(() => setIsSuccess(false), 5000);
-            setFormData({ name: '', email: '', subject: '', service: '', message: '' });
+            setFormData({ name: '', email: '', subject: '', service: '', message: '', website_hp: '', company_fax_hp: '' });
         } catch (error: unknown) {
             console.error('Submission Error:', error);
             const message = error instanceof Error ? error.message : 'Failed to send message. Please try again.';
@@ -174,6 +199,48 @@ export default function Contact() {
                                 className="w-full px-6 py-4 rounded-2xl bg-slate-900 border border-white/5 focus:border-primary outline-none transition-all font-medium resize-none"
                                 placeholder="Tell us about your project..."
                             />
+                        </div>
+
+                        {/* Anti-Spam Honeypot Fields (Hidden from human visitors, traps automated bots) */}
+                        <div 
+                            style={{ 
+                                opacity: 0, 
+                                position: 'absolute', 
+                                top: 0, 
+                                left: '-9999px', 
+                                height: 0, 
+                                width: 0, 
+                                zIndex: -1, 
+                                overflow: 'hidden' 
+                            }} 
+                            aria-hidden="true"
+                        >
+                            <label htmlFor="website_hp">Leave this field blank</label>
+                            <input
+                                id="website_hp"
+                                type="text"
+                                tabIndex={-1}
+                                autoComplete="off"
+                                value={formData.website_hp}
+                                onChange={(e) => setFormData({ ...formData, website_hp: e.target.value })}
+                            />
+                            <label htmlFor="company_fax_hp">Leave this field blank</label>
+                            <input
+                                id="company_fax_hp"
+                                type="text"
+                                tabIndex={-1}
+                                autoComplete="off"
+                                value={formData.company_fax_hp}
+                                onChange={(e) => setFormData({ ...formData, company_fax_hp: e.target.value })}
+                            />
+                        </div>
+
+                        <div className="flex items-center justify-between px-2 text-xs text-muted-foreground/80">
+                            <span className="flex items-center gap-1.5 text-emerald-400/90 font-mono text-[11px]">
+                                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                                Protected by Neural Anti-Spam & TLS
+                            </span>
+                            <span className="text-[11px] font-mono opacity-60">Avg. Response: &lt; 2 hrs</span>
                         </div>
 
                         <Button

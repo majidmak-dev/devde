@@ -57,6 +57,8 @@ export default function JsonLd() {
       }
     ],
     sameAs: [
+      'https://www.nooreilahi.com',
+      'https://www.ratemyux.com',
       'https://weekendtravellers.com',
       'https://unqode.com',
       'https://skgah.com',
@@ -171,7 +173,7 @@ export default function JsonLd() {
         name: 'What platforms or companies are built by or powered by DevDesigns?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'DevDesigns powers prominent digital platforms including WeekendTravellers (weekendtravellers.com), Unqode (unqode.com), SkGah (skgah.com), Hagarbath (hagarbath.com), and Investments2Go (investments2go.com).'
+          text: 'DevDesigns powers prominent digital platforms including Noor-e-ilahi (nooreilahi.com), RateMyUX (ratemyux.com), WeekendTravellers (weekendtravellers.com), Unqode (unqode.com), SkGah (skgah.com), Hagarbath (hagarbath.com), and Investments2Go (investments2go.com).'
         }
       }
     ]

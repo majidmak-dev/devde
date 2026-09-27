@@ -10,6 +10,18 @@ import { cn } from '@/lib/utils';
 
 const projects = [
     {
+        title: 'Noor-e-ilahi Platform',
+        category: 'Web Development',
+        query: 'sacred architecture modern digital interface islamic',
+        description: 'Global Islamic technology ecosystem with real-time astronomical geodesy, 11 languages, and offline PWA architecture.'
+    },
+    {
+        title: 'RateMyUX AI Suite',
+        category: 'UI/UX Design',
+        query: 'modern user interface design audit dashboard',
+        description: 'Neural Vision AI platform providing 11-dimension heuristic UX evaluation, visual hierarchy audits, and redesign roadmaps.'
+    },
+    {
         title: 'Nexus SaaS Platform',
         category: 'App Development',
         query: 'modern saas dashboard software',
@@ -47,7 +59,7 @@ const projects = [
     }
 ];
 
-const categories = ['All', 'UI/UX Design', 'App Development', 'Cloud Solutions', 'Security', 'Growth'];
+const categories = ['All', 'Web Development', 'UI/UX Design', 'App Development', 'Cloud Solutions', 'Security', 'Growth'];
 
 export default function PortfolioPage() {
     const [projectImages, setProjectImages] = useState<Record<string, string>>({});

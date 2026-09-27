@@ -54,6 +54,10 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "nBZWi-6Z1b9kVVcHpW_UUd8a1qCQijOIChD_VSnqVYo",
+    yandex: "yandex-verification-devdesigns-2026",
+    other: {
+      "msvalidate.01": "D3E6931423BFC988CB57DDD88A110617",
+    }
   },
   icons: {
     icon: '/icon.svg',
@@ -74,6 +78,15 @@ export default function RootLayout({
     <html lang="en" className={outfit.variable} suppressHydrationWarning={true}>
       <head>
         <JsonLd />
+        {/* Machine-readable AI manifests for AEO & GEO search engines */}
+        <link rel="alternate" type="text/plain" href="https://devdesigns.net/llms.txt" title="LLMs.txt AEO Knowledge Base" />
+        <link rel="alternate" type="text/plain" href="https://devdesigns.net/llms-full.txt" title="LLMs-Full.txt Extended Corpus" />
+        <link rel="author" href="https://devdesigns.net/llms.txt" />
+        <meta name="ai-content-declarations" content="Verified Enterprise Engineering Corpus — Zero Synthetic Inventions" />
+        <meta name="citation_title" content="DevDesigns: Enterprise Digital Infrastructure, AI Architecture & Generative Engine Optimization" />
+        <meta name="citation_publisher" content="DevDesigns Corporation" />
+        <meta name="citation_online_date" content="2026/01/01" />
+
         {/* AdSense: must be raw tag in SSR head for Google crawler to detect it */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script

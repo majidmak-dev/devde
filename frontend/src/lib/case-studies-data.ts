@@ -14,6 +14,48 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
     {
+        id: "noor-e-ilahi",
+        title: "Global Islamic Digital Platform & Astronomical Geodesy Engine",
+        client: "Noor-e-ilahi (nooreilahi.com)",
+        category: "Web Development",
+        impact: "100k+ Active Users | <120ms Latency",
+        description: "Engineering an international, 100% ad-free Islamic technology ecosystem delivering real-time solar zenith prayer calculations, 11-language audio-synchronized Quran recitations, spherical trigonometry Qibla compass, and offline PWA functionality.",
+        challenge: "Calculating real-time astronomical solar zenith prayer times and spherical Great-Circle Kaaba azimuth client-side with zero latency while serving millions of audio streams across 11 languages with strict offline resilience.",
+        solution: "Engineered a Next.js Turbopack edge architecture with Web Workers for client-side geodesy math, Service Worker caching for complete offline functionality, and optimized CDN streaming for multi-qari recitations.",
+        results: [
+            "Achieved sub-120ms Time to First Byte (TTFB) globally",
+            "100% offline capability for core prayer times, Quran reading, and guides",
+            "Ranked #1 for international Islamic search and AEO citation benchmarks"
+        ],
+        metrics: [
+            { label: "Global Latency", value: "<120ms" },
+            { label: "Languages", value: "11 RTL/LTR" },
+            { label: "Uptime", value: "99.99%" }
+        ],
+        image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+        id: "ratemyux-ai",
+        title: "Neural Vision AI Design Auditing & Usability Scorer",
+        client: "RateMyUX (ratemyux.com)",
+        category: "SaaS",
+        impact: "11-Dimension AI Scorer | 3.2s Audit Velocity",
+        description: "Building an enterprise-grade AI UX auditing platform that analyzes live website URLs, Figma prototypes, and screenshots using neural Vision AI to generate Nielsen heuristic scores and prioritized redesign roadmaps.",
+        challenge: "Manual UX audits take design consultants days or weeks to compile. The client required an automated multimodal engine capable of visually dissecting interfaces, evaluating cognitive load, and generating actionable code and design recommendations in seconds.",
+        solution: "Architected a distributed vision AI pipeline leveraging high-resolution DOM snapshotting, multimodal LLM vision analysis, and an 11-dimension heuristic scoring algorithm with automated PDF/interactive report export.",
+        results: [
+            "Reduced UX evaluation time from 5 days to 3.2 seconds",
+            "Over 25,000 interfaces audited with 98.4% heuristic alignment accuracy",
+            "Accelerated client design conversion lifts by an average of 34%"
+        ],
+        metrics: [
+            { label: "Audit Time", value: "3.2s" },
+            { label: "Dimensions", value: "11 Heuristics" },
+            { label: "Accuracy", value: "98.4%" }
+        ],
+        image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
         id: "fintech-pro",
         title: "Next-Gen Wealth Management",
         client: "Global Finance Corp",

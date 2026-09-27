@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blog-data';
+import { caseStudies } from '@/lib/case-studies-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://devdesigns.net';
@@ -9,18 +10,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
         { url: `${baseUrl}/services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
         { url: `${baseUrl}/portfolio`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-        { url: `${baseUrl}/case-studies`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+        { url: `${baseUrl}/case-studies`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
         { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
         { url: `${baseUrl}/hosting`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
         { url: `${baseUrl}/domain-booking`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
         { url: `${baseUrl}/security`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-        { url: `${baseUrl}/seo-growth`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+        { url: `${baseUrl}/seo-growth`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
         { url: `${baseUrl}/aeo-geo`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
         { url: `${baseUrl}/marketplace`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
         { url: `${baseUrl}/pricing`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-        { url: `${baseUrl}/ui-ux-design`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+        { url: `${baseUrl}/ui-ux-design`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
         { url: `${baseUrl}/web-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-        { url: `${baseUrl}/app-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+        { url: `${baseUrl}/app-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
         { url: `${baseUrl}/saas-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
         { url: `${baseUrl}/powerapps`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
         { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
@@ -30,12 +31,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: `${baseUrl}/client-login`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     ];
 
+    const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map((study) => ({
+        url: `${baseUrl}/case-studies/${study.id}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.85,
+    }));
+
     const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
         url: `${baseUrl}/blog/${post.slug}`,
         lastModified: new Date(post.date),
         changeFrequency: 'weekly',
-        priority: 0.75,
+        priority: 0.8,
     }));
 
-    return [...staticRoutes, ...blogRoutes];
+    return [...staticRoutes, ...caseStudyRoutes, ...blogRoutes];
 }

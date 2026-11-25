@@ -56,10 +56,10 @@ export default function AboutPage() {
             initials: "MD"
         },
         {
-            name: "Sarah Chen",
+            name: "Ananya Verma",
             role: "VP of Cloud & Infrastructure",
             focus: "Kubernetes, eBPF/Cilium, Edge Computing & Turso",
-            initials: "SC"
+            initials: "AV"
         },
         {
             name: "Priya Mehta",
@@ -68,22 +68,22 @@ export default function AboutPage() {
             initials: "PM"
         },
         {
-            name: "Alex Rivera",
+            name: "Rohan Kapoor",
             role: "Lead AI & Search Architect",
             focus: "GEO/AEO Citations, Hybrid RAG & LangGraph Agents",
-            initials: "AR"
+            initials: "RK"
         },
         {
-            name: "David Sterling",
+            name: "Vikram Nair",
             role: "Director of Power Platform",
             focus: "Dataverse, PowerApps CoE, Power BI & Copilot Studio",
-            initials: "DS"
+            initials: "VN"
         },
         {
-            name: "Sophia Martinez",
+            name: "Meera Iyer",
             role: "Head of Design Systems",
             focus: "Figma Variables, WCAG 2.2 AA & Spatial UI/UX",
-            initials: "SM"
+            initials: "MI"
         }
     ];
 

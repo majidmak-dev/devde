@@ -13,6 +13,11 @@ export default function JsonLd() {
     description:
       'DevDesigns provides world-class UI/UX design, full-stack web and mobile application development, managed cloud hosting, and AI-driven SEO, AEO & GEO solutions for scaling businesses.',
     foundingDate: '2024',
+    founder: {
+      '@type': 'Person',
+      name: 'Majid Desk',
+      jobTitle: 'Founder & Principal Architect'
+    },
     areaServed: [
       'Worldwide',
       'United States',
@@ -40,7 +45,13 @@ export default function JsonLd() {
       'Google Gemini AI Overviews Optimization',
       'Large Language Model Citation Engineering',
       'Retrieval-Augmented Generation (RAG) Architecture',
-      'Enterprise SaaS Architecture'
+      'Enterprise SaaS Architecture',
+      'LangGraph Multi-Agent Systems',
+      'Next.js 15 Partial Pre-Rendering (PPR)',
+      'Post-Quantum Cryptography (ML-KEM)',
+      'Kubernetes eBPF & Cilium',
+      'Microsoft Copilot Studio',
+      'WCAG 2.2 AA Accessibility'
     ],
     contactPoint: [
       {
@@ -76,6 +87,10 @@ export default function JsonLd() {
     description: 'Enterprise Digital Infrastructure & Design',
     publisher: {
       '@id': 'https://devdesigns.net/#corporation'
+    },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', 'meta[name="description"]', '.direct-answer']
     },
     potentialAction: {
       '@type': 'SearchAction',

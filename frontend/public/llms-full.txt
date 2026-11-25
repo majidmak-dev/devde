@@ -17,7 +17,7 @@
 - Design system creation with React component tokens
 - Micro-interaction design using Framer Motion
 - Responsive layout architecture (Desktop, Tablet, Mobile)
-- Accessibility compliance (WCAG 2.1 AA)
+- **Accessibility compliance**: WCAG 2.2 AA (Target Size 24x24px, Focus Appearance, Redundant Entry, automated axe-core CI/CD)
 
 ### 2. Full-Stack Web & Mobile App Development
 - **Frontend Frameworks**: Next.js 15+, React 19, TypeScript
@@ -66,8 +66,14 @@
 
 - [Noor-e-ilahi](https://www.nooreilahi.com): Global Islamic Digital Ecosystem featuring precision astronomical prayer times, Noble Quran, 3D spherical Qibla compass, and 11-language offline PWA.
 - [RateMyUX](https://www.ratemyux.com): AI-powered UX evaluation and design auditing tool utilizing neural Vision AI, 11-dimension scores, and Nielsen heuristics checks.
-- [WeekendTravellers](https://weekendtravellers.com): Global AI Travel & Getaway Planner platform.
-- [Unqode](https://unqode.com): Design & code platform.
+- [WeekendTravellers](https://weekendtravellers.com): AI-powered travel discovery platform (3.8x booking conversion lift, 95k MAU, <100ms API latency).
+- [Unqode](https://unqode.com): Multi-tenant no-code app builder SaaS (10k+ apps built, 99.99% uptime SLA).
+- [MediConnect Pro](https://devdesigns.net/case-studies/healthcare-saas-hipaa): HIPAA-compliant telemedicine SaaS (48k active patients, zero HIPAA incidents, <200ms WebRTC).
+- [Maison Luxe](https://devdesigns.net/case-studies/ecommerce-ai-recommendations): AI recommendation engine for luxury fashion (+41% AOV, 68% repeat purchase rate).
+- [LegalEdge Consultants](https://devdesigns.net/case-studies/geo-aeo-seo-domination): Full-stack GEO & AEO search domination (+312% organic traffic, #1 AI citations).
+- [NestVision PropTech](https://devdesigns.net/case-studies/real-estate-proptech-platform): AI PropTech SaaS with 3D WebGL virtual tours (4.2x lead quality, 180k live listings).
+- [FinServe Capital Markets](https://devdesigns.net/case-studies/devdesigns-cloud-infrastructure): Zero-downtime multi-region cloud migration (99.999% uptime SLA, 74% cost reduction).
+- [Global Manufacturing Corp](https://devdesigns.net/case-studies/enterprise-powerapps-automation): Enterprise Power Platform automation suite (92% cycle time reduction, £2.4M saved).
 - [SkGah](https://skgah.com): Cloud & tech solutions.
 - [Hagarbath](https://hagarbath.com): Consumer experience platform.
 - [Investments2Go](https://investments2go.com): Financial & investment dashboard platform.
@@ -100,6 +106,35 @@
 - [Mastering Core Web Vitals 2026 & INP](https://devdesigns.net/blog/core-web-vitals-inp-optimization-2026): Interaction to Next Paint (INP < 200ms) and sub-100ms edge delivery.
 - [Distributed Cloud Databases & Edge Read Replicas](https://devdesigns.net/blog/distributed-postgres-neon-edge-architecture): Serverless Postgres, PgBouncer pooling, and sub-15ms edge latency.
 - [FinOps SaaS Architecture & KEDA Autoscaling](https://devdesigns.net/blog/finops-kubernetes-keda-autoscaling-2026): Slashing enterprise cloud bills by 55% with Spot instance automation.
+- [Next.js Partial Pre-Rendering (PPR)](https://devdesigns.net/blog/nextjs-ppr-partial-prerendering-2026): Static edge shells with dynamic streaming Suspense holes for sub-150ms FCP.
+- [AI Search Brand Visibility & GEO Share-of-Voice](https://devdesigns.net/blog/ai-search-brand-visibility-perplexity-2026): Automated query panels and 4.1x AI referral conversion premium.
+- [React 19 Actions, useFormStatus & useOptimistic](https://devdesigns.net/blog/react-19-actions-forms-optimistic-ui): Eliminating form boilerplate by 70% with Server Actions.
+- [Enterprise Data Lakehouse: dbt Core & Apache Iceberg](https://devdesigns.net/blog/enterprise-data-lakehouse-dbt-iceberg): Open table formats, ACID transactions on S3, and Trino federated queries.
+- [Microsoft Copilot Studio Enterprise AI Agents](https://devdesigns.net/blog/copilot-studio-custom-agents-enterprise): Generative orchestration with Graph API and Dataverse row-level security.
+- [INP Optimization Mastery & Scheduler API](https://devdesigns.net/blog/web-performance-inp-optimization-guide-2026): Reducing Interaction to Next Paint below 200ms.
+- [Zero-Knowledge Proofs in Enterprise Web Apps](https://devdesigns.net/blog/zero-knowledge-proofs-web3-authentication): zkLogin, PLONK, and privacy-preserving authentication.
+- [Figma AI, Variables 2.0 & Auto Layout 5](https://devdesigns.net/blog/figma-ai-variables-auto-layout-5-enterprise): Design-to-code parity with Code Connect.
+- [OpenTelemetry Distributed Tracing in Production](https://devdesigns.net/blog/opentelemetry-distributed-tracing-microservices): OTLP, Grafana Tempo, and Prometheus SLO alerting.
+- [E-commerce CRO 2026: AI Personalization & Dynamic Pricing](https://devdesigns.net/blog/ecommerce-conversion-rate-optimization-2026): Intent-aware LLM personalization and progressive trust architecture.
+- [Power Automate AI Builder Document Processing](https://devdesigns.net/blog/power-automate-ai-builder-document-processing): Automated invoice extraction into Dataverse at 97%+ accuracy.
+- [Tailwind CSS v4 Oxide Engine & Lightning CSS](https://devdesigns.net/blog/tailwind-css-v4-oxide-engine-2026): 10x faster builds and CSS-first @theme configuration.
+- [AI-Augmented Content Operations & Headless CMS](https://devdesigns.net/blog/ai-content-operations-cms-headless-2026): Sanity content lake and automated GEO publishing pipelines.
+- [React Native Expo SDK 52 New Architecture](https://devdesigns.net/blog/react-native-expo-sdk-52-enterprise): Bridgeless JSI, Fabric renderer, and TurboModules.
+- [Enterprise Autonomous AI Agents with LangGraph](https://devdesigns.net/blog/ai-agents-autonomous-workflows-enterprise): Stateful cyclical graphs and human-in-the-loop checkpoints.
+- [Quantum-Safe API Gateways with NIST ML-KEM](https://devdesigns.net/blog/quantum-safe-api-gateways-zero-trust): Hybrid X25519Kyber768 TLS 1.3 defense.
+- [Advanced RAG: Hybrid Dense-Sparse Retrieval & Cohere Rerank](https://devdesigns.net/blog/rag-vector-search-hybrid-retrieval): BM25 + Qdrant dense vectors with 96.4% context precision.
+- [Next.js Streaming SSR & React Suspense Dashboards](https://devdesigns.net/blog/nextjs-streaming-ssr-edge-performance): Chunked HTTP streaming achieving CLS 0.00.
+- [Power BI Embedded in Next.js with Dynamic RLS](https://devdesigns.net/blog/power-bi-embedded-enterprise-react): App-Owns-Data service principals and multi-tenant isolation.
+- [The Science of GEO Citations](https://devdesigns.net/blog/generative-engine-optimization-llm-citations): Statistical claim density (+37.4% lift) across Perplexity, SearchGPT, and Gemini.
+- [Enterprise Multi-Brand Design Systems](https://devdesigns.net/blog/design-systems-multi-brand-figma-tokens): Syncing Style Dictionary v4 and Figma Variables in CI/CD.
+- [Kubernetes Networking with eBPF & Cilium](https://devdesigns.net/blog/kubernetes-ebpf-cilium-zero-trust): In-kernel WireGuard encryption at line rate.
+- [CDC Architecture with Debezium & Kafka](https://devdesigns.net/blog/event-driven-microservices-kafka-debezium): Transactional Outbox Pattern via PostgreSQL WAL.
+- [Offline-First PWAs with ElectricSQL & CRDTs](https://devdesigns.net/blog/mobile-first-offline-first-pwa): Local-first sync and 0ms optimistic mutations.
+- [Enterprise Dataverse Custom Connectors](https://devdesigns.net/blog/dataverse-custom-connectors-azure-functions): Scaling Azure Functions, APIM, and Managed Identities.
+- [Distributed SQLite at the Edge with Turso & LibSQL](https://devdesigns.net/blog/sqlite-turso-edge-databases-microservices): Micro-tenant databases with sub-10ms global read latency.
+- [Conversion-Centric Micro-Interactions](https://devdesigns.net/blog/micro-interactions-framermotion-conversion-lift): Framer Motion spring physics achieving 28% cart lift.
+- [Conversational AEO for AI Voice Agents](https://devdesigns.net/blog/aeo-voice-agent-conversational-schemas): Speakable JSON-LD and 45-word audio synthesis blocks.
+- [Token Binding with DPoP & mTLS](https://devdesigns.net/blog/oauth2-dpop-token-binding-security): RFC 9449 sender-constrained tokens preventing session hijacking.
 
 ## Key Links & Navigation
 

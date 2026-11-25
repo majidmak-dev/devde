@@ -85,7 +85,7 @@ export default function RootLayout({
         <meta name="ai-content-declarations" content="Verified Enterprise Engineering Corpus — Zero Synthetic Inventions" />
         <meta name="citation_title" content="DevDesigns: Enterprise Digital Infrastructure, AI Architecture & Generative Engine Optimization" />
         <meta name="citation_publisher" content="DevDesigns Corporation" />
-        <meta name="citation_online_date" content="2026/01/01" />
+        <meta name="citation_online_date" content="2026/11/25" />
 
         {/* AdSense: must be raw tag in SSR head for Google crawler to detect it */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}

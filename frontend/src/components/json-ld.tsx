@@ -15,8 +15,8 @@ export default function JsonLd() {
     foundingDate: '2024',
     founder: {
       '@type': 'Person',
-      name: 'Majid Desk',
-      jobTitle: 'Founder & Principal Architect'
+      name: 'Majid Khan',
+      jobTitle: 'Founder & Head of Design'
     },
     areaServed: [
       'Worldwide',

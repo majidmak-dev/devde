@@ -50,10 +50,16 @@ export default function AboutPage() {
 
     const team = [
         {
-            name: "Majid Desk",
-            role: "Founder & Principal Architect",
+            name: "Majid Khan",
+            role: "Founder & Head of Design",
+            focus: "Design Systems, Spatial UI/UX, Figma Variables & Product Strategy",
+            initials: "MK"
+        },
+        {
+            name: "Meera Iyer",
+            role: "Principal Systems Architect",
             focus: "Distributed Systems, Next.js 15 & Enterprise SaaS",
-            initials: "MD"
+            initials: "MI"
         },
         {
             name: "Ananya Verma",
@@ -78,12 +84,6 @@ export default function AboutPage() {
             role: "Director of Power Platform",
             focus: "Dataverse, PowerApps CoE, Power BI & Copilot Studio",
             initials: "VN"
-        },
-        {
-            name: "Meera Iyer",
-            role: "Head of Design Systems",
-            focus: "Figma Variables, WCAG 2.2 AA & Spatial UI/UX",
-            initials: "MI"
         }
     ];
 
